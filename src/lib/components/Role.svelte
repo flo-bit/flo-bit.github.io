@@ -21,11 +21,12 @@
 		class="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
 	>
 		{#if typeof role.logo === 'string'}
-			<img src={role.logo} alt="" class="h-7 w-7 object-contain" />
+			<img src={role.logo} alt="{role.company} logo" class="h-7 w-7 object-contain"  loading="lazy"/>
 		{:else}
 			<img
 				src={role.logo.src}
-				alt=""
+				alt="{role.company} logo"
+				loading="lazy"
 				class="h-7 w-7 object-contain {role.logo.rounded ? 'rounded-full' : ''}"
 			/>
 		{/if}
