@@ -49,6 +49,7 @@
     "postcss": "^8.4.32",
     "simplex-noise": "^4.0.1",
     "tailwindcss": "^3.4.0",
-    "vite-imagetools": "^6.2.9"
+    "vite-imagetools": "^6.2.9",
+    "postprocessing": "^6.33.4"
   }
 }
