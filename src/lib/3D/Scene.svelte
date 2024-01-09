@@ -6,6 +6,7 @@
 	import Stars from './Stars.svelte';
 	import { onMount } from 'svelte';
 	import PlanetModel from './PlanetModel.svelte';
+	import Nebula from './Nebula.svelte';
 
 	let rotation = 0;
 	let distance = 1;
@@ -58,3 +59,5 @@
 <!-- <Environment files="env.jpg" isBackground={false} /> -->
 
 <Stars />
+
+<Nebula />

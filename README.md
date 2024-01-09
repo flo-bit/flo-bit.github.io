@@ -1,3 +1,7 @@
 # flo-bit portfolio
 
-this is my github portfolio, created using Svelte, Threlte and TailwindCSS. WIP.
+this is my portfolio, created using Svelte, Threlte and TailwindCSS. WIP.
+
+[see it live here](https://flo-bit.github.io/)
+
+![screenshot](screenshot.jpg)
