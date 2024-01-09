@@ -12,6 +12,8 @@
 			var mostVisible=function(){"use strict";function t(e,n){"string"==typeof e&&(e=document.querySelectorAll(e));const r={...t.defaults,...n};return Array.from(e).reduce(((t,e)=>{let[n,o]=t;const u=function(t,e,n){const r=document.documentElement.clientHeight,o=t.getBoundingClientRect(),u=o.top-e,i=o.bottom-e,c=o.bottom-o.top,f=u>=0&&u<r,s=i>0&&i<r,l=(()=>{if(f)return s?c:r-o.top;if(s)return i;if(c>r&&u<0){const t=Math.abs(u);if(t<c)return c-t}return 0})();return n?l/c*100:l}(e,r.offset,r.percentage);return u>n?[u,e]:[n,o]}),[0,null])[1]}return t.defaults={percentage:!1,offset:0},window&&window.jQuery&&function(t,e){t.fn.mostVisible=function(t){return this.filter(e(this.get(),t))}}(window.jQuery,t),t}();
 		</script>
 
+    	<meta name="description" content="Hello World! This is my portfolio website, I'm Florian Killius, a Full-Stack Software Engineer from Berlin.">
+
 		<title>flo-bit portfolio</title>
 	</head>
 	<body

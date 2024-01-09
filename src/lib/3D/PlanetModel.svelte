@@ -55,7 +55,7 @@ Command: npx @threlte/gltf@2.0.1 static/planet.gltf -t -T
 		'	vec3 viewCameraToVertex	= (viewMatrix * vec4(worldCameraToVertex, 0.0)).xyz;',
 		'	viewCameraToVertex	= normalize(viewCameraToVertex);',
 		'	float intensity		= pow(coeficient + dot(vVertexNormal, viewCameraToVertex), power);',
-		'	gl_FragColor		= vec4(glowColor, intensity);',
+		'	gl_FragColor		= vec4(glowColor, intensity * 0.8);',
 		'}'
 	].join('\n');
 
@@ -70,7 +70,7 @@ Command: npx @threlte/gltf@2.0.1 static/planet.gltf -t -T
 				value: 6
 			},
 			glowColor: {
-				value: new THREE.Color(0x77ccff)
+				value: new THREE.Color(0xa5f3fc)
 			}
 		},
 		vertexShader: vertexShader,
