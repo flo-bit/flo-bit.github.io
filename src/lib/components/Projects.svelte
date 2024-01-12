@@ -136,7 +136,7 @@
 					</div>
 					{#if project.link}
 						<p
-							class="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-cyan-500 dark:text-zinc-200"
+							class="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-cyan-400 dark:text-zinc-200"
 						>
 							<svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none">
 								<path

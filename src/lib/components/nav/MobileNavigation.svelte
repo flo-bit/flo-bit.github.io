@@ -17,7 +17,7 @@
 		open.set(false);
 	}
 
-	export let active: 'home' | 'about' | 'projects' | 'learning' | 'contact' = 'home';
+	export let active: 'home' | 'about' | 'projects' | 'learning' | 'contact' | 'articles' = 'home';
 </script>
 
 <button
@@ -64,7 +64,7 @@
 				<ul
 					class="-my-2 divide-y divide-white/10 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-100"
 				>
-					<li>
+					<!-- <li>
 						<a
 							href="#home"
 							class="block py-2 {active == 'home' ? 'dark:text-cyan-400' : ''}"
@@ -72,7 +72,7 @@
 						>
 							Home
 						</a>
-					</li>
+					</li> -->
 					<li>
 						<a
 							href="#about"
@@ -89,6 +89,15 @@
 							on:click={hide}
 						>
 							Projects
+						</a>
+					</li>
+					<li>
+						<a
+							href="#articles"
+							class="block py-2 {active == 'articles' ? 'dark:text-cyan-400' : ''}"
+							on:click={hide}
+						>
+							Articles
 						</a>
 					</li>
 					<li>
