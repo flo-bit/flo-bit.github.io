@@ -33,7 +33,7 @@
 					My ramblings
 				</h1>
 				<p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-					Here are some of my thoughts on things I'm learning or working on.
+					Here are some of my thoughts on things I'm learning or working on. Powered by Substack.
 				</p>
 			</div>
 			<div class="mt-16">
