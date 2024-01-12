@@ -13,6 +13,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import About from '$lib/components/About.svelte';
 	import Learning from '$lib/components/Learning.svelte';
+	import Posts from '$lib/components/Posts.svelte';
 
 	let active: 'home' | 'about' | 'projects' | 'learning' | 'contact' = 'home';
 
@@ -60,6 +61,8 @@
 <About />
 
 <Projects />
+
+<Posts />
 
 <Learning />
 
