@@ -8,6 +8,13 @@
 
 	const articles: Article[] = [
 		{
+			title: 'Four free startup ideas for you',
+			description:
+				'Because there\'s not enough startups in this world',
+			date: '2024-01-15',
+            href: 'https://flobit.substack.com/p/four-free-startup-ideas-for-you'
+		},
+		{
 			title: 'How I use AI for Software Development',
 			description:
 				'I admit it, I have asked ChatGPT at least 17 times how to center a div!',
