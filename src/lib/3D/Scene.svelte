@@ -17,7 +17,7 @@
 		0,
 		{
 			stiffness: 0.1,
-			damping: 0.05
+			damping: 0.1
 		}
 	);
 	let size = spring(
@@ -75,7 +75,7 @@
 
 <PlanetModel
 	on:click={() => {
-		rotate.set($rotate + 4);
+		rotate.set($rotate + 1);
 	}}
 	on:pointerleave={() => {
 		size.set(2)
