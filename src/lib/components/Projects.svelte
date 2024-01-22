@@ -14,6 +14,11 @@
 			link: { href: 'http://hyperlumen.de', label: 'hyperlumen.de' }
 		},
 		{
+			name: 'Text Effect Fluid',
+			description: "Text effect that looks like it's made of fluid.",
+			link: { href: 'https://github.com/flo-bit/text_effect_fluid', label: 'github.com' }
+		},
+		{
 			name: 'Ball Game',
 			description:
 				'Simple 3D browser game made with Threlte. Inspired by the game "Marble Blast Gold".',
@@ -47,6 +52,8 @@
 	import svleek from '$lib/images/projects/svleek.png?w=1024&format=webp';
 	//@ts-ignore
 	import mandala from '$lib/images/projects/mandala.png?w=1024&format=webp';
+	//@ts-ignore
+	import fluideffect from '$lib/images/projects/text-effect-fluid.png?w=1024&format=webp';
 
 	let images: {
 		src: string;
@@ -57,6 +64,11 @@
 			src: hyperlumen,
 			alt: 'Hyperlumen',
 			href: 'https://hyperlumen.de'
+		},
+		{
+			src: fluideffect,
+			alt: 'Text Fluid Effect',
+			href: 'https://flo-bit.github.io/text_effect_fluid/'
 		},
 		{
 			src: ballgame,
