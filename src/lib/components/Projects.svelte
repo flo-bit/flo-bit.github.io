@@ -93,7 +93,7 @@
 	];
 </script>
 
-<div id="projects" class="py-16 md:py-32 section bg-black">
+<div id="projects" class="z-20 py-16 md:py-32 section bg-black relative isolate ">
 	<div class="mx-auto max-w-5xl px-6 lg:px-8">
 		<div class="max-w-2xl">
 			<h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">

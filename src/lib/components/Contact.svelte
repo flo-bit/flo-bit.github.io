@@ -2,19 +2,19 @@
 	import SocialLink from '$lib/components/SocialLink.svelte';
 </script>
 
-<div class="py-32 bg-black/30 md:bg-transparent section" id="contact">
+<div class="relative isolate py-32 bg-black/30 md:bg-transparent section pointer-events-none" id="contact">
 	<div class="mx-auto max-w-5xl px-6 lg:px-8">
 		<div class="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
 			<div>
-				<h2 class="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+				<h2 class="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 pointer-events-auto">
 					Get in touch
 				</h2>
-				<p class="mt-4 leading-7 text-zinc-600 dark:text-zinc-300">
+				<p class="mt-4 leading-7 text-zinc-600 dark:text-zinc-300 pointer-events-auto">
 					You have a project in mind? Let's talk about it. Drop me a line and I'll get back to you
 					as soon as possible.
 				</p>
 
-				<ul role="list" class="mt-8">
+				<ul role="list" class="mt-8 pointer-events-auto">
 					<SocialLink href="https://github.com/flo-bit" class="mt-4">
 						<svelte:fragment slot="icon">
 							<svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
