@@ -8,6 +8,12 @@
 
 	const articles: Article[] = [
 		{
+			title: 'How I recreated this awesome text fluid effect',
+			description: 'A step-by-step approach',
+			date: '2024-01-22',
+			href: 'https://flobit.substack.com/p/how-i-recreated-this-awesome-text'
+		},
+		{
 			title: 'Four free startup ideas for you',
 			description:
 				'Because there\'s not enough startups in this world',
