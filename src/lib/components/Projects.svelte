@@ -14,6 +14,11 @@
 			link: { href: 'http://hyperlumen.de', label: 'hyperlumen.de' }
 		},
 		{
+			name: 'Text Effect Fluid',
+			description: "Text effect that looks like it's made of fluid.",
+			link: { href: 'https://github.com/flo-bit/text_effect_fluid', label: 'github.com' }
+		},
+		{
 			name: 'Ball Game',
 			description:
 				'Simple 3D browser game made with Threlte. Inspired by the game "Marble Blast Gold".',
@@ -47,6 +52,8 @@
 	import svleek from '$lib/images/projects/svleek.png?w=1024&format=webp';
 	//@ts-ignore
 	import mandala from '$lib/images/projects/mandala.png?w=1024&format=webp';
+	//@ts-ignore
+	import fluideffect from '$lib/images/projects/text-effect-fluid.png?w=1024&format=webp';
 
 	let images: {
 		src: string;
@@ -57,6 +64,11 @@
 			src: hyperlumen,
 			alt: 'Hyperlumen',
 			href: 'https://hyperlumen.de'
+		},
+		{
+			src: fluideffect,
+			alt: 'Text Fluid Effect',
+			href: 'https://flo-bit.github.io/text_effect_fluid/'
 		},
 		{
 			src: ballgame,
@@ -81,7 +93,7 @@
 	];
 </script>
 
-<div id="projects" class="py-16 md:py-32 section bg-black">
+<div id="projects" class="z-20 py-16 md:py-32 section bg-black relative isolate ">
 	<div class="mx-auto max-w-5xl px-6 lg:px-8">
 		<div class="max-w-2xl">
 			<h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">

@@ -1,4 +1,4 @@
-<div class="relative isolate overflow-hidden section h-screen" id="home">
+<div class="relative isolate overflow-hidden section h-screen pointer-events-none ml-52" id="home">
 	<div class="mx-auto max-w-5xl px-6 py-40 lg:px-8">
 		<div class="">
 			<h1

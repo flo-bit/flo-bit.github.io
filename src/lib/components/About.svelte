@@ -1,6 +1,4 @@
 <script lang="ts">
-	import SocialLink from '$lib/components/SocialLink.svelte';
-
 	// @ts-ignore
 	import imageMe from '$lib/images/avatar.png?w=1024&format=webp';
 	import Resume from './Resume.svelte';
