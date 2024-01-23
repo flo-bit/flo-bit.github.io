@@ -7,6 +7,7 @@
 		link?: { href: string; label: string };
 		logo?: string;
 	}[] = [
+		
 		{
 			name: 'Hyperlumen',
 			description:
@@ -17,6 +18,11 @@
 			name: 'Text Effect Fluid',
 			description: "Text effect that looks like it's made of fluid.",
 			link: { href: 'https://github.com/flo-bit/text_effect_fluid', label: 'github.com' }
+		},
+		{
+			name: 'Image2Fake3D',
+			description: "Turns an image into a fake 3D image that you can rotate with your mouse or gyro.",
+			link: { href: 'https://github.com/flo-bit/image2fake3d', label: 'github.com' }
 		},
 		{
 			name: 'Ball Game',
@@ -30,11 +36,11 @@
 				'Generating a simple but slick documentation website from a folder of markdown files.',
 			link: { href: 'https://github.com/flo-bit/svleek', label: 'github.com' }
 		},
-		{
+		/*{
 			name: 'Mandala Drawer',
 			description: 'Drawing mandalas in the browser with a simple interface.',
 			link: { href: 'https://github.com/flo-bit/mandala', label: 'github.com' }
-		},
+		},*/
 		{
 			name: 'Old Coding Projects',
 			description: "Some of my old coding projects. Please don't look at the code.",
@@ -54,6 +60,8 @@
 	import mandala from '$lib/images/projects/mandala.png?w=1024&format=webp';
 	//@ts-ignore
 	import fluideffect from '$lib/images/projects/text-effect-fluid.png?w=1024&format=webp';
+	//@ts-ignore
+	import image2fake3d from '$lib/images/projects/image2fake3d.png?w=1024&format=webp';
 
 	let images: {
 		src: string;
@@ -71,6 +79,11 @@
 			href: 'https://flo-bit.github.io/text_effect_fluid/'
 		},
 		{
+			src: image2fake3d,
+			alt: 'Image2Fake3D',
+			href: 'https://flo-bit.github.io/image2fake3d/'
+		},
+		{
 			src: ballgame,
 			alt: 'Ball Game',
 			href: 'https://flo-bit.github.io/ball-game/'
@@ -80,11 +93,11 @@
 			alt: 'Svleek',
 			href: 'https://flo-bit.github.io/svleek/'
 		},
-		{
+		/*{
 			src: mandala,
 			alt: 'Mandala',
 			href: 'https://flo-bit.github.io/mandala/'
-		},
+		},*/
 		{
 			src: oldprojects,
 			alt: 'Old Projects',
