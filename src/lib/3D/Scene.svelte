@@ -1,37 +1,35 @@
 <script lang="ts">
 	import { T, useTask, useThrelte } from '@threlte/core';
-	import { Color } from 'three';
 	import { interactivity, useCursor } from '@threlte/extras';
-	interactivity();
-
-	const { hovering, onPointerEnter, onPointerLeave } = useCursor()
+	import { Color } from 'three';
+	import { onMount } from 'svelte';
+	import { spring } from 'svelte/motion';
 
 	import Stars from './Stars.svelte';
-	import { onMount } from 'svelte';
 	import PlanetModel from './PlanetModel.svelte';
 	import Nebula from './Nebula.svelte';
 
-	import { spring } from 'svelte/motion';
+	const { onPointerEnter, onPointerLeave } = useCursor()
+	interactivity();
 
 	let rotate = spring(
 		0,
 		{
 			stiffness: 0.1,
-			damping: 0.1
+			damping: 0.05
 		}
 	);
 	let size = spring(
 		2,
 		{
 			stiffness: 0.1,
-			damping: 0.1
+			damping: 0.5
 		}
 	);
 
-	let rotation = 0;
 	let distance = 1;
 
-	let rotationSpeed = 0.5;
+	let rotationSpeed = 0.2;
 	useTask((delta) => {
 		// rotation += delta * rotationSpeed;
 
@@ -52,12 +50,6 @@
 	});
 
 	export let pos = 0;
-
-	function debounceScale() {
-		setTimeout(() => {
-			size.set(2);
-		}, 100);
-	}
 </script>
 
 <T.PerspectiveCamera
@@ -75,7 +67,7 @@
 
 <PlanetModel
 	on:click={() => {
-		rotate.set($rotate + 5);
+		rotate.set($rotate + 2);
 	}}
 	on:pointerleave={() => {
 		size.set(2)
