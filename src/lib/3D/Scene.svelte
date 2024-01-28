@@ -31,7 +31,7 @@
 	let rotation = 0;
 	let distance = 1;
 
-	let rotationSpeed = 0.1;
+	let rotationSpeed = 0.5;
 	useTask((delta) => {
 		// rotation += delta * rotationSpeed;
 
@@ -71,11 +71,11 @@
 
 <T.DirectionalLight intensity={3} position={[-pos * 10 + 5, 2 + pos * 3, 2]} />
 
-<T.AmbientLight intensity={0.1} />
+<T.AmbientLight intensity={0.0} />
 
 <PlanetModel
 	on:click={() => {
-		rotate.set($rotate + 1);
+		rotate.set($rotate + 5);
 	}}
 	on:pointerleave={() => {
 		size.set(2)

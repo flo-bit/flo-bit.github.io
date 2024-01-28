@@ -7,7 +7,9 @@ Command: npx @threlte/gltf@2.0.1 static/planet.gltf -t -T
 	import * as THREE from 'three';
 	import { Group } from 'three';
 	import { T, type Props, type Events, type Slots, forwardEventHandlers } from '@threlte/core';
-	import { useGltf } from '@threlte/extras';
+	import { useGltf, useTexture } from '@threlte/extras';
+
+	import FakeGlowMaterial from './FakeGlowMaterial/FakeGlowMaterial.svelte';
 
 	type $$Props = Props<THREE.Group>;
 	type $$Events = Events<THREE.Group>;
@@ -94,8 +96,14 @@ Command: npx @threlte/gltf@2.0.1 static/planet.gltf -t -T
      float angle = pow(0.8 - abs(dot(viewDirection, vNormal)), 3.0);
      vec4 diffuseColor = vec4(diffuse, opacity * angle);`
 		);
-    
 	};
+
+	// let map = useTexture('/night.jpg', {
+	// 	transform: (texture) => {
+	// 		//texture.encoding = THREE.LinearEncoding;
+	// 		return texture;
+	// 	}
+	// });
 </script>
 
 <T is={ref} dispose={false} {...$$restProps} bind:this={$component}>
@@ -105,22 +113,20 @@ Command: npx @threlte/gltf@2.0.1 static/planet.gltf -t -T
 		<T.Mesh
 			geometry={gltf.nodes.mesh_0.geometry}
 			material={gltf.nodes.mesh_0.material}
+			material.opacity={1.0}
+			material.transparent={false}
 			material.flatShading={true}
 		>
 			<T.Mesh
 				geometry={gltf.nodes.mesh_1.geometry}
 				material={gltf.nodes.mesh_1.material}
+				material.transparent={false}
 				material.flatShading={true}
 			/>
 		</T.Mesh>
-
-		<!-- <T.Mesh scale={1.1}>
-			<T.SphereGeometry args={[1, 32, 32]} />
-			<T is={material} transparent={true} color={0x77ccff} opacity={1.0} />
-		</T.Mesh> -->
-		<T.Mesh scale={1.15}>
-			<T.SphereGeometry args={[1, 32, 32]} />
-			<T is={material2}  side={THREE.BackSide} />
+		<T.Mesh>
+			<T.SphereGeometry args={[1.3, 32, 32]} />
+			<FakeGlowMaterial glowColor={'#075985'} falloff={1.0} glowInternalRadius={1.0} />
 		</T.Mesh>
 	{:catch error}
 		<slot name="error" {error} />
@@ -128,3 +134,17 @@ Command: npx @threlte/gltf@2.0.1 static/planet.gltf -t -T
 
 	<slot {ref} />
 </T>
+
+<!-- {#await map then texture}
+
+<T.Mesh is={ref} dispose={false} {...$$restProps} bind:this={$component}>
+	<T.IcosahedronGeometry args={[1, 20, 3]} />
+	<T.MeshStandardMaterial transparent={true} color={'white'} opacity={1.0} map={texture}/>
+
+<T.Mesh scale={1.15}>
+	<T.SphereGeometry args={[1, 32, 32]} />
+	<T is={material2}  side={THREE.BackSide} />
+</T.Mesh>
+</T.Mesh>
+
+{/await} -->

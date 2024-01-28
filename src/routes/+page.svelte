@@ -14,6 +14,7 @@
 	import About from '$lib/components/About.svelte';
 	import Learning from '$lib/components/Learning.svelte';
 	import Posts from '$lib/components/Posts.svelte';
+	import Tools from '$lib/components/Tools.svelte';
 
 	let active: 'home' | 'about' | 'projects' | 'learning' | 'contact' = 'home';
 
@@ -63,6 +64,8 @@
 <Projects />
 
 <Posts />
+
+<!-- <Tools /> -->
 
 <Learning />
 
