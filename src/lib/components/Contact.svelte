@@ -103,3 +103,6 @@
 		</div>
 	</div>
 </div>
+
+
+<div class="hidden"><img alt="hit counter" src="https://hits.sh/flo-bit.github.io.svg"/></div>
