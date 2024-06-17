@@ -43,7 +43,7 @@ Command: npx @threlte/gltf@2.0.1 static/planet.gltf -t -T
 			<T.Mesh
 				geometry={gltf.nodes.mesh_1.geometry}
 				material={gltf.nodes.mesh_1.material}
-				material.transparent={false}
+				material.transparent={true}
 				material.flatShading={true}
 			/>
 		</T.Mesh>

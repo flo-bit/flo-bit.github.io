@@ -44,11 +44,6 @@
 	}}
 />
 
-<img
-	class="fixed left-0 right-0 top-0 h-screen -z-50 object-cover blur-md"
-	src={fallback}
-	alt="background"
-/>
 <div class="fixed left-0 right-0 top-0 h-screen">
 	<Canvas>
 		<Scene pos={percentageScroll} />

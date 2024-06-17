@@ -12,7 +12,7 @@
 					index % rotations.length
 				]}"
 			>
-				<img src={image.src} alt={image.alt} class="absolute inset-0 h-full w-full object-cover" loading="lazy"/>
+				<img src={image.src} alt={image.alt} class="absolute inset-0 h-full w-full object-cover rounded-xl" loading="lazy"/>
 				{#if image.href}
 					<a href={image.href} target="_blank">
 						<div class="sr-only">{image.alt}</div>
