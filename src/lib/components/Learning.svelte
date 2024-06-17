@@ -7,37 +7,37 @@
 
 	const learnings: Learning[] = [
 		{
-			title: 'Rust',
+			title: 'rust',
 			description:
-				'Just started learning Rust. Still weirded out by the whole ownership thing, but other than that I like it so far.',
+				'just started learning rust. still weirded out by the whole ownership thing, but other than that i like it so far.',
 			date: '2024-01'
 		},
 		{
-			title: 'Threlte',
-			description: 'Fun library combining Svelte and Three.js. Also used on this website.',
+			title: 'threlte',
+			description: 'fun library combining svelte and three.js. also used on this website.',
 			date: '2023-12'
 		},
 		{
 			title: 'MongoDB',
-			description: 'Switched from MySQL to MongoDB and never looked back.',
+			description: 'switched from mysql to mongodb and never looked back.',
 			date: '2023-09'
 		},
 		{
-			title: 'Svelte and SvelteKit',
+			title: 'svelte and sveltekit',
 			description:
-				'In my opinion the best framework for web development. I use it for most of my personal projects, including this website.',
+				'in my opinion the best framework for web development. i use it for most of my personal projects, including this website.',
 			date: '2023-06'
 		},
 		{
-			title: 'TailwindCSS',
+			title: 'tailwindcss',
 			description:
-				'In my opinion the best bad idea in web development. Not great, but better than pure CSS by far. Used in most of my newer projects including this website.',
+				'in my opinion the best bad idea in web development. not great, but better than pure css by far. used in most of my newer projects including this website.',
 			date: '2023-05'
 		},
 		{
-			title: 'React, Next.js and ReactNative',
+			title: 'react, next.js and reactnative',
 			description:
-				"Not a huge fan of React, but it's still the most popular framework out there. I mostly use it for work.",
+				"not a huge fan of react, but it's still the most popular framework out there. i mostly use it for work.",
 			date: '2023-01'
 		}
 	];
@@ -55,11 +55,11 @@
 		<div id="learning" class="py-16 md:py-32 section">
 			<div class="max-w-2xl">
 				<h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-					Always keep learning
+					always keep learning
 				</h1>
 				<p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-					One of the things I love most about programming is that there's always something new to
-					learn. I try to learn something new every month. Here are some of the things I've been
+					one of the things i love most about programming is that there's always something new to
+					learn. i try to learn something new every month. here are some of the things i've been
 					learning lately:
 				</p>
 			</div>

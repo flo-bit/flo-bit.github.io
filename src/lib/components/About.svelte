@@ -23,32 +23,32 @@
 					<h1
 						class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
 					>
-						I'm Florian Killius. I live in Berlin, where I create things for the web.
+						hey there, i'm florian. i live in berlin, where i create things for the web (and other places).
 					</h1>
 					<div class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
 						<p>
-							I was one of the only kids in my class who didn't have some kind of game console at
-							home. But we did have a computer and when I was 12, I got a coding book for Christmas
-							and decided to try my hand at making my own games (using C and OpenGL).
+							i was one of the only kids in my class who didn't have some kind of game console at
+							home. but we did have a computer and when I was 12, i got a coding book for christmas
+							and decided to try my hand at making my own games (using c and opengl).
 						</p>
 						<p>
-							I never finished any of those games I tried to make then, but I was hooked. I've been
-							programming ever since and after finishing school, I started studying computer science
+							i never finished any of those games i tried to make then, but I was hooked. i've been
+							programming ever since and after finishing school, i started studying computer science
 							and working as a software developer.
 						</p>
 						<p>
-							I especially love the web, because it's so accessible. Anyone with some kind of
-							electronic device and an internet connection can access your work in seconds. It's
+							i especially love the web, because it's so accessible. anyone with some kind of
+							electronic device and an internet connection can access your work in seconds. it's
 							also very easy to publish and share your work with the world, be it a static website,
 							a containerized application or a serverless function.
 						</p>
 						<p>
-							Nowadays, I built lots of things for the web, from websites to PWAs and hybrid apps.
-							I'm also interested in the intersection of design and development and how we can use
+							nowadays, I built lots of things for the web, from websites to pwas and hybrid apps.
+							i'm also interested in the intersection of design and development and how we can use
 							technology to make the world a better place.
 						</p>
 						<p>
-							I also love to learn new things and I'm always looking for new challenges. If you have
+							i also love to learn new things and I'm always looking for new challenges. if you have
 							any questions or just want to say hi, feel free to <a
 								href="#contact"
 								class="text-cyan-400 hover:text-cyan-300 font-semibold"

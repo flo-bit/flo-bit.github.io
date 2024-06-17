@@ -26,7 +26,7 @@
 	use:melt={$trigger}
 	aria-label="Update dimensions"
 >
-	Menu
+	menu
 	<svg
 		viewBox="0 0 8 6"
 		aria-hidden="true"
@@ -58,7 +58,7 @@
 						<path d="m17.25 6.75-10.5 10.5M6.75 6.75l10.5 10.5" fill="none" stroke="currentColor" />
 					</svg>
 				</button>
-				<h2 class="text-sm font-medium text-zinc-600 dark:text-zinc-400">Navigation</h2>
+				<h2 class="text-sm font-medium text-zinc-600 dark:text-zinc-400">navigation</h2>
 			</div>
 			<nav class="mt-6">
 				<ul
@@ -79,7 +79,7 @@
 							class="block py-2 {active == 'about' ? 'dark:text-cyan-400' : ''}"
 							on:click={hide}
 						>
-							About
+							about
 						</a>
 					</li>
 					<li>
@@ -88,7 +88,7 @@
 							class="block py-2 {active == 'projects' ? 'dark:text-cyan-400' : ''}"
 							on:click={hide}
 						>
-							Projects
+							projects
 						</a>
 					</li>
 					<li>
@@ -97,7 +97,7 @@
 							class="block py-2 {active == 'articles' ? 'dark:text-cyan-400' : ''}"
 							on:click={hide}
 						>
-							Articles
+							articles
 						</a>
 					</li>
 					<li>
@@ -106,7 +106,7 @@
 							class="block py-2 {active == 'learning' ? 'dark:text-cyan-400' : ''}"
 							on:click={hide}
 						>
-							Learning
+							learning
 						</a>
 					</li>
 					<li>
@@ -115,7 +115,7 @@
 							class="block py-2 {active == 'contact' ? 'dark:text-cyan-400' : ''}"
 							on:click={hide}
 						>
-							Contact
+							contact
 						</a>
 					</li>
 				</ul>
