@@ -8,22 +8,28 @@
 
 	const articles: Article[] = [
 		{
-			title: 'How I recreated this awesome text fluid effect',
-			description: 'A step-by-step approach',
+			title: 'how to become a great programmer (or anything else)',
+			description: 'in one easy step',
+			date: '2024-02-08',
+			href: 'https://flobit.substack.com/p/how-i-recreated-this-awesome-text'
+		},
+		{
+			title: 'how i recreated this awesome text fluid effect',
+			description: 'a step-by-step approach',
 			date: '2024-01-22',
 			href: 'https://flobit.substack.com/p/how-i-recreated-this-awesome-text'
 		},
 		{
-			title: 'Four free startup ideas for you',
+			title: 'four free startup ideas for you',
 			description:
-				'Because there\'s not enough startups in this world',
+				'because there\'s not enough startups in this world',
 			date: '2024-01-15',
             href: 'https://flobit.substack.com/p/four-free-startup-ideas-for-you'
 		},
 		{
-			title: 'How I use AI for Software Development',
+			title: 'how i use ai for software development',
 			description:
-				'I admit it, I have asked ChatGPT at least 17 times how to center a div!',
+				'I admit it, I have asked chatgpt at least 17 times how to center a div!',
 			date: '2024-01-08',
             href: 'https://flobit.substack.com/p/how-i-use-ai-for-software-development-474551a7aa7f'
 		}
@@ -43,10 +49,10 @@
 		<div id="articles" class="py-16 md:py-32 section">
 			<div class="max-w-2xl">
 				<h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-					My ramblings
+					my ramblings
 				</h1>
 				<p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-					Here are some of my thoughts on things I'm learning or working on. Powered by Substack.
+					here are some of my thoughts on things i'm learning or working on.
 				</p>
 			</div>
 			<div class="mt-16">
@@ -65,7 +71,7 @@
 									<span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
 										<span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
 									</span>
-									{formatDate(article.date)}
+									{formatDate(article.date).toLowerCase()}
 								</div>
 
 								<p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
@@ -78,7 +84,7 @@
 									/>
 									<span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
 									<span class="relative z-10 mt-4 flex items-center text-sm font-medium text-zinc-400 transition-colors duration-200 group-hover:text-cyan-400">
-                                        Read Article
+                                        read
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3 ml-1 mt-0.5">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                                           </svg>

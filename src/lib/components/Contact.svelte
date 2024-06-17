@@ -7,10 +7,10 @@
 		<div class="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
 			<div>
 				<h2 class="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 pointer-events-auto">
-					Get in touch
+					get in touch
 				</h2>
 				<p class="mt-4 leading-7 text-zinc-600 dark:text-zinc-300 pointer-events-auto">
-					You have a project in mind? Let's talk about it. Drop me a line and I'll get back to you
+					you have a project in mind? let's talk about it. drop me a line and I'll get back to you
 					as soon as possible.
 				</p>
 
@@ -26,7 +26,7 @@
 								/>
 							</svg>
 						</svelte:fragment>
-						GitHub</SocialLink
+						github</SocialLink
 					>
 					<SocialLink href="https://linkedin.com/in/floriankillius" class="mt-4">
 						<svelte:fragment slot="icon">
@@ -36,7 +36,7 @@
 								/></svg
 							>
 						</svelte:fragment>
-						LinkedIn
+						linkedin
 					</SocialLink>
 					<SocialLink href="https://www.instagram.com/flobit.dev/" class="mt-4">
 						<svelte:fragment slot="icon">
@@ -49,7 +49,7 @@
 								/>
 							</svg>
 						</svelte:fragment>
-						Instagram
+						instagram
 					</SocialLink>
 					<SocialLink href="https://youtube.com/@flobit" class="mt-4">
 						<svelte:fragment slot="icon">
@@ -62,7 +62,7 @@
 								/>
 							</svg>
 						</svelte:fragment>
-						Youtube
+						youtube
 					</SocialLink>
 					<SocialLink href="https://flobit.substack.com/" class="mt-4">
 						<svelte:fragment slot="icon">
@@ -81,7 +81,7 @@
 								/></svg
 							>
 						</svelte:fragment>
-						Substack
+						substack
 					</SocialLink>
 
 					<SocialLink href="mailto:flo.bit.dev@gmail.com" class="mt-8">

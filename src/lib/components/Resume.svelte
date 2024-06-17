@@ -17,45 +17,45 @@
 		end: string | { label: string; dateTime: string };
 	}> = [
 		{
-			company: 'Hyperlumen',
-			title: 'Co-Founder',
+			company: 'hyperlumen',
+			title: 'co-founder',
 			logo: {
 				src: hyperlumen,
 				rounded: true
 			},
 			start: '2023',
 			end: {
-				label: 'Present',
+				label: 'present',
 				dateTime: new Date().getFullYear().toString()
 			}
 		},
 		{
-			company: 'Enna',
-			title: 'Student Software Engineer',
+			company: 'enna',
+			title: 'student software engineer',
 			logo: enna,
 			start: '2022',
 			end: {
-				label: 'Present',
+				label: 'present',
 				dateTime: new Date().getFullYear().toString()
 			}
 		},
 		{
-			company: 'Puppet',
-			title: 'Co-Founder',
+			company: 'puppet',
+			title: 'co-founder',
 			logo: puppet,
 			start: '2022',
 			end: {
-				label: 'Present',
+				label: 'present',
 				dateTime: new Date().getFullYear().toString()
 			}
 		},
 		{
-			company: 'TU Berlin',
-			title: 'Computer Science',
+			company: 'tu berlin',
+			title: 'computer science',
 			logo: tub,
 			start: '2018',
 			end: {
-				label: 'Present',
+				label: 'present',
 				dateTime: new Date().getFullYear().toString()
 			}
 		}
@@ -74,7 +74,7 @@
 				class="stroke-zinc-400 dark:stroke-zinc-500"
 			/>
 		</svg>
-		<span class="ml-3">Work & Education</span>
+		<span class="ml-3">work & education</span>
 	</h2>
 	<ol class="mt-6 space-y-4">
 		{#each resume as role}

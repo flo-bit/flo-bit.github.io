@@ -7,33 +7,32 @@
 		link?: { href: string; label: string };
 		logo?: string;
 	}[] = [
-		
 		{
-			name: 'Hyperlumen',
+			name: 'hyperlumen',
 			description:
-				"Light-Up clothes that make you feel like you're in a sci-fi movie. Perfect for raves.",
+				"light-up clothes that make you feel like you're in a sci-fi movie. perfect for raves.",
 			link: { href: 'http://hyperlumen.de', label: 'hyperlumen.de' }
 		},
 		{
-			name: 'Text Effect Fluid',
-			description: "Text effect that looks like it's made of fluid.",
+			name: 'text effect fluid',
+			description: "text effect that looks like it's some kind of fluid.",
 			link: { href: 'https://github.com/flo-bit/text_effect_fluid', label: 'github.com' }
 		},
 		{
-			name: 'Image2Fake3D',
-			description: "Turns an image into a fake 3D image that you can rotate with your mouse or gyro.",
+			name: 'image2fake3d',
+			description: "turns an image into a fake 3d image that you can rotate with your mouse or gyro sensor.",
 			link: { href: 'https://github.com/flo-bit/image2fake3d', label: 'github.com' }
 		},
 		{
-			name: 'Ball Game',
+			name: 'marblellous',
 			description:
-				'Simple 3D browser game made with Threlte. Inspired by the game "Marble Blast Gold".',
+				'simple 3d browser game made with threlte. inspired by the game "marble blast gold".',
 			link: { href: 'https://github.com/flo-bit/ball-game', label: 'github.com' }
 		},
 		{
-			name: 'Svleek',
+			name: 'svleek',
 			description:
-				'Generating a simple but slick documentation website from a folder of markdown files.',
+				'generating a simple but slick documentation website from a folder of markdown files.',
 			link: { href: 'https://github.com/flo-bit/svleek', label: 'github.com' }
 		},
 		/*{
@@ -42,7 +41,7 @@
 			link: { href: 'https://github.com/flo-bit/mandala', label: 'github.com' }
 		},*/
 		{
-			name: 'Old Coding Projects',
+			name: 'old coding projects',
 			description: "Some of my old coding projects. Please don't look at the code.",
 			link: { href: 'https://github.com/flo-bit/old-code', label: 'github.com' }
 		}
@@ -110,10 +109,10 @@
 	<div class="mx-auto max-w-5xl px-6 lg:px-8">
 		<div class="max-w-2xl">
 			<h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-				Things I've made
+				things i've made
 			</h1>
 			<p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-				I've worked on lots of little side projects over the years, here are some recent ones. Many
+				i've worked on lots of little side projects over the years, here are some recent ones. many
 				of them are open-source, so if you see something that piques your interest, check out the
 				code and feel free to contribute.
 			</p>

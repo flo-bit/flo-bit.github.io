@@ -3,29 +3,21 @@
 	import { interactivity, useCursor } from '@threlte/extras';
 	import { Color } from 'three';
 	import { onMount } from 'svelte';
-	import { spring } from 'svelte/motion';
+	import { spring } from './Utils';
+	import { Text3DGeometry } from '@threlte/extras'
 
 	import Stars from './Stars.svelte';
-	import PlanetModel from './PlanetModel.svelte';
 	import Nebula from './Nebula.svelte';
+	// import Planet from './planet/Planet.svelte';
+	import PlanetModel from './PlanetModel.svelte';
 
-	const { onPointerEnter, onPointerLeave } = useCursor()
+	const { onPointerEnter, onPointerLeave } = useCursor();
 	interactivity();
 
-	let rotate = spring(
-		0,
-		{
-			stiffness: 0.1,
-			damping: 0.05
-		}
-	);
-	let size = spring(
-		2,
-		{
-			stiffness: 0.1,
-			damping: 0.5
-		}
-	);
+	let rotate = 0;
+	let rotateSpring = spring<number>(rotate, 0.1, 0.05);
+	let size = 2;
+	let sizeSpring = spring<number>(size, 0.1, 0.5);
 
 	let distance = 1;
 
@@ -33,7 +25,10 @@
 	useTask((delta) => {
 		// rotation += delta * rotationSpeed;
 
-		rotate.set($rotate + delta * rotationSpeed);
+		rotate = rotateSpring.update(delta);
+		size = sizeSpring.update(delta);
+
+		rotateSpring.set(rotate + delta * rotationSpeed);
 
 		if (window.innerWidth < 768) {
 			distance = 6;
@@ -63,31 +58,45 @@
 
 <T.DirectionalLight intensity={3} position={[-pos * 10 + 5, 2 + pos * 3, 2]} />
 
-<T.AmbientLight intensity={0.0} />
-
 <PlanetModel
 	on:click={() => {
-		rotate.set($rotate + 2);
+		rotateSpring.set(rotate + 2);
 	}}
 	on:pointerleave={() => {
-		size.set(2)
-		onPointerLeave()
+		sizeSpring.set(2);
+		onPointerLeave();
 	}}
 	on:pointerenter={() => {
-		size.set(2.2)
-		onPointerEnter()}
-		}
-
-	scale={$size}
-	rotation.y={$rotate}
+		sizeSpring.set(2.2);
+		onPointerEnter();
+	}}
+	scale={size}
+	rotation.y={rotate}
 	rotation.z={0.1}
 	position.x={pos * 4 - 2}
 	position.z={-distance}
 	position.y={0.5}
 />
 
-<!-- this breaks scene background color :/ -->
-<!-- <Environment files="env.jpg" isBackground={false} /> -->
+<!-- <Planet
+	on:click={() => {
+		rotateSpring.set(rotate + 2);
+	}}
+	on:pointerleave={() => {
+		sizeSpring.set(2);
+		onPointerLeave();
+	}}
+	on:pointerenter={() => {
+		sizeSpring.set(2.2);
+		onPointerEnter();
+	}}
+	scale={size}
+	rotation.y={rotate}
+	rotation.z={0.1}
+	position.x={pos * 4 - 2}
+	position.z={-distance}
+	position.y={0.5}
+></Planet> -->
 
 <Stars />
 

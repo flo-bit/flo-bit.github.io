@@ -47,10 +47,6 @@ Command: npx @threlte/gltf@2.0.1 static/planet.gltf -t -T
 				material.flatShading={true}
 			/>
 		</T.Mesh>
-		<T.Mesh>
-			<T.SphereGeometry args={[1.3, 32, 32]} />
-			<FakeGlowMaterial glowColor={'#075985'} falloff={1.0} glowInternalRadius={1.0} />
-		</T.Mesh>
 	{:catch error}
 		<slot name="error" {error} />
 	{/await}
