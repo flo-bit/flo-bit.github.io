@@ -8,10 +8,16 @@
 
 	const articles: Article[] = [
 		{
+			title: 'publishing an ai generated music album',
+			description: 'in one week, without any music creation expertise',
+			date: '2024-02-13',
+			href: 'https://flobit.substack.com/p/publishing-an-ai-generated-music'
+		},
+		{
 			title: 'how to become a great programmer (or anything else)',
 			description: 'in one easy step',
 			date: '2024-02-08',
-			href: 'https://flobit.substack.com/p/how-i-recreated-this-awesome-text'
+			href: 'https://flobit.substack.com/p/how-to-become-a-great-programmer'
 		},
 		{
 			title: 'how i recreated this awesome text fluid effect',
