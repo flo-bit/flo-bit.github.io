@@ -12,7 +12,13 @@
 					index % rotations.length
 				]}"
 			>
+			{#if image.src.endsWith('.mp4')}
+				<video autoplay loop muted playsinline class="absolute inset-0 h-full w-full object-cover rounded-xl" preload="none">
+					<source src={image.src} type="video/mp4" />
+				</video>
+			{:else}
 				<img src={image.src} alt={image.alt} class="absolute inset-0 h-full w-full object-cover rounded-xl" loading="lazy"/>
+			{/if}
 				{#if image.href}
 					<a href={image.href} target="_blank">
 						<div class="sr-only">{image.alt}</div>

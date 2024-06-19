@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { slide } from "svelte/transition";
+
 	interface Learning {
 		title: string;
 		description: string;
@@ -7,9 +9,20 @@
 
 	const learnings: Learning[] = [
 		{
-			title: 'rust',
+			title: 'supabase',
 			description:
-				'just started learning rust. still weirded out by the whole ownership thing, but other than that i like it so far.',
+				'started using supabase for a few projects. still prefer mongodb, but it has some cool features.',
+			date: '2024-05'
+		},
+		{
+			title: 'unity and vr',
+			description:
+				'been working on a vr game in unity as part of a university project. not a huge fan of unity tho',
+			date: '2024-03'
+		},
+		{
+			title: 'figma',
+			description: 'playing around a bit designing some websites and app wireframes in figma',
 			date: '2024-01'
 		},
 		{
@@ -18,7 +31,7 @@
 			date: '2023-12'
 		},
 		{
-			title: 'MongoDB',
+			title: 'mongodb',
 			description: 'switched from mysql to mongodb and never looked back.',
 			date: '2023-09'
 		},
@@ -43,11 +56,17 @@
 	];
 
 	function formatDate(date: string) {
-		return new Date(date).toLocaleDateString('en-US', {
-			year: 'numeric',
-			month: 'long'
-		});
+		return new Date(date)
+			.toLocaleDateString('en-US', {
+				year: 'numeric',
+				month: 'long'
+			})
+			.toLowerCase();
 	}
+
+	let showAll = false;
+
+	$: shownLearnings = showAll ? learnings : [...learnings].slice(0, 3);
 </script>
 
 <div class="relative isolate overflow-hidden bg-black">
@@ -65,8 +84,8 @@
 			</div>
 			<div class="mt-16 md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
 				<div class="flex max-w-3xl flex-col space-y-16">
-					{#each learnings as learning}
-						<article class="md:grid md:grid-cols-4 md:items-baseline">
+					{#each shownLearnings as learning}
+						<article transition:slide class="md:grid md:grid-cols-4 md:items-baseline">
 							<div class="group relative flex flex-col items-start md:col-span-3">
 								<div
 									class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
@@ -93,6 +112,25 @@
 							</div>
 						</article>
 					{/each}
+
+					{#if !showAll}
+						<div class="justify-center flex">
+							<button
+							on:click={() => showAll = true}
+								type="button"
+								class="group flex items-center rounded-full mr-4 bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-white/5 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
+								aria-label="Update dimensions"
+							>
+								show more
+
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" 									class="ml-2 h-auto w-4 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400"
+								>
+									<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+								  </svg>
+								  
+							</button>
+						</div>
+					{/if}
 				</div>
 			</div>
 		</div>

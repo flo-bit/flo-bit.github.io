@@ -8,10 +8,9 @@
 		logo?: string;
 	}[] = [
 		{
-			name: 'hyperlumen',
-			description:
-				"light-up clothes that make you feel like you're in a sci-fi movie. perfect for raves.",
-			link: { href: 'http://hyperlumen.de', label: 'hyperlumen.de' }
+			name: 'svelte swipe cards',
+			description: 'a swipeable tinder like card component for svelte.',
+			link: { href: 'https://github.com/flo-bit/svelte-swiper-cards/', label: 'github.com' }
 		},
 		{
 			name: 'text effect fluid',
@@ -19,8 +18,15 @@
 			link: { href: 'https://github.com/flo-bit/text_effect_fluid', label: 'github.com' }
 		},
 		{
+			name: 'hyperlumen',
+			description:
+				"light-up clothes that make you feel like you're in a sci-fi movie. perfect for raves.",
+			link: { href: 'http://hyperlumen.de', label: 'hyperlumen.de' }
+		},
+		{
 			name: 'image2fake3d',
-			description: "turns an image into a fake 3d image that you can rotate with your mouse or gyro sensor.",
+			description:
+				'turns an image into a fake 3d image that you can rotate with your mouse or gyro sensor.',
 			link: { href: 'https://github.com/flo-bit/image2fake3d', label: 'github.com' }
 		},
 		{
@@ -29,17 +35,6 @@
 				'simple 3d browser game made with threlte. inspired by the game "marble blast gold".',
 			link: { href: 'https://github.com/flo-bit/ball-game', label: 'github.com' }
 		},
-		{
-			name: 'svleek',
-			description:
-				'generating a simple but slick documentation website from a folder of markdown files.',
-			link: { href: 'https://github.com/flo-bit/svleek', label: 'github.com' }
-		},
-		/*{
-			name: 'Mandala Drawer',
-			description: 'Drawing mandalas in the browser with a simple interface.',
-			link: { href: 'https://github.com/flo-bit/mandala', label: 'github.com' }
-		},*/
 		{
 			name: 'old coding projects',
 			description: "Some of my old coding projects. Please don't look at the code.",
@@ -53,14 +48,12 @@
 	import ballgame from '$lib/images/projects/ball-game.png?w=1024&format=webp';
 	//@ts-ignore
 	import oldprojects from '$lib/images/projects/old-projects.png?w=1024&format=webp';
-	//@ts-ignore
-	import svleek from '$lib/images/projects/svleek.png?w=1024&format=webp';
-	//@ts-ignore
-	import mandala from '$lib/images/projects/mandala.png?w=1024&format=webp';
-	//@ts-ignore
-	import fluideffect from '$lib/images/projects/text-effect-fluid.png?w=1024&format=webp';
-	//@ts-ignore
-	import image2fake3d from '$lib/images/projects/image2fake3d.png?w=1024&format=webp';
+
+	import svelteswipecards from '$lib/images/projects/svelte-swipe-cards-squared.mp4';
+
+	import fluidtexteffect from '$lib/images/projects/fluid-text-effect-squared.mp4';
+
+	import fake3d from '$lib/images/projects/fake3d-squared.mp4';
 
 	let images: {
 		src: string;
@@ -68,17 +61,22 @@
 		alt: string;
 	}[] = [
 		{
+			src: svelteswipecards,
+			alt: 'svelte-swipe-cards',
+			href: 'https://flo-bit.github.io/svelte-swiper-cards/'
+		},
+		{
+			src: fluidtexteffect,
+			alt: 'Text Fluid Effect',
+			href: 'https://flo-bit.github.io/text_effect_fluid/'
+		},
+		{
 			src: hyperlumen,
 			alt: 'Hyperlumen',
 			href: 'https://hyperlumen.de'
 		},
 		{
-			src: fluideffect,
-			alt: 'Text Fluid Effect',
-			href: 'https://flo-bit.github.io/text_effect_fluid/'
-		},
-		{
-			src: image2fake3d,
+			src: fake3d,
 			alt: 'Image2Fake3D',
 			href: 'https://flo-bit.github.io/image2fake3d/'
 		},
@@ -88,16 +86,6 @@
 			href: 'https://flo-bit.github.io/ball-game/'
 		},
 		{
-			src: svleek,
-			alt: 'Svleek',
-			href: 'https://flo-bit.github.io/svleek/'
-		},
-		/*{
-			src: mandala,
-			alt: 'Mandala',
-			href: 'https://flo-bit.github.io/mandala/'
-		},*/
-		{
 			src: oldprojects,
 			alt: 'Old Projects',
 			href: 'https://flo-bit.github.io/old-code/'
@@ -105,7 +93,7 @@
 	];
 </script>
 
-<div id="projects" class="z-20 py-16 md:py-32 section bg-black relative isolate ">
+<div id="projects" class="z-20 py-16 md:py-32 section bg-black relative isolate">
 	<div class="mx-auto max-w-5xl px-6 lg:px-8">
 		<div class="max-w-2xl">
 			<h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
