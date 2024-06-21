@@ -1,101 +1,99 @@
 <script lang="ts">
-	import Photos from '$lib/components/Photos.svelte';
+	import svelteswipecards from '$lib/images/projects-new/svelte-swiper-cards-demo.mp4';
+	import fluidtexteffect from '$lib/images/projects-new/text-effect-fluid-demo.mp4';
+	import fake3d from '$lib/images/projects-new/fake3dimage-demo.mp4';
+	import hyperlumen from '$lib/images/projects-new/hyperlumen-demo.mp4';
+	import marblellous from '$lib/images/projects-new/marblellous-demo.mp4';
+	import oldcode from '$lib/images/projects-new/old-code-demo.mp4';
+	import autostereogramrenderer from '$lib/images/projects-new/autostereogram-renderer-demo.mp4';
+	import mandala from '$lib/images/projects-new/mandala-demo.mp4';
 
-	const projects: {
-		name: string;
-		description: string;
-		link?: { href: string; label: string };
-		logo?: string;
-	}[] = [
-		{
-			name: 'svelte swipe cards',
-			description: 'a swipeable tinder like card component for svelte.',
-			link: { href: 'https://github.com/flo-bit/svelte-swiper-cards/', label: 'github.com' }
-		},
-		{
-			name: 'text effect fluid',
-			description: "text effect that looks like it's some kind of fluid.",
-			link: { href: 'https://github.com/flo-bit/text_effect_fluid', label: 'github.com' }
-		},
-		{
-			name: 'hyperlumen',
-			description:
-				"light-up clothes that make you feel like you're in a sci-fi movie. perfect for raves.",
-			link: { href: 'http://hyperlumen.de', label: 'hyperlumen.de' }
-		},
-		{
-			name: 'image2fake3d',
-			description:
-				'turns an image into a fake 3d image that you can rotate with your mouse or gyro sensor.',
-			link: { href: 'https://github.com/flo-bit/image2fake3d', label: 'github.com' }
-		},
-		{
-			name: 'marblellous',
-			description:
-				'simple 3d browser game made with threlte. inspired by the game "marble blast gold".',
-			link: { href: 'https://github.com/flo-bit/ball-game', label: 'github.com' }
-		},
-		{
-			name: 'old coding projects',
-			description: "Some of my old coding projects. Please don't look at the code.",
-			link: { href: 'https://github.com/flo-bit/old-code', label: 'github.com' }
-		}
-	];
 
-	//@ts-ignore
-	import hyperlumen from '$lib/images/projects/hyperlumen.jpeg?w=1024&format=webp';
-	//@ts-ignore
-	import ballgame from '$lib/images/projects/ball-game.png?w=1024&format=webp';
-	//@ts-ignore
-	import oldprojects from '$lib/images/projects/old-projects.png?w=1024&format=webp';
-
-	import svelteswipecards from '$lib/images/projects/svelte-swipe-cards-squared.mp4';
-
-	import fluidtexteffect from '$lib/images/projects/fluid-text-effect-squared.mp4';
-
-	import fake3d from '$lib/images/projects/fake3d-squared.mp4';
-
-	let images: {
+	let projects: {
 		src: string;
 		href?: string;
 		alt: string;
+		aspect?: string;
+		name?: string;
+		description?: string;
+		code?: string;
 	}[] = [
 		{
 			src: svelteswipecards,
-			alt: 'svelte-swipe-cards',
-			href: 'https://flo-bit.github.io/svelte-swiper-cards/'
+			alt: 'svelte-swiper-cards',
+			href: 'https://flo-bit.github.io/svelte-swiper-cards/',
+			aspect: 'aspect-[9/18]',
+			name: 'svelte swipable card component',
+			description: 'a swipeable tinder like card component for svelte.',
+			code: 'https://github.com/flo-bit/svelte-swiper-cards/'
 		},
 		{
 			src: fluidtexteffect,
 			alt: 'Text Fluid Effect',
-			href: 'https://flo-bit.github.io/text_effect_fluid/'
+			href: 'https://flo-bit.github.io/text_effect_fluid/',
+			aspect: 'aspect-[23/9]',
+			name: 'fluid text effect',
+			code: 'https://github.com/flo-bit/text_effect_fluid'
 		},
 		{
 			src: hyperlumen,
 			alt: 'Hyperlumen',
-			href: 'https://hyperlumen.de'
+			href: 'https://hyperlumen.de',
+			aspect: 'aspect-[9/14]',
+			name: 'hyperlumen',
+			description:
+				"light-up clothes that make you feel like you're in a sci-fi movie. perfect for raves."
 		},
 		{
 			src: fake3d,
 			alt: 'Image2Fake3D',
-			href: 'https://flo-bit.github.io/image2fake3d/'
+			href: 'https://flo-bit.github.io/image2fake3d/',
+			aspect: 'aspect-[9/16]',
+			name: 'image2fake3d',
+			description:
+				'turns an image into a fake 3d image that you can rotate with your mouse or gyro sensor.',
+			code: 'https://github.com/flo-bit/image2fake3d'
 		},
 		{
-			src: ballgame,
-			alt: 'Ball Game',
-			href: 'https://flo-bit.github.io/ball-game/'
+			src: marblellous,
+			alt: 'marblellous',
+			href: 'https://flo-bit.github.io/ball-game/',
+			aspect: 'aspect-[9/10]',
+			name: 'marblellous',
+			description:
+				'simple 3d browser game made with threlte. inspired by the game "marble blast gold".',
+			code: 'https://github.com/flo-bit/ball-game'
 		},
 		{
-			src: oldprojects,
-			alt: 'Old Projects',
-			href: 'https://flo-bit.github.io/old-code/'
-		}
+			src: oldcode,
+			alt: 'old projects',
+			href: 'https://flo-bit.github.io/old-code/',
+			aspect: 'aspect-[16/11]',
+			name: 'old coding projects',
+			code: 'https://github.com/flo-bit/old-code'
+		},
+		// {
+		// 	src: mandala,
+		// 	alt: 'mandala',
+		// 	href: 'https://flo-bit.github.io/mandala/',
+		// 	aspect: 'aspect-square',
+		// 	name: 'mandala',
+		// 	description: 'draw svg mandalas in the browser.'
+		// },
+		// {
+		// 	src: autostereogramrenderer,
+		// 	alt: 'autostereogram renderer',
+		// 	href: 'https://flo-bit.github.io/autostereogram-renderer/',
+		// 	aspect: 'aspect-square',
+		// 	name: 'autostereogram renderer',
+		// 	description: 'rendering a 3d scene as an autostereogram.'
+		// },
 	];
 </script>
 
 <div id="projects" class="z-20 py-16 md:py-32 section bg-black relative isolate">
 	<div class="mx-auto max-w-5xl px-6 lg:px-8">
-		<div class="max-w-2xl">
+		<div class="max-w-2xl mb-8">
 			<h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
 				things i've made
 			</h1>
@@ -105,62 +103,74 @@
 				code and feel free to contribute.
 			</p>
 		</div>
-	</div>
 
-	<Photos {images} />
-	<div class="mx-auto max-w-5xl px-6 lg:px-8">
-		<ul
-			role="list"
-			class="mt-20 px-0 sm:px-6 lg:px-0 grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-		>
-			{#each projects as project}
-				<div class="group relative flex flex-col items-start">
-					{#if project.logo}
-						<div
-							class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
+		<div class="columns-2 md:columns-4 gap-4">
+			{#each projects as project, index}
+				<div
+					class="group relative {project.aspect ??
+						'aspect-square'} mb-4 w-full flex-none overflow-hidden rounded-xl ring-1 ring-white/10 bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl"
+				>
+					{#if project.src.endsWith('.mp4')}
+						<video
+							autoplay
+							loop
+							muted
+							playsinline
+							class="absolute inset-0 h-full w-full object-cover rounded-xl"
+							preload="none"
 						>
-							<img src={project.logo} alt="" class="h-12 w-12 rounded-full" />
-						</div>
+							<source src={project.src} type="video/mp4" />
+						</video>
+					{:else}
+						<img
+							src={project.src}
+							alt={project.alt}
+							class="absolute inset-0 h-full w-full object-cover rounded-xl"
+							loading="lazy"
+						/>
 					{/if}
-					<h2
-						class="{project.logo
-							? 'mt-6'
-							: ''} text-base font-semibold text-zinc-800 dark:text-zinc-100"
-					>
-						{#if project.link}
-							<a href={project.link.href} target="_blank">
-								<div
-									class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"
-								/>
-								<span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-								<span class="relative z-10">{project.name}</span>
-							</a>
-						{:else}
-							<div
-								class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"
-							/>
-							<span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-							<span class="relative z-10">{project.name}</span>
-						{/if}
-					</h2>
-					<div class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-						{project.description}
-					</div>
-					{#if project.link}
-						<p
-							class="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-cyan-400 dark:text-zinc-200"
+					{#if project.href}
+						<div
+							class="overflow-hidden absolute z-10 pointer-events-none inset-0 w-full h-full flex items-end p-2 md:p-4 tracking-tight leading-6 text-white text-xl font-semibold opacity-80 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200"
 						>
-							<svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 flex-none">
-								<path
-									d="M15.712 11.823a.75.75 0 1 0 1.06 1.06l-1.06-1.06Zm-4.95 1.768a.75.75 0 0 0 1.06-1.06l-1.06 1.06Zm-2.475-1.414a.75.75 0 1 0-1.06-1.06l1.06 1.06Zm4.95-1.768a.75.75 0 1 0-1.06 1.06l1.06-1.06Zm3.359.53-.884.884 1.06 1.06.885-.883-1.061-1.06Zm-4.95-2.12 1.414-1.415L12 6.344l-1.415 1.413 1.061 1.061Zm0 3.535a2.5 2.5 0 0 1 0-3.536l-1.06-1.06a4 4 0 0 0 0 5.656l1.06-1.06Zm4.95-4.95a2.5 2.5 0 0 1 0 3.535L17.656 12a4 4 0 0 0 0-5.657l-1.06 1.06Zm1.06-1.06a4 4 0 0 0-5.656 0l1.06 1.06a2.5 2.5 0 0 1 3.536 0l1.06-1.06Zm-7.07 7.07.176.177 1.06-1.06-.176-.177-1.06 1.06Zm-3.183-.353.884-.884-1.06-1.06-.884.883 1.06 1.06Zm4.95 2.121-1.414 1.414 1.06 1.06 1.415-1.413-1.06-1.061Zm0-3.536a2.5 2.5 0 0 1 0 3.536l1.06 1.06a4 4 0 0 0 0-5.656l-1.06 1.06Zm-4.95 4.95a2.5 2.5 0 0 1 0-3.535L6.344 12a4 4 0 0 0 0 5.656l1.06-1.06Zm-1.06 1.06a4 4 0 0 0 5.657 0l-1.061-1.06a2.5 2.5 0 0 1-3.535 0l-1.061 1.06Zm7.07-7.07-.176-.177-1.06 1.06.176.178 1.06-1.061Z"
-									fill="currentColor"
-								/>
-							</svg>
-							<span class="ml-2">{project.link.label}</span>
-						</p>
+							<div>
+								{#if project.code && false}
+									<a
+										href={project.code}
+										target="_blank"
+										class="pointer-events-auto hover:opacity-60 transition-opacity duration-200"
+									>
+										<svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" class="size-6">
+											<path
+												fill-rule="evenodd"
+												d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+												clip-rule="evenodd"
+											/>
+										</svg>
+									</a>
+								{/if}
+								<div class="mt-1">
+									{project.name}
+								</div>
+
+								{#if project.description}
+									<div class="text-sm font-normal mt-2">
+										{project.description}
+									</div>
+								{/if}
+							</div>
+						</div>
+
+						<a href={project.href} target="_blank">
+							<div class="sr-only">{project.alt}</div>
+							<div class="absolute inset-0 rounded-xl"></div>
+							<div
+								class="absolute inset-0 w-full h-full opacity-60 md:opacity-0 group-hover:opacity-80 transition-opacity duration-200 bg-gradient-to-t from-black to-transparent"
+							></div>
+						</a>
 					{/if}
 				</div>
 			{/each}
-		</ul>
+		</div>
 	</div>
 </div>
