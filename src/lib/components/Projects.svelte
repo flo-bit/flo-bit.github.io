@@ -8,6 +8,7 @@
 	import autostereogramrenderer from '$lib/images/projects-new/autostereogram-renderer-demo.mp4';
 	import mandala from '$lib/images/projects-new/mandala-demo.mp4';
 
+	import threltevrcodeeditor from '$lib/images/projects-new/threlte-vr-code-editor-demo.mp4';
 
 	let projects: {
 		src: string;
@@ -44,6 +45,15 @@
 			description:
 				"light-up clothes that make you feel like you're in a sci-fi movie. perfect for raves."
 		},
+
+		{
+			src: mandala,
+			alt: 'svg mandala drawer',
+			href: 'https://flo-bit.github.io/mandala/',
+			aspect: 'aspect-square',
+			name: 'svg mandala drawer',
+			description: 'draw svg mandalas in the browser.'
+		},
 		{
 			src: fake3d,
 			alt: 'Image2Fake3D',
@@ -72,22 +82,23 @@
 			name: 'old coding projects',
 			code: 'https://github.com/flo-bit/old-code'
 		},
-		// {
-		// 	src: mandala,
-		// 	alt: 'mandala',
-		// 	href: 'https://flo-bit.github.io/mandala/',
-		// 	aspect: 'aspect-square',
-		// 	name: 'mandala',
-		// 	description: 'draw svg mandalas in the browser.'
-		// },
-		// {
-		// 	src: autostereogramrenderer,
-		// 	alt: 'autostereogram renderer',
-		// 	href: 'https://flo-bit.github.io/autostereogram-renderer/',
-		// 	aspect: 'aspect-square',
-		// 	name: 'autostereogram renderer',
-		// 	description: 'rendering a 3d scene as an autostereogram.'
-		// },
+		{
+			src: threltevrcodeeditor,
+			alt: 'threlte vr code editor',
+			href: 'https://github.com/flo-bit/threlte-vr-code-editor',
+			aspect: 'aspect-[16/11]',
+			name: 'threlte vr code editor',
+			description: 'a virtual reality code editor made with threlte.',
+			code: 'https://github.com/flo-bit/threlte-vr-code-editor'
+		},
+		{
+			src: autostereogramrenderer,
+			alt: 'autostereogram renderer',
+			href: 'https://flo-bit.github.io/autostereogram-renderer/',
+			aspect: 'aspect-square',
+			name: 'autostereogram renderer',
+			description: 'rendering a 3d scene as an autostereogram.'
+		}
 	];
 </script>
 
@@ -107,7 +118,7 @@
 		<div class="columns-2 md:columns-4 gap-4">
 			{#each projects as project, index}
 				<div
-					class="group relative {project.aspect ??
+					class="group relative break-inside-avoid-column {project.aspect ??
 						'aspect-square'} mb-4 w-full flex-none overflow-hidden rounded-xl ring-1 ring-white/10 bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl"
 				>
 					{#if project.src.endsWith('.mp4')}
@@ -153,11 +164,11 @@
 									{project.name}
 								</div>
 
-								{#if project.description}
+								<!-- {#if project.description}
 									<div class="text-sm font-normal mt-2">
 										{project.description}
 									</div>
-								{/if}
+								{/if} -->
 							</div>
 						</div>
 

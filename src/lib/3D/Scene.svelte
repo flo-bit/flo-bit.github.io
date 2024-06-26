@@ -1,47 +1,116 @@
 <script lang="ts">
 	import { T, useTask, useThrelte } from '@threlte/core';
 	import { interactivity, useCursor } from '@threlte/extras';
-	import { Color } from 'three';
+	import { Quaternion, Euler, Vector2, Group } from 'three';
 	import { onMount } from 'svelte';
 	import { spring } from './Utils';
-	import { Text3DGeometry } from '@threlte/extras'
 
 	import Stars from './Stars.svelte';
 	import Nebula from './Nebula.svelte';
-	// import Planet from './planet/Planet.svelte';
 	import PlanetModel from './PlanetModel.svelte';
 
 	const { onPointerEnter, onPointerLeave } = useCursor();
 	interactivity();
 
-	let rotate = 0;
-	let rotateSpring = spring<number>(rotate, 0.1, 0.05);
 	let size = 2;
 	let sizeSpring = spring<number>(size, 0.1, 0.5);
 
 	let distance = 1;
+	const maxSpeed = 0.05;
+	const acceleration = 0.001;
+	const damping = 0.98;
 
-	let rotationSpeed = 0.2;
+	let isDragging = false;
+	let previousPointerPosition = new Vector2();
+	let velocity = new Vector2();
+
+	let quaternion = new Quaternion();
+	let planet: Group;
+
 	useTask((delta) => {
-		// rotation += delta * rotationSpeed;
-
-		rotate = rotateSpring.update(delta);
 		size = sizeSpring.update(delta);
 
-		rotateSpring.set(rotate + delta * rotationSpeed);
+		velocity.multiplyScalar(damping);
 
-		if (window.innerWidth < 768) {
-			distance = 6;
-		} else {
-			distance = 1;
+		let rotate = isDragging ? 0.0 : 0.001;
+
+		const deltaRotationQuaternion = new Quaternion().setFromEuler(
+			new Euler(velocity.y * delta * 120, (velocity.x + rotate) * delta * 120, 0, 'XYZ')
+		);
+		quaternion.multiplyQuaternions(deltaRotationQuaternion, quaternion);
+
+		if (planet) {
+			planet.quaternion.copy(quaternion);
+			planet.position.set(pos * 4 - 2, 0.5, -distance);
 		}
 	});
 
-	const { scene, renderer } = useThrelte();
+	const onPointerMove = (event: PointerEvent | TouchEvent) => {
+		if (!isDragging) return;
+		event.preventDefault();
+
+		let clientX, clientY;
+		if (event instanceof TouchEvent) {
+			clientX = event.touches[0].clientX;
+			clientY = event.touches[0].clientY;
+		} else {
+			clientX = event.clientX;
+			clientY = event.clientY;
+		}
+
+		const deltaMove = new Vector2(
+			clientX - previousPointerPosition.x,
+			clientY - previousPointerPosition.y
+		);
+
+		velocity.x += deltaMove.x * acceleration;
+		velocity.y += deltaMove.y * acceleration;
+
+		// Limit the speed
+		if (velocity.length() > maxSpeed) {
+			velocity.normalize().multiplyScalar(maxSpeed);
+		}
+
+		previousPointerPosition.set(clientX, clientY);
+	};
+
+	const onPointerDown = (event: PointerEvent | TouchEvent) => {
+		isDragging = true;
+		let clientX, clientY;
+		if (event instanceof TouchEvent) {
+			clientX = event.touches[0].clientX;
+			clientY = event.touches[0].clientY;
+		} else {
+			clientX = event.clientX;
+			clientY = event.clientY;
+		}
+		previousPointerPosition.set(clientX, clientY);
+
+		if (event instanceof TouchEvent) {
+			event.preventDefault(); // Prevent scrolling
+		}
+	};
+
+	const onPointerUp = () => {
+		isDragging = false;
+	};
+
+	const { renderer } = useThrelte();
 
 	onMount(() => {
-		scene.background = new Color(0x000000);
-		renderer.setClearColor(0x000000, 1);
+		const canvas = renderer.domElement;
+
+		canvas.addEventListener('pointermove', onPointerMove, {passive: false});
+		canvas.addEventListener('pointerup', onPointerUp, false);
+		canvas.addEventListener('touchmove', onPointerMove, {passive: false});
+		canvas.addEventListener('touchend', onPointerUp, false);
+
+		return () => {
+			canvas.removeEventListener('pointermove', onPointerMove, false);
+			canvas.removeEventListener('pointerup', onPointerUp, false);
+			canvas.removeEventListener('touchmove', onPointerMove, false);
+			canvas.removeEventListener('touchend', onPointerUp, false);
+		};
 	});
 
 	export let pos = 0;
@@ -54,50 +123,33 @@
 		ref.lookAt(0, 1, 0);
 	}}
 	far={100}
-></T.PerspectiveCamera>
+/>
 
 <T.DirectionalLight intensity={3} position={[-pos * 10 + 5, 2 + pos * 3, 2]} />
 
-<PlanetModel
-	on:click={() => {
-		rotateSpring.set(rotate + 2);
+<T.Group
+	bind:ref={planet}
+	on:pointerdown={(evt) => {
+		onPointerDown(evt.nativeEvent);
 	}}
 	on:pointerleave={() => {
 		sizeSpring.set(2);
 		onPointerLeave();
 	}}
 	on:pointerenter={() => {
-		sizeSpring.set(2.2);
+		sizeSpring.set(2.1);
 		onPointerEnter();
 	}}
-	scale={size}
-	rotation.y={rotate}
-	rotation.z={0.1}
-	position.x={pos * 4 - 2}
-	position.z={-distance}
-	position.y={0.5}
-/>
-
-<!-- <Planet
-	on:click={() => {
-		rotateSpring.set(rotate + 2);
+	on:touchstart={(evt) => {
+		onPointerDown(evt.nativeEvent);
 	}}
-	on:pointerleave={() => {
-		sizeSpring.set(2);
-		onPointerLeave();
-	}}
-	on:pointerenter={() => {
-		sizeSpring.set(2.2);
-		onPointerEnter();
+	on:touchend={() => {
+		onPointerUp();
 	}}
 	scale={size}
-	rotation.y={rotate}
-	rotation.z={0.1}
-	position.x={pos * 4 - 2}
-	position.z={-distance}
-	position.y={0.5}
-></Planet> -->
+>
+	<PlanetModel />
+</T.Group>
 
 <Stars />
-
 <Nebula />
