@@ -40,17 +40,19 @@
 
 {#if $open}
 	<div
-		transition:fade={{ duration: 100 }}
+	transition:fade={{ duration: 300 }}
 		class="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/50 transition-all duration-300"
 	/>
 
-	<div use:melt={$content}>
+	<div use:melt={$content} 
+	>
 		<div use:melt={$arrow} />
 		<div
+		transition:slide={{ duration: 300 }}
 			class="fixed inset-x-4 bottom-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 backdrop-blur-md ring-zinc-900/5 dark:bg-black dark:ring-white/10"
 		>
 			<div class="flex flex-row-reverse items-center justify-between">
-				<button aria-label="Close menu" class="-m-1 p-1" use:melt={$close}>
+				<button aria-label="Close menu" class="-m-1 p-1 focus:outline-none" use:melt={$close}>
 					<svg
 						viewBox="0 0 24 24"
 						aria-hidden="true"

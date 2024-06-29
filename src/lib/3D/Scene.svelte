@@ -16,8 +16,8 @@
 	let sizeSpring = spring<number>(size, 0.1, 0.5);
 
 	let distance = 1;
-	const maxSpeed = 0.05;
-	const acceleration = 0.001;
+	const maxSpeed = 0.03;
+	const acceleration = 0.0002;
 	const damping = 0.98;
 
 	let isDragging = false;

@@ -51,7 +51,7 @@
 						</svelte:fragment>
 						instagram
 					</SocialLink>
-					<SocialLink href="https://youtube.com/@flobit" class="mt-4">
+					<!-- <SocialLink href="https://youtube.com/@flobit" class="mt-4">
 						<svelte:fragment slot="icon">
 							<svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" 
 							class="w-6 h-6">
@@ -63,7 +63,7 @@
 							</svg>
 						</svelte:fragment>
 						youtube
-					</SocialLink>
+					</SocialLink> -->
 					<SocialLink href="https://flobit.substack.com/" class="mt-4">
 						<svelte:fragment slot="icon">
 							<svg
@@ -103,6 +103,3 @@
 		</div>
 	</div>
 </div>
-
-
-<div class="hidden"><img alt="hit counter" src="https://hits.sh/flo-bit.github.io.svg"/></div>
