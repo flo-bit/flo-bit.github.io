@@ -11,13 +11,13 @@
 		{
 			title: 'supabase',
 			description:
-				'started using supabase for a few projects. still prefer mongodb, but it has some cool features.',
+				'started using supabase for a few projects. still prefer mongodb as a database, but it has some cool features.',
 			date: '2024-05'
 		},
 		{
 			title: 'unity and vr',
 			description:
-				'been working on a vr game in unity as part of a university project. not a huge fan of unity tho',
+				'been working on a vr game in unity as part of a university project.',
 			date: '2024-03'
 		},
 		{
@@ -50,7 +50,7 @@
 		{
 			title: 'react, next.js and reactnative',
 			description:
-				"not a huge fan of react, but it's still the most popular framework out there. i mostly use it for work.",
+				"not the biggest fan of react, but it's still the most popular framework out there. i mostly use it for work.",
 			date: '2023-01'
 		}
 	];
