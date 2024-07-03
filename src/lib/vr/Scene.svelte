@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { T } from '@threlte/core';
+	import { T, useThrelte } from '@threlte/core';
 	import { Environment, interactivity } from '@threlte/extras';
 
 	import Stars from './components/Stars.svelte';
@@ -14,9 +14,24 @@
 	import Controls from './components/Controls.svelte';
 	import Pong from './sections/Pong.svelte';
 
+	import { HalfFloatType, EquirectangularReflectionMapping, SRGBColorSpace } from 'three';
+
+	import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
+
 	interactivity();
 	pointerControls('left');
 	pointerControls('right');
+
+	const { scene } = useThrelte();
+
+	const loader = new RGBELoader();
+	loader.setDataType(HalfFloatType);
+
+	loader.load('/shanghai_riverside_1k.hdr', (texture) => {
+		texture.mapping = EquirectangularReflectionMapping;
+		texture.colorSpace = SRGBColorSpace;
+		scene.environment = texture;
+	});
 </script>
 
 <Controller right />
@@ -30,7 +45,6 @@
 </T.PerspectiveCamera>
 
 <Stars />
-<Environment files="/shanghai_riverside_1k.hdr" />
 
 <T.DirectionalLight position={[0, 1, 0]} intensity={0.5} />
 
