@@ -39,12 +39,14 @@ Command: npx @threlte/gltf@2.0.1 static/planet.gltf -t -T
 			material.opacity={1.0}
 			material.transparent={false}
 			material.flatShading={true}
+			material.envMapIntensity={0.3}
 		>
 			<T.Mesh
 				geometry={gltf.nodes.mesh_1.geometry}
 				material={gltf.nodes.mesh_1.material}
 				material.transparent={true}
 				material.flatShading={true}
+				material.envMapIntensity={0.3}
 			/>
 		</T.Mesh>
 	{:catch error}

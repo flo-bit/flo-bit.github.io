@@ -160,7 +160,7 @@
 										</svg>
 									</a>
 								{/if}
-								<div class="mt-1">
+								<div class="mt-1 text-base">
 									{project.name}
 								</div>
 

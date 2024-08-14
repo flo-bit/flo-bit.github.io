@@ -23,7 +23,7 @@
 							class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
 						/> -->
 
-						<div class="aspect-square rotate-3 -m-10 lg:-m-10">
+						<div class="rotate-3 w-72 h-72 -m-10 lg:-m-10">
 							<Depth3D
 								image={{
 									image: imageMe,
@@ -38,11 +38,32 @@
 					<h1
 						class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
 					>
-						hey there, i'm florian. i live in berlin, where i create things for the web (and other
-						places).
+						hey there, i'm florian. i live in berlin, where i create things for the web.
 					</h1>
 					<div class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
 						<p>
+							I was one of the only kids in my class without a game console, but we had a computer.
+							At 12, I got a coding book for Christmas and started making my own games in C and
+							OpenGL. Though I never finished those early projects, I got hooked on programming.
+						</p>
+						<p>
+							After school, I started studying computer science and became a software developer. I'm
+							really like the web because it's so accessible — anyone with a device and internet
+							can access your work instantly. Publishing and sharing your work is also super simple,
+							whether it's a website, a PWA, or a serverless function.
+						</p>
+						<p>
+							Noawadays, I mostly build a variety of web-based projects and am fascinated by the intersection
+							of design and development. I love
+							learning new things and am always seeking new challenges. If you have questions or
+							just want to connect, feel free to <a
+							href="#contact"
+							class="text-cyan-400 hover:text-cyan-300 font-semibold"
+						>
+							reach out.
+						</a>
+						</p>
+						<!-- <p>
 							i was one of the only kids in my class who didn't have some kind of game console at
 							home. but we did have a computer and when I was 12, i got a coding book for christmas
 							and decided to try my hand at making my own games (using c and opengl).
@@ -71,7 +92,7 @@
 							>
 								get in touch
 							</a>
-						</p>
+						</p> -->
 					</div>
 				</div>
 

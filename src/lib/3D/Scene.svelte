@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { T, useTask, useThrelte } from '@threlte/core';
-	import { interactivity, useCursor } from '@threlte/extras';
+	import { Environment, interactivity, useCursor } from '@threlte/extras';
 	import { Quaternion, Euler, Vector2, Group } from 'three';
 	import { onMount } from 'svelte';
 	import { spring } from './Utils';
@@ -125,7 +125,7 @@
 	far={100}
 />
 
-<T.DirectionalLight intensity={3} position={[-pos * 10 + 5, 2 + pos * 3, 2]} />
+<T.DirectionalLight intensity={2} position={[-pos * 10 + 5, 2 + pos * 3, 2]} />
 
 <T.Group
 	bind:ref={planet}
@@ -150,6 +150,8 @@
 >
 	<PlanetModel />
 </T.Group>
+
+<Environment files="aerodynamics_workshop_1k.hdr" />
 
 <Stars />
 <Nebula />
