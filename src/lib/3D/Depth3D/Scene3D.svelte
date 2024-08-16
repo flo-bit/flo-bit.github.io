@@ -18,7 +18,7 @@
 	export let rotationScale = 0.2;
 	export let rotationSpeed = 2;
 
-	export let detail = 1000;
+	export let detail = 200;
 
 	export let depthScale = 1;
 

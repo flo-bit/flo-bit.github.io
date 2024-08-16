@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { T, useTask, useThrelte } from '@threlte/core';
-	import { Environment, interactivity, useCursor } from '@threlte/extras';
+	import { interactivity, useCursor } from '@threlte/extras';
 	import { Quaternion, Euler, Vector2, Group } from 'three';
 	import { onMount } from 'svelte';
 	import { spring } from './Utils';
@@ -151,7 +151,7 @@
 	<PlanetModel />
 </T.Group>
 
-<Environment files="aerodynamics_workshop_1k.hdr" />
+<!-- <Environment files="aerodynamics_workshop_1k.hdr" /> -->
 
 <Stars />
 <Nebula />
