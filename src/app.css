@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
 	html {
 		scroll-behavior: smooth;
 	}
-}
+} */
 
 @layer utilities {
 	/* Hide scrollbar for Chrome, Safari and Opera */

@@ -8,7 +8,7 @@
 
 <li>
 	<a
-		href="#{current}"
+		href="/#{current}"
 		class="block py-2 {active == current ? 'dark:text-cyan-400' : ''}"
 		on:click={hide}
 	>
