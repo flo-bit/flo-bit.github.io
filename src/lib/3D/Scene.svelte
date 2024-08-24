@@ -125,6 +125,7 @@
 	far={100}
 />
 
+<T.AmbientLight intensity={0.15} />
 <T.DirectionalLight intensity={2} position={[-pos * 10 + 5, 2 + pos * 3, 2]} />
 
 <T.Group

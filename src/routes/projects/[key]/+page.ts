@@ -1,4 +1,4 @@
-import { projects } from '../../../projects.js';
+import { projects } from '$lib/projects.js';
 
 export const load = ({ params }) => {
 	const project = projects.find((project) => project.key === params.key);

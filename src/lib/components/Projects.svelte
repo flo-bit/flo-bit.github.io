@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { projects } from '../../projects';
+	import { browser } from '$app/environment';
+	import { projects } from '$lib/projects';
 </script>
 
 <div id="projects" class="z-20 py-16 md:py-32 section bg-black relative isolate">

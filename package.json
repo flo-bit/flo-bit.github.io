@@ -46,6 +46,7 @@
     "@tailwindcss/typography": "^0.5.14",
     "@threlte/rapier": "^2.0.1",
     "@threlte/xr": "^0.1.4",
+    "@use-gesture/vanilla": "^10.3.1",
     "alea": "^1.0.1",
     "autoprefixer": "^10.4.16",
     "clsx": "^2.1.1",

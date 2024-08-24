@@ -2,9 +2,9 @@
 	import Depth3D from '$lib/3D/Depth3D/Depth3D.svelte';
 
 	// @ts-ignore
-	import imageMe from '$lib/images/avatar.png?w=1024&format=webp';
+	import imageMe from '$lib/images/avatar.png?w=512&format=webp';
 	// @ts-ignore
-	import depthMe from '$lib/images/avatar-depth.png?w=1024&format=webp';
+	import depthMe from '$lib/images/avatar-depth.png?w=512&format=webp';
 
 	import Resume from './Resume.svelte';
 </script>

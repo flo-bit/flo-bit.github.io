@@ -8,8 +8,6 @@ Command: npx @threlte/gltf@2.0.1 static/planet.gltf -t -T
 	import { T, type Props, type Events, type Slots, forwardEventHandlers } from '@threlte/core';
 	import { useGltf } from '@threlte/extras';
 
-	import FakeGlowMaterial from './FakeGlowMaterial/FakeGlowMaterial.svelte';
-
 	type $$Props = Props<THREE.Group>;
 	type $$Events = Events<THREE.Group>;
 	type $$Slots = Slots<THREE.Group> & { fallback: {}; error: { error: any } };

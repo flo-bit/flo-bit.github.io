@@ -6,7 +6,7 @@ export const badgeVariants = tv({
 	variants: {
 		variant: {
 			default:
-				'rounded-md bg-accent-50 dark:bg-accent-500/10 text-accent-700 dark:text-accent-400 ring-1 fill-accent-500 dark:fill-accent-400',
+				'rounded-xl bg-accent-50 dark:bg-accent-500/10 text-accent-700 dark:text-accent-400 ring-1 fill-accent-500 dark:fill-accent-400',
 			pill: 'bg-accent-50 dark:bg-accent-500/10 text-accent-700 dark:text-accent-400 ring-1 fill-accent-500 dark:fill-accent-400 rounded-full',
 			dot: 'rounded-md bg-accent-50 dark:bg-accent-500/10 text-accent-700 dark:text-accent-400 ring-1 fill-accent-500 dark:fill-accent-400',
 			pill_dot:
