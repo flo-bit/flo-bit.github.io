@@ -50,6 +50,7 @@
     "alea": "^1.0.1",
     "autoprefixer": "^10.4.16",
     "clsx": "^2.1.1",
+    "gradient-path": "^2.3.0",
     "most-visible": "^2.0.0",
     "postcss": "^8.4.32",
     "postprocessing": "^6.33.4",
@@ -58,6 +59,7 @@
     "tailwind-variants": "^0.2.1",
     "tailwindcss": "^3.4.0",
     "threlte-uikit": "^0.4.2",
+    "tinygradient": "^1.1.5",
     "vite-imagetools": "^6.2.9"
   }
 }
