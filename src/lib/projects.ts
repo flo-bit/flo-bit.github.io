@@ -4,11 +4,9 @@ import fake3d from '$lib/images/projects-new/fake3dimage-demo.mp4';
 import hyperlumen from '$lib/images/projects-new/hyperlumen-demo.mp4';
 import marblellous from '$lib/images/projects-new/marblellous-demo.mp4';
 import oldcode from '$lib/images/projects-new/old-code-demo.mp4';
-import autostereogramrenderer from '$lib/images/projects-new/autostereogram-renderer-demo.mp4';
-import mandala from '$lib/images/projects-new/mandala-demo.mp4';
+// import autostereogramrenderer from '$lib/images/projects-new/autostereogram-renderer-demo.mp4';
+// import mandala from '$lib/images/projects-new/mandala-demo.mp4';
 import threltevrcodeeditor from '$lib/images/projects-new/threlte-vr-code-editor-demo.mp4';
-
-import svelteswipecards1 from '$lib/images/projects-new/svelte-swiper-cards-image.png';
 
 // @ts-expect-error - module not found
 import hyperlumen1 from '$lib/images/projects-new/hyperlumen/1.jpg?w=1024&format=webp';
@@ -62,7 +60,7 @@ export const projects: Project[] = [
 		projectUrl: 'https://flo-bit.github.io/svelte-swiper-cards/',
 
 		aspect: 'aspect-[9/18]',
-		name: 'swipable card component for svelte',
+		name: 'svelte swipable cards',
 		description: 'a swipeable tinder like card component for svelte. try the interactive demo!',
 		code: 'https://github.com/flo-bit/svelte-swiper-cards/',
 
@@ -70,7 +68,7 @@ export const projects: Project[] = [
 
 		projectPageVersion: 'tiered',
 		tags: ['svelte', 'typescript', 'component', 'tailwindcss'],
-		images: [svelteswipecards1],
+		images: [],
 		demo: 'swiper',
 		highlights: [
 			'tailwindcss',
@@ -112,7 +110,6 @@ export const projects: Project[] = [
 		alt: 'Hyperlumen',
 
 		projectUrl: 'https://hyperlumen.de',
-		codeUrl: '#',
 
 		aspect: 'aspect-[9/14]',
 		name: 'hyperlumen',
@@ -130,20 +127,20 @@ export const projects: Project[] = [
 		projectPageVersion: 'grid',
 		tags: ['wled', 'wearable', 'leds', 'hardware', 'c++', 'svelte', 'hardware', 'tailwindcss']
 	},
-	{
-		src: mandala,
-		key: 'svg-mandala',
-		alt: 'svg mandala drawer',
-		projectUrl: 'https://flo-bit.github.io/mandala/',
-		aspect: 'aspect-1',
-		name: 'svg mandala drawer',
-		description:
-			'one of my earlier projects, draw svg mandalas in the browser. works on mobile too. made with paperjs and bulma. try the interactive demo above!',
-		tags: ['svg', 'paperjs', 'javascript', 'bulma'],
-		projectPageVersion: 'full',
-		demo: 'mandala',
-		codeUrl: 'https://github.com/flo-bit/mandala'
-	},
+	// {
+	// 	src: mandala,
+	// 	key: 'svg-mandala',
+	// 	alt: 'svg mandala drawer',
+	// 	projectUrl: 'https://flo-bit.github.io/mandala/',
+	// 	aspect: 'aspect-1',
+	// 	name: 'svg mandala drawer',
+	// 	description:
+	// 		'one of my earlier projects, draw svg mandalas in the browser. works on mobile too. made with paperjs and bulma. try the interactive demo above!',
+	// 	tags: ['svg', 'paperjs', 'javascript', 'bulma'],
+	// 	projectPageVersion: 'full',
+	// 	demo: 'mandala',
+	// 	codeUrl: 'https://github.com/flo-bit/mandala'
+	// },
 	{
 		src: fake3d,
 		key: 'image2fake3d',
@@ -181,28 +178,28 @@ export const projects: Project[] = [
 	},
 	{
 		src: threltevrcodeeditor,
-		key: 'threlte-vr-code-editor',
-		alt: 'threlte vr code editor',
+		key: 'vr-code-editor',
+		alt: 'vr code editor',
 		projectUrl: 'https://github.com/flo-bit/threlte-vr-code-editor',
 		aspect: 'aspect-[16/11]',
-		name: 'threlte vr code editor',
+		name: 'vr code editor',
 		description: 'a code editor in virtual reality made with threlte.',
 		codeUrl: 'https://github.com/flo-bit/threlte-vr-code-editor',
 		highlights: ['works with hot module replacement'],
 		tags: ['threlte', 'svelte', 'vr', 'typescript', 'code editor']
-	},
-	{
-		src: autostereogramrenderer,
-		key: 'autostereogram-renderer',
-		alt: 'autostereogram renderer',
-		projectUrl: 'https://flo-bit.github.io/autostereogram-renderer/',
-		codeUrl: 'https://github.com/flo-bit/autostereogram-renderer',
-		aspect: 'aspect-1',
-		name: 'autostereogram renderer',
-		description: 'rendering a 3d scene as an autostereogram. try to see the hidden animal!',
-		demo: 'autostereogram',
-		projectPageVersion: 'tiered',
-		highlights: ['creates autosteregram from rendered depth map'],
-		tags: ['three.js', 'javascript', '3d', 'autostereogram']
 	}
+	// {
+	// 	src: autostereogramrenderer,
+	// 	key: 'autostereogram-renderer',
+	// 	alt: 'autostereogram renderer',
+	// 	projectUrl: 'https://flo-bit.github.io/autostereogram-renderer/',
+	// 	codeUrl: 'https://github.com/flo-bit/autostereogram-renderer',
+	// 	aspect: 'aspect-1',
+	// 	name: 'autostereogram renderer',
+	// 	description: 'rendering a 3d scene as an autostereogram. try to see the hidden animal!',
+	// 	demo: 'autostereogram',
+	// 	projectPageVersion: 'tiered',
+	// 	highlights: ['creates autosteregram from rendered depth map'],
+	// 	tags: ['three.js', 'javascript', '3d', 'autostereogram']
+	// }
 ];

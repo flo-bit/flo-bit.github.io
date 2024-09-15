@@ -20,7 +20,7 @@
 
 	export let detail = 200;
 
-	export let depthScale = 1;
+	export let depthScale = 1.5;
 
 	const map = useTexture(image.image, {
 		transform: (texture) => {
@@ -74,7 +74,7 @@ void main() {
     vec2 rectSize = vec2(1, 1);
 
     // Calculate distance to the edge of the rounded rectangle
-    float d = sdRoundedRect(uv, rectSize, 0.1);
+    float d = sdRoundedRect(uv, rectSize, 0.2);
 
     // Smooth transition for anti-aliasing
     float aa = fwidth(d);
