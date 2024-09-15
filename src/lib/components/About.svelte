@@ -2,9 +2,9 @@
 	import Depth3D from '$lib/3D/Depth3D/Depth3D.svelte';
 
 	// @ts-ignore
-	import imageMe from '$lib/images/avatar.png?w=512&format=webp';
+	import imageMe from '$lib/images/flo2.png?w=512&format=webp';
 	// @ts-ignore
-	import depthMe from '$lib/images/avatar-depth.png?w=512&format=webp';
+	import depthMe from '$lib/images/flo2-depth.png?w=512&format=webp';
 
 	import Resume from './Resume.svelte';
 </script>
@@ -23,12 +23,13 @@
 							class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
 						/> -->
 
-						<div class="rotate-3 w-72 h-72 -m-10 lg:-m-10">
+						<div class="rotate-3 size-96 -m-10 lg:-m-20">
 							<Depth3D
 								image={{
 									image: imageMe,
 									depth: depthMe
 								}}
+								rounded={true}
 							/>
 							<div class="sr-only">this is me</div>
 						</div>
@@ -42,21 +43,22 @@
 					</h1>
 					<div class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
 						<p>
-							I was one of the only kids in my class without a game console, but we had a computer.
-							At 12, I got a coding book for Christmas and started making my own games in C and
-							OpenGL. Though I never finished any of those early projects, I got hooked on
+							i was one of the only kids in my class without a game console, but we did have a computer.
+							when i was 12, I got a coding book for christmas and started making my own games in C and
+							opengl. though i never finished any of those early projects, i got hooked on
 							programming.
 						</p>
 						<p>
-							After school, I started studying computer science and became a software developer. I
-							really like the web because it's so accessible — anyone with a device and internet can
-							access your work instantly. Publishing and sharing your work is also pretty simple,
-							whether it's as a website, a PWA, or a serverless function.
+							after school, I started studying computer science and started working as a software developer. 
+							i really love the web because it's so accessible — anyone with a device and internet can
+							access your work instantly. publishing and sharing your work is also pretty simple,
+							whether as a website, a pwa, or a serverless function/api.
 						</p>
 						<p>
-							Noawadays, I mostly build a variety of web-based projects. I am fascinated by the
+							in my free time, i build lots of web-based projects. i really like the
 							intersection of design and development. I love learning new things and am always
-							seeking new challenges. If you have questions or just want to connect, feel free to <a
+							looking for new cool projects. 
+							If you want to build something together or just want to connect, feel free to <a
 								href="#contact"
 								class="text-cyan-400 hover:text-cyan-300 font-semibold"
 							>

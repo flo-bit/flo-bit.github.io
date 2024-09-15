@@ -16,11 +16,11 @@
 			</p>
 		</div>
 
-		<div class="columns-2 md:columns-4 gap-4">
+		<div class="columns-1 sm:columns-2 md:columns-3 gap-4 group/projects">
 			{#each projects as project}
 				<div
 					class="group relative break-inside-avoid-column {project.aspect ??
-						'aspect-square'} mb-4 w-full flex-none overflow-hidden rounded-xl ring-1 ring-white/10 bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl"
+						'aspect-square'} group-hover/projects:opacity-30 hover:!opacity-100 mb-4 w-full flex-none overflow-hidden rounded-xl ring-1 ring-white/10 bg-zinc-100 dark:bg-zinc-800 sm:rounded-2xl transition-opacity duration-500"
 				>
 					{#if project.src.endsWith('.mp4')}
 						<video
@@ -42,9 +42,9 @@
 						/>
 					{/if}
 					<div
-						class="overflow-hidden absolute z-10 pointer-events-none inset-0 w-full h-full flex items-end p-2 md:p-4 tracking-tight leading-6 text-white text-xl font-semibold opacity-80 md:opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+						class="overflow-hidden absolute z-10 pointer-events-none inset-0 w-full h-full flex items-end p-4 md:p-4 tracking-tight leading-6 text-white text-xl font-semibold sm:translate-y-10 group-hover:translate-y-0 transition-translation duration-200"
 					>
-						<div class="mt-1 text-base">
+						<div class="mt-1 text-xl">
 							{project.name}
 						</div>
 					</div>

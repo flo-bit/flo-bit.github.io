@@ -5,6 +5,6 @@ import { imagetools } from 'vite-imagetools';
 export default defineConfig({
 	plugins: [imagetools(), sveltekit()],
 	ssr: {
-		noExternal: ['three']
+		noExternal: ['three', 'gsap']
 	}
 });

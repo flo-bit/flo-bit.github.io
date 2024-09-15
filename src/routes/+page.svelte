@@ -1,11 +1,5 @@
 <script lang="ts">
-	//@ts-ignore
-	import fallback from '$lib/images/fallback.png?w=64&format=webp';
-
 	import Navbar from '$lib/components/nav/Navbar.svelte';
-
-	import { Canvas } from '@threlte/core';
-	import Scene from '$lib/3D/Scene.svelte';
 
 	import Hero from '$lib/components/Hero.svelte';
 	import Projects from '$lib/components/Projects.svelte';
@@ -14,6 +8,15 @@
 	import About from '$lib/components/About.svelte';
 	import Learning from '$lib/components/Learning.svelte';
 	import Posts from '$lib/components/Posts.svelte';
+	import Loading from '$lib/components/Loading.svelte';
+
+	import { gsap } from 'gsap';
+	import { Flip } from 'gsap/Flip';
+	import { onMount, tick } from 'svelte';
+	import PlanetScene from '$lib/3D/PlanetScene.svelte';
+	gsap.registerPlugin(Flip);
+
+	let showTitle = false;
 
 	let active: 'home' | 'about' | 'projects' | 'learning' | 'contact' = 'home';
 
@@ -25,6 +28,25 @@
 		return scrollTop / (scrollHeight - clientHeight);
 	}
 	let percentageScroll: number = 0;
+
+	onMount(() => {
+		let animationTime = 2.1;
+
+		setTimeout(async () => {
+			const state = Flip.getState('.hello');
+			console.log(state);
+
+			showTitle = true;
+			await tick();
+
+			let fade = gsap.to('.background', { opacity: 0, duration: 1 });
+			Flip.from(state, {
+				targets: '.hello',
+				absolute: true,
+				duration: 1
+			});
+		}, animationTime * 1000);
+	});
 
 	function setActive() {
 		// @ts-ignore
@@ -43,15 +65,13 @@
 	}}
 />
 
-<div class="fixed left-0 right-0 top-0 h-screen">
-	<Canvas>
-		<Scene pos={percentageScroll} />
-	</Canvas>
-</div>
+<PlanetScene pos={percentageScroll} />
 
 <Navbar {active} />
 
-<Hero />
+<Loading show={!showTitle} />
+
+<Hero {showTitle} />
 
 <About />
 
