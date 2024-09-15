@@ -1,7 +1,6 @@
 <script lang="ts">
     import { T } from "@threlte/core";
 	import { Planet } from "./worlds/planet";
-	import { onMount } from "svelte";
 
     import { useSuspense } from '@threlte/extras'
     const suspend = useSuspense()

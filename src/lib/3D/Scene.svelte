@@ -1,19 +1,13 @@
 <script lang="ts">
 	import { T, useTask, useThrelte } from '@threlte/core';
-	import {
-		interactivity,
-		OrbitControls,
-		useCursor,
-		Environment,
-		FakeGlowMaterial
-	} from '@threlte/extras';
+	import { interactivity, useCursor } from '@threlte/extras';
 	import { Quaternion, Euler, Vector2, Group } from 'three';
 	import { onMount } from 'svelte';
 	import { spring } from './Utils';
 
 	import Stars from './Stars.svelte';
 	import Nebula from './Nebula.svelte';
-	import PlanetModel from './PlanetModel.svelte';
+	import PlanetModel from './Planet.svelte';
 	import { SheetObject } from '@threlte/theatre';
 
 	const { onPointerEnter, onPointerLeave } = useCursor();
@@ -52,16 +46,16 @@
 			planet.position.set(pos * 2, 0, 0);
 		}
 	});
-	
+
 	const onPointerMove = (event: PointerEvent | TouchEvent) => {
 		if (!isDragging) return;
 		event.preventDefault();
 
-		let clientX, clientY;
-		if (event instanceof TouchEvent) {
+		let clientX = 0, clientY = 0;
+		if (window.TouchEvent && event instanceof TouchEvent) {
 			clientX = event.touches[0].clientX;
 			clientY = event.touches[0].clientY;
-		} else {
+		} else if(event instanceof PointerEvent) {
 			clientX = event.clientX;
 			clientY = event.clientY;
 		}
@@ -85,11 +79,11 @@
 
 	const onPointerDown = (event: PointerEvent | TouchEvent) => {
 		isDragging = true;
-		let clientX, clientY;
-		if (event instanceof TouchEvent) {
+		let clientX = 0, clientY = 0;
+		if (window.TouchEvent && event instanceof TouchEvent) {
 			clientX = event.touches[0].clientX;
 			clientY = event.touches[0].clientY;
-		} else {
+		} else if(event instanceof PointerEvent) {
 			clientX = event.clientX;
 			clientY = event.clientY;
 		}
@@ -104,9 +98,9 @@
 	const onPointerUp = () => {
 		isDragging = false;
 
-		if(totalMove.length() < 10) {
-			redo();
-		}
+		// if (totalMove.length() < 10) {
+		// 	redo();
+		// }
 		totalMove.set(0, 0);
 	};
 
@@ -195,15 +189,17 @@
 			on:touchend={() => {
 				onPointerUp();
 			}}
+			on:dblclick={() => {
+				redo();
+			}}
 			scale={size}
 		>
-			<PlanetModel bind:redo/>
+			<PlanetModel bind:redo />
 		</T.Group>
 	</Transform>
 </SheetObject>
 
 <!-- <Environment files="aerodynamics_workshop_1k.hdr" /> -->
-
 
 <Stars />
 <Nebula />
