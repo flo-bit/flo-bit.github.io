@@ -7,7 +7,7 @@
 
     let presets = ['forest', 'beach', 'snowForest'];
 
-    let planet = new Planet({ preset: presets[Math.floor(Math.random() * presets.length)] });
+    let planet = new Planet({ preset: 'beach' });
     let planetMesh = suspend(planet.create());
     
     export const redo = () => {

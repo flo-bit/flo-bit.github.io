@@ -9,6 +9,7 @@
 	import Nebula from './Nebula.svelte';
 	import PlanetModel from './Planet.svelte';
 	import { SheetObject } from '@threlte/theatre';
+	import CustomRenderer from './CustomRenderer.svelte';
 
 	const { onPointerEnter, onPointerLeave } = useCursor();
 	interactivity();
@@ -158,16 +159,17 @@
 <T.DirectionalLight
 	intensity={2}
 	position={[-pos * 10 + 5, 2 + pos * 3, 2]}
-	castShadow
-	shadow.bias={0.00001}
-	shadow.normalBias={0.05}
-	shadow.mapSize.width={1024}
-	shadow.mapSize.height={1024}
-	shadow.camera.left={-3}
-	shadow.camera.right={1}
-	shadow.camera.top={3}
-	shadow.camera.bottom={-1}
 />
+<!-- castShadow
+shadow.bias={0.00001}
+shadow.normalBias={0.05}
+shadow.mapSize.width={1024}
+shadow.mapSize.height={1024}
+shadow.camera.left={-3}
+shadow.camera.right={1}
+shadow.camera.top={3}
+shadow.camera.bottom={-1} -->
+
 <SheetObject key="planet" let:Transform let:Sync>
 	<Transform>
 		<T.Group
@@ -200,6 +202,8 @@
 </SheetObject>
 
 <!-- <Environment files="aerodynamics_workshop_1k.hdr" /> -->
+
+<!-- <CustomRenderer /> -->
 
 <Stars />
 <Nebula />

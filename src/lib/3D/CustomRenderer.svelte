@@ -11,8 +11,8 @@
 		composer.addPass(new RenderPass(scene, camera));
 
 		const dofEffect = new DepthOfFieldEffect(camera, {
-			focusDistance: 0.02,
-			focalLength: 0.1,
+			focusDistance: 0.045,
+			focalLength: 0.03,
 			bokehScale: 10,
 			height: 1080
 		});
@@ -22,6 +22,7 @@
 			intensity: 4
 		});
 
+		// composer.addPass(new EffectPass(camera, dofEffect));
 		composer.addPass(new EffectPass(camera, bloomEffect));
 	};
 

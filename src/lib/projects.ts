@@ -1,6 +1,6 @@
 import svelteswipecards from '$lib/images/projects-new/svelte-swiper-cards-demo.mp4';
 import fluidtexteffect from '$lib/images/projects-new/text-effect-fluid-demo.mp4';
-import fake3d from '$lib/images/projects-new/fake3dimage-demo.mp4';
+import fake3d from '$lib/images/projects-new/depth3dcomponent/depth3dcomponent.mp4';
 import hyperlumen from '$lib/images/projects-new/hyperlumen-demo.mp4';
 import marblellous from '$lib/images/projects-new/marblellous-demo.mp4';
 import oldcode from '$lib/images/projects-new/old-code-demo.mp4';
@@ -143,14 +143,13 @@ export const projects: Project[] = [
 	// },
 	{
 		src: fake3d,
-		key: 'image2fake3d',
-		alt: 'Image2Fake3D',
-		projectUrl: 'https://flo-bit.github.io/image2fake3d/',
+		key: 'depth3dcomponent',
+		alt: 'depth3dcomponent',
+		projectUrl: 'https://flo-bit.github.io/svelte-depth-3d-component/',
 		aspect: 'aspect-[9/16]',
-		name: 'image2fake3d',
-		description:
-			'turns an image into a fake 3d image that you can rotate with your mouse or gyro sensor.',
-		codeUrl: 'https://github.com/flo-bit/image2fake3d',
+		name: 'svelte depth 3d component',
+		description: 'turns an image plus depth map into a kind of 3d image. made for svelte.',
+		codeUrl: 'https://github.com/flo-bit/svelte-depth-3d-component',
 		tags: ['svelte', 'depthmap', '3d', 'threlte']
 	},
 	{
