@@ -8,25 +8,10 @@ this is my portfolio, created using sveltekit, threlte, threejs and tailwind. wi
 
 ## demos
 
-![screenshot](screenshot.jpg)
+![screenshot](/static/image.jpg)
+
+older demo videos:
 
 https://github.com/flo-bit/flo-bit.github.io/assets/45694132/481296b2-f36d-466c-9741-4dd5771eb306
 
 https://github.com/flo-bit/flo-bit.github.io/assets/45694132/a251ab6f-a416-4a2d-905f-8dffb2e36e0f
-
-
-
-## todo
-
-- add projects
-    - [x] shmup
-    - youtube party djay
-    - instalingua
-    - vr portfolio
-- setup projects v3
-- improve planet stuff
-- add favourite stack?
-- add images, descriptions, links, tags to all projects
-- update favicon
-- fix android bug
-- improve performance

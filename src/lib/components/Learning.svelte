@@ -9,6 +9,12 @@
 
 	const learnings: Learning[] = [
 		{
+			title: 'pixi.js',
+			description:
+				'been playing around with pixi.js for some game jams. awesome library for 2d games.',
+			date: '2024-07'
+		},
+		{
 			title: 'supabase',
 			description:
 				'started using supabase for a few projects. still prefer mongodb as a database, but it has some cool features.',
@@ -17,7 +23,7 @@
 		{
 			title: 'unity and vr',
 			description:
-				'been working on a vr game in unity as part of a university project.',
+				'been working on a vr game in unity as part of a university project. uff, not a big fan of unity.',
 			date: '2024-03'
 		},
 		{
@@ -27,7 +33,7 @@
 		},
 		{
 			title: 'threlte',
-			description: 'fun library combining svelte and three.js. also used on this website.',
+			description: 'awesome library combining svelte and three.js. also used on this website.',
 			date: '2023-12'
 		},
 		{
@@ -38,19 +44,19 @@
 		{
 			title: 'svelte and sveltekit',
 			description:
-				'in my opinion the best framework for web development. i use it for most of my personal projects, including this website.',
+				'love svelte, my favourite framework for web development. i use it for most of my personal projects, including this website.',
 			date: '2023-06'
 		},
 		{
 			title: 'tailwindcss',
 			description:
-				'in my opinion the best bad idea in web development. not great, but better than pure css by far. used in most of my newer projects including this website.',
+				'the best bad idea in web development. better than pure css by far. used in most of my newer projects including this website.',
 			date: '2023-05'
 		},
 		{
 			title: 'react, next.js and reactnative',
 			description:
-				"not the biggest fan of react, but it's still the most popular framework out there. i mostly use it for work.",
+				"not the biggest fan of react, but it's still the most popular framework out there and on the native side there's no good alternative yet.",
 			date: '2023-01'
 		}
 	];
@@ -78,7 +84,7 @@
 				</h1>
 				<p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
 					one of the things i love most about programming is that there's always something new to
-					learn. i try to learn something new every month. here are some of the things i've been
+					learn. i try to learn something new every month. here's a selection of some of the things i've been
 					learning lately:
 				</p>
 			</div>

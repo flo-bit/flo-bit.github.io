@@ -10,6 +10,8 @@
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="197.118 353.993 729.100 91.712"
+					width="100%"
+					height="100%"
 					class="stroke-[8] max-w-md fill-transparent hello z-30"
 					style="stroke: url(#gradient); stroke-linecap: round;"
 					data-flip-id="text"
