@@ -1,5 +1,6 @@
 import svelteswipecards from '$lib/images/projects-new/svelte-swiper-cards-demo.mp4';
 import fluidtexteffect from '$lib/images/projects-new/text-effect-fluid-demo.mp4';
+import life from '$lib/images/projects-new/life/life-demo.mp4';
 import fake3d from '$lib/images/projects-new/depth3dcomponent/depth3dcomponent.mp4';
 import hyperlumen from '$lib/images/projects-new/hyperlumen-demo.mp4';
 import marblellous from '$lib/images/projects-new/marblellous-demo.mp4';
@@ -32,7 +33,6 @@ export type Project = {
 	src: string;
 	key: string;
 	name: string;
-	alt: string;
 
 	href?: string;
 	aspect?: string;
@@ -51,6 +51,16 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+	{
+		src: life,
+		key: 'life',
+		projectUrl: 'https://flo-bit.itch.io/life',
+		aspect: 'aspect-[15/9]',
+		name: 'life',
+		description:
+			'made for gmtk jam 2024. relaxing spore/fl0w/agario-like game with a nature documentary vibe. eat, grow, evolve.',
+		projectPageVersion: 'full'
+	},
 	{
 		src: svelteswipecards,
 		key: 'svelte-swiper-cards',

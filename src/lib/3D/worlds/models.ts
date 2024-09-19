@@ -135,9 +135,9 @@ export async function loadModels(
           };
           gltf.scene.traverse((child) => {
             if (child instanceof THREE.Mesh) {
-              child.castShadow = true;
-              child.receiveShadow = true;
-            }
+							// child.castShadow = true;
+							child.receiveShadow = true;
+						}
           });
           resolve(gltf.scene);
         },

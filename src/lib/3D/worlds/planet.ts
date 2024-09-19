@@ -104,7 +104,6 @@ export class Planet {
         }),
       );
       planetMesh.castShadow = true;
-      planetMesh.receiveShadow = true;
 
       const oceanMesh = new Mesh(
         oceanGeometry,
