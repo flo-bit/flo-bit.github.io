@@ -8,7 +8,7 @@
 	import fluidtexteffect from '$lib/images/projects-new/text-effect-fluid-demo.mp4';
 	import hyperlumen from '$lib/images/projects-new/hyperlumen-demo.mp4';
 	import marblellous from '$lib/images/projects-new/marblellous-demo.mp4';
-	import oldcode from '$lib/images/projects-new/old-code-demo.mp4';
+	import oldcode from '$lib/images/projects-new/old-code/old-code-demo.mp4';
 	import mandala from '$lib/images/projects-new/mandala-demo.mp4';
 
 	import threltevrcodeeditor from '$lib/images/projects-new/threlte-vr-code-editor-demo.mp4';
