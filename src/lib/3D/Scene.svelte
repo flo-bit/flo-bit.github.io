@@ -52,11 +52,12 @@
 		if (!isDragging) return;
 		event.preventDefault();
 
-		let clientX = 0, clientY = 0;
+		let clientX = 0,
+			clientY = 0;
 		if (window.TouchEvent && event instanceof TouchEvent) {
 			clientX = event.touches[0].clientX;
 			clientY = event.touches[0].clientY;
-		} else if(event instanceof PointerEvent) {
+		} else if (event instanceof PointerEvent) {
 			clientX = event.clientX;
 			clientY = event.clientY;
 		}
@@ -80,11 +81,12 @@
 
 	const onPointerDown = (event: PointerEvent | TouchEvent) => {
 		isDragging = true;
-		let clientX = 0, clientY = 0;
+		let clientX = 0,
+			clientY = 0;
 		if (window.TouchEvent && event instanceof TouchEvent) {
 			clientX = event.touches[0].clientX;
 			clientY = event.touches[0].clientY;
-		} else if(event instanceof PointerEvent) {
+		} else if (event instanceof PointerEvent) {
 			clientX = event.clientX;
 			clientY = event.clientY;
 		}
@@ -159,16 +161,11 @@
 <T.DirectionalLight
 	intensity={2}
 	position={[-pos * 10 + 5, 2 + pos * 3, 2]}
+	castShadow
+	shadow.bias={0.0001}
+	shadow.mapSize.width={256}
+	shadow.mapSize.height={256}
 />
-<!-- castShadow
-shadow.bias={0.00001}
-shadow.normalBias={0.05}
-shadow.mapSize.width={1024}
-shadow.mapSize.height={1024}
-shadow.camera.left={-3}
-shadow.camera.right={1}
-shadow.camera.top={3}
-shadow.camera.bottom={-1} -->
 
 <SheetObject key="planet" let:Transform let:Sync>
 	<Transform>
@@ -200,8 +197,6 @@ shadow.camera.bottom={-1} -->
 		</T.Group>
 	</Transform>
 </SheetObject>
-
-<!-- <Environment files="aerodynamics_workshop_1k.hdr" /> -->
 
 <!-- <CustomRenderer /> -->
 

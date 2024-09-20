@@ -1,12 +1,21 @@
 import svelteswipecards from '$lib/images/projects-new/svelte-swiper-cards-demo.mp4';
 import fluidtexteffect from '$lib/images/projects-new/text-effect-fluid-demo.mp4';
+import life from '$lib/images/projects-new/life/life-demo.mp4';
 import fake3d from '$lib/images/projects-new/depth3dcomponent/depth3dcomponent.mp4';
 import hyperlumen from '$lib/images/projects-new/hyperlumen-demo.mp4';
 import marblellous from '$lib/images/projects-new/marblellous-demo.mp4';
-import oldcode from '$lib/images/projects-new/old-code-demo.mp4';
+import oldcode from '$lib/images/projects-new/old-code/old-code-demo.mp4';
 // import autostereogramrenderer from '$lib/images/projects-new/autostereogram-renderer-demo.mp4';
-// import mandala from '$lib/images/projects-new/mandala-demo.mp4';
+import mandala from '$lib/images/projects-new/mandala-demo.mp4';
 import threltevrcodeeditor from '$lib/images/projects-new/threlte-vr-code-editor-demo.mp4';
+import tinyplanets from '$lib/images/projects-new/tiny-planets/tiny-planets-demo.mp4';
+
+// @ts-expect-error - module not found
+import oldcode1 from '$lib/images/projects-new/old-code/image1.png?w=1024&format=webp';
+// @ts-expect-error - module not found
+import oldcode2 from '$lib/images/projects-new/old-code/image2.png?w=1024&format=webp';
+// @ts-expect-error - module not found
+import oldcode3 from '$lib/images/projects-new/old-code/image4.png?w=1024&format=webp';
 
 // @ts-expect-error - module not found
 import hyperlumen1 from '$lib/images/projects-new/hyperlumen/1.jpg?w=1024&format=webp';
@@ -26,13 +35,28 @@ import shadowshmup3 from '$lib/images/projects-new/shmup/image3.png?w=1024&forma
 // @ts-expect-error - module not found
 import shadowshmup4 from '$lib/images/projects-new/shmup/image4.png?w=1024&format=webp';
 
+// @ts-expect-error - module not found
+import life1 from '$lib/images/projects-new/life/image1.png?w=1024&format=webp';
+// @ts-expect-error - module not found
+import life2 from '$lib/images/projects-new/life/image2.png?w=1024&format=webp';
+// @ts-expect-error - module not found
+import life3 from '$lib/images/projects-new/life/image3.png?w=1024&format=webp';
+// @ts-expect-error - module not found
+import life4 from '$lib/images/projects-new/life/image4.png?w=1024&format=webp';
+
+// @ts-expect-error - module not found
+import tinyplanets1 from '$lib/images/projects-new/tiny-planets/image1.png?w=1024&format=webp';
+// @ts-expect-error - module not found
+import tinyplanets2 from '$lib/images/projects-new/tiny-planets/image2.png?w=1024&format=webp';
+// @ts-expect-error - module not found
+import tinyplanets3 from '$lib/images/projects-new/tiny-planets/image3.png?w=1024&format=webp';
+
 import shadowshmup from '$lib/images/projects-new/shmup/shadow-shmup-demo.mp4';
 
 export type Project = {
 	src: string;
 	key: string;
 	name: string;
-	alt: string;
 
 	href?: string;
 	aspect?: string;
@@ -52,9 +76,20 @@ export type Project = {
 
 export const projects: Project[] = [
 	{
+		src: tinyplanets,
+		key: 'tiny-planets',
+		projectUrl: 'https://flo-bit.github.io/tiny-planets/',
+		aspect: 'aspect-[1]',
+		name: 'tiny planets',
+		codeUrl: 'https://github.com/flo-bit/tiny-planets',
+		images: [tinyplanets1, tinyplanets2, tinyplanets3],
+		description: 'procedurally generated tiny planets made with three.js.',
+		projectPageVersion: 'tiered',
+		tags: ['three.js', 'typescript', '3d', 'procedural generation']
+	},
+	{
 		src: svelteswipecards,
 		key: 'svelte-swiper-cards',
-		alt: 'svelte-swiper-cards',
 		href: 'https://flo-bit.github.io/svelte-swiper-cards/',
 
 		projectUrl: 'https://flo-bit.github.io/svelte-swiper-cards/',
@@ -77,10 +112,24 @@ export const projects: Project[] = [
 			'modern (uses @use-gesture/vanilla for gestures)'
 		]
 	},
+
+	{
+		src: mandala,
+		key: 'svg-mandala',
+		projectUrl: 'https://flo-bit.github.io/mandala/',
+		aspect: 'aspect-1',
+		name: 'svg mandala drawer',
+		description:
+			'one of my earlier projects, draw svg mandalas in the browser. works on mobile too. made with paperjs and bulma. try the interactive demo above!',
+		tags: ['svg', 'paperjs', 'javascript', 'bulma'],
+		projectPageVersion: 'full',
+		demo: 'mandala',
+		codeUrl: 'https://github.com/flo-bit/mandala'
+	},
+
 	{
 		src: fluidtexteffect,
 		key: 'text-effect-fluid',
-		alt: 'Text Fluid Effect',
 		projectUrl: 'https://flo-bit.github.io/text_effect_fluid/',
 		aspect: 'aspect-[23/9]',
 		name: 'fluid text effect',
@@ -91,23 +140,8 @@ export const projects: Project[] = [
 		demo: 'fluid'
 	},
 	{
-		src: shadowshmup,
-		key: 'shadow-shmup',
-		codeUrl: 'https://flo-bit.github.io/shadow-shmup/',
-		alt: 'shadow shmup',
-		aspect: 'aspect-[13/9]',
-		name: 'shadow shmup',
-		description:
-			"fun and casual top-down, roguelike shoot 'em up with shadow elements and colorful neon effects. made for piratejam 2024",
-		tags: ['game', '2d', 'pixijs', 'rapier2d', 'typescript'],
-		images: [shadowshmup1, shadowshmup2, shadowshmup3, shadowshmup4],
-		projectPageVersion: 'carousel',
-		projectUrl: 'https://flo-bit.itch.io/shadow-shmup'
-	},
-	{
 		src: hyperlumen,
 		key: 'hyperlumen',
-		alt: 'Hyperlumen',
 
 		projectUrl: 'https://hyperlumen.de',
 
@@ -142,20 +176,70 @@ export const projects: Project[] = [
 	// 	codeUrl: 'https://github.com/flo-bit/mandala'
 	// },
 	{
+		src: shadowshmup,
+		key: 'shadow-shmup',
+		codeUrl: 'https://flo-bit.github.io/shadow-shmup/',
+		aspect: 'aspect-[13/9]',
+		name: 'shadow shmup',
+		description:
+			"fun and casual top-down, roguelike shoot 'em up with shadow elements and colorful neon effects. made for piratejam 2024",
+		tags: ['game', '2d', 'pixijs', 'rapier2d', 'typescript'],
+		images: [shadowshmup1, shadowshmup2, shadowshmup3, shadowshmup4],
+		projectPageVersion: 'carousel',
+		projectUrl: 'https://flo-bit.itch.io/shadow-shmup'
+	},
+	{
 		src: fake3d,
 		key: 'depth3dcomponent',
-		alt: 'depth3dcomponent',
 		projectUrl: 'https://flo-bit.github.io/svelte-depth-3d-component/',
 		aspect: 'aspect-[9/16]',
 		name: 'svelte depth 3d component',
-		description: 'turns an image plus depth map into a kind of 3d image. made for svelte.',
+		description:
+			'turns an image plus depth map into a kind of 3d image. made for svelte. click on the image to switch between images.',
 		codeUrl: 'https://github.com/flo-bit/svelte-depth-3d-component',
-		tags: ['svelte', 'depthmap', '3d', 'threlte']
+		tags: ['svelte', 'depthmap', '3d', 'threlte'],
+		projectPageVersion: 'tiered',
+		demo: 'depth3d'
 	},
+	{
+		src: life,
+		key: 'life',
+		projectUrl: 'https://flo-bit.itch.io/life',
+		aspect: 'aspect-[15/9]',
+		name: 'life',
+		description:
+			'made for gmtk jam 2024. relaxing spore/fl0w/agario-like game with a nature documentary vibe. eat, grow, evolve.',
+		projectPageVersion: 'grid',
+		images: [life1, life2, life3, life4],
+		tags: ['game', '2d', 'pixijs', 'gamejam', 'typescript']
+	},
+
+	{
+		src: oldcode,
+		key: 'old-code',
+		projectUrl: 'https://flo-bit.github.io/old-code/',
+		aspect: 'aspect-[16/11]',
+		name: 'old coding projects',
+		codeUrl: 'https://github.com/flo-bit/old-code',
+		description: 'a collection of my old coding projects. mostly procedural art made with p5.js',
+		tags: ['p5.js', 'javascript', 'game', 'art', 'flowfield'],
+		images: [oldcode1, oldcode2, oldcode3],
+		projectPageVersion: 'tiered'
+	},
+	{
+		src: threltevrcodeeditor,
+		key: 'vr-code-editor',
+		aspect: 'aspect-[16/11]',
+		name: 'vr code editor',
+		description: 'a code editor in virtual reality made with threlte.',
+		codeUrl: 'https://github.com/flo-bit/threlte-vr-code-editor',
+		highlights: ['works with hot module replacement'],
+		tags: ['threlte', 'svelte', 'vr', 'typescript', 'code editor']
+	},
+
 	{
 		src: marblellous,
 		key: 'marblellous',
-		alt: 'marblellous',
 		projectUrl: 'https://flo-bit.github.io/ball-game/',
 		aspect: 'aspect-[9/10]',
 		name: 'marblellous',
@@ -163,29 +247,6 @@ export const projects: Project[] = [
 			'simple 3d browser game made with threlte. inspired by the game "marble blast gold". work in progress.',
 		codeUrl: 'https://github.com/flo-bit/ball-game',
 		tags: ['threlte', 'svelte', '3d', 'typescript', 'game']
-	},
-	{
-		src: oldcode,
-		key: 'old-code',
-		alt: 'old projects',
-		projectUrl: 'https://flo-bit.github.io/old-code/',
-		aspect: 'aspect-[16/11]',
-		name: 'old coding projects',
-		codeUrl: 'https://github.com/flo-bit/old-code',
-		description: 'a collection of my old coding projects. mostly made with p5.js',
-		tags: ['p5.js', 'javascript', 'game', 'art', 'flowfield']
-	},
-	{
-		src: threltevrcodeeditor,
-		key: 'vr-code-editor',
-		alt: 'vr code editor',
-		projectUrl: 'https://github.com/flo-bit/threlte-vr-code-editor',
-		aspect: 'aspect-[16/11]',
-		name: 'vr code editor',
-		description: 'a code editor in virtual reality made with threlte.',
-		codeUrl: 'https://github.com/flo-bit/threlte-vr-code-editor',
-		highlights: ['works with hot module replacement'],
-		tags: ['threlte', 'svelte', 'vr', 'typescript', 'code editor']
 	}
 	// {
 	// 	src: autostereogramrenderer,

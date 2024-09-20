@@ -37,7 +37,7 @@
 				<div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg">
 					<img
 						src={project.images[0]}
-						alt="Model wearing light green backpack with black canvas straps and front zipper pouch."
+						alt=""
 						class="h-full w-full object-cover object-center"
 					/>
 				</div>

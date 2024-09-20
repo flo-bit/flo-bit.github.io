@@ -54,7 +54,7 @@
 	$: shownArticles = showAll ? articles : [...articles].slice(0, 4);
 </script>
 
-<div class="relative isolate overflow-hidden bg-black">
+<div class="relative isolate overflow-hidden bg-background">
 	<div class="mx-auto max-w-5xl px-6 lg:px-8">
 		<div id="articles" class="py-16 md:py-32 section">
 			<div class="max-w-2xl">

@@ -1,4 +1,4 @@
-<footer class="bg-black relative isolate">
+<footer class="bg-background relative isolate">
 	<div class="mx-auto max-w-7xl overflow-hidden px-6 py-12 pb-20 sm:pb-12 lg:px-8">
 		<p
 			class="mt-4 flex items-center justify-center text-center text-xs leading-5 text-zinc-500 dark:text-zinc-400 gap-1"

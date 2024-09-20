@@ -2,7 +2,7 @@ import { IcosahedronGeometry, Vector3, BufferAttribute } from "three";
 
 import { Biome, type BiomeOptions } from "./biome";
 import { type PlanetOptions } from "./planet";
-import UberNoise from "./helper/uber-noise";
+import UberNoise from 'uber-noise';
 
 onmessage = function (e) {
   const { type, data, requestId } = e.data;

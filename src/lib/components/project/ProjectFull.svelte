@@ -20,7 +20,7 @@
 						title="fluid text effect demo"
 						class="w-full h-full"
 					/>
-					{:else if project.demo == 'mandala'}
+				{:else if project.demo == 'mandala'}
 					<iframe
 						src="https://flo-bit.github.io/mandala/"
 						title="fluid text effect demo"
@@ -29,7 +29,7 @@
 				{:else if project.images}
 					<img
 						src={project.images[0]}
-						alt="Two each of neutral, white, and black shirts laying flat."
+						alt=""
 						class="h-full w-full object-cover object-center"
 					/>
 				{/if}

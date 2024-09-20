@@ -15,6 +15,11 @@
 			date: '2024-07'
 		},
 		{
+			title: 'rapier',
+			description: 'explored the internals of the physics engine rapier for a game engine i\'m working on.',
+			date: '2024-06',
+		},
+		{
 			title: 'supabase',
 			description:
 				'started using supabase for a few projects. still prefer mongodb as a database, but it has some cool features.',
@@ -75,7 +80,7 @@
 	$: shownLearnings = showAll ? learnings : [...learnings].slice(0, 3);
 </script>
 
-<div class="relative isolate overflow-hidden bg-black">
+<div class="relative isolate overflow-hidden bg-background">
 	<div class="mx-auto max-w-5xl px-6 lg:px-8">
 		<div id="learning" class="py-16 md:py-32 section">
 			<div class="max-w-2xl">
@@ -84,7 +89,7 @@
 				</h1>
 				<p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
 					one of the things i love most about programming is that there's always something new to
-					learn. i try to learn something new every month. here's a selection of some of the things i've been
+					learn. here's a selection of some of the things i've been
 					learning lately:
 				</p>
 			</div>

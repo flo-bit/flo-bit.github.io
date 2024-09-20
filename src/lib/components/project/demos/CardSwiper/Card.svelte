@@ -15,7 +15,7 @@
 >
 	{#key image}
 		{#if image}
-			<img class="w-full h-full rounded-xl object-cover" src={image} alt={title} />
+			<img class="w-full h-full rounded-xl object-cover" src={image} alt="" />
 		{/if}
 	{/key}
 	<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 rounded-b-xl"></div>

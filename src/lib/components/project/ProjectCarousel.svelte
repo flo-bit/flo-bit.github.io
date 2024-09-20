@@ -55,7 +55,7 @@
 							<img
 							transition:fade
 								src={project.images[selectedImage]}
-								alt="Angled front view with bag zipped and handles upright."
+								alt=""
 								class="h-full w-full object-cover object-center sm:rounded-xl"
 							/>
 
