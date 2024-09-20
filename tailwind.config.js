@@ -6,7 +6,8 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				accent: colors.cyan
+				accent: colors.cyan,
+				background: '#010205'
 			},
 			gridTemplateRows: {
 				'[auto,auto,1fr]': 'auto auto 1fr'

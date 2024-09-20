@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { T, useTask } from '@threlte/core';
-
-	import UberNoise from './uber-noise';
-	import { Color } from 'three';
+	import UberNoise from 'uber-noise';
 
 	const count = 5000;
 	const maxHeight = 30;

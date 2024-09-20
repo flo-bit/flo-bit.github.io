@@ -14,37 +14,37 @@
 		<!-- Image gallery -->
 		{#if project.images}
 			<div
-				class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-5xl lg:grid-cols-3 lg:gap-x-8 lg:px-8"
+				class="mx-auto mt-6 max-w-2xl sm:px-6 md:grid md:max-w-5xl md:grid-cols-3 md:gap-x-8 md:px-8"
 			>
-				<div class="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-xl lg:block">
+				<div class="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-xl md:block border border-white/10">
 					<img
 						src={project.images[0]}
-						alt="Two each of neutral, white, and black shirts laying flat."
+						alt=""
 						class="h-full w-full object-cover object-center"
 					/>
 				</div>
-				<div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-					<div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-xl">
+				<div class="hidden md:grid md:grid-cols-1 md:gap-y-8">
+					<div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-xl border border-white/10">
 						<img
 							src={project.images[1]}
-							alt="Model wearing plain black basic tee."
+							alt=""
 							class="h-full w-full object-cover object-center"
 						/>
 					</div>
-					<div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-xl">
+					<div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-xl border border-white/10">
 						<img
 							src={project.images[2]}
-							alt="Model wearing plain neutral basic tee."
+							alt=""
 							class="h-full w-full object-cover object-center"
 						/>
 					</div>
 				</div>
 				<div
-					class="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-xl"
+					class="aspect-h-5 aspect-w-4 md:aspect-h-4 md:aspect-w-3 sm:overflow-hidden sm:rounded-xl border border-white/10"
 				>
 					<img
 						src={project.images[3]}
-						alt="Model wearing plain white basic tee."
+						alt=""
 						class="h-full w-full object-cover object-center"
 					/>
 				</div>
@@ -53,16 +53,16 @@
 
 		<!-- Product info -->
 		<div
-			class="mx-auto max-w-2xl px-4 pb-0 pt-10 sm:px-6 lg:grid lg:max-w-5xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16"
+			class="mx-auto max-w-2xl px-4 pb-0 pt-10 sm:px-6 md:grid md:max-w-5xl md:grid-cols-3 md:grid-rows-[auto,auto,1fr] md:gap-x-8 md:px-8 md:pb-24 md:pt-16"
 		>
-			<div class="lg:col-span-2 lg:border-r lg:border-neutral-200 dark:border-neutral-800 lg:pr-8">
+			<div class="md:col-span-2 md:border-r md:border-neutral-200 dark:border-neutral-800 md:pr-8">
 				<h1 class="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-3xl">
 					{project.name}
 				</h1>
 			</div>
 
 			<!-- Options -->
-			<div class="mt-4 lg:row-span-3 lg:mt-0">
+			<div class="mt-4 md:row-span-3 md:mt-0">
 				<h2 class="sr-only">project information</h2>
 
 				<div class="mt-0">
@@ -84,7 +84,7 @@
 			</div>
 
 			<div
-				class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-neutral-200 dark:border-neutral-800 lg:pb-16 lg:pr-8 lg:pt-6"
+				class="py-10 md:col-span-2 md:col-start-1 md:border-r md:border-neutral-200 dark:border-neutral-800 md:pb-16 md:pr-8 md:pt-6"
 			>
 				<!-- Description and details -->
 				<div>
@@ -128,25 +128,25 @@
 		</div>
 
 		{#if project.images}
-			<div class="mx-auto mt-6 max-w-2xl sm:px-6 lg:hidden pb-24">
-				<div class="aspect-h-4 aspect-w-3 overflow-hidden sm:rounded-xl">
+			<div class="mx-auto mt-6 max-w-2xl sm:px-6 md:hidden pb-24">
+				<div class="aspect-h-4 aspect-w-3 overflow-hidden sm:rounded-xl  border border-white/10">
 					<img
 						src={project.images[0]}
-						alt="Two each of neutral, white, and black shirts laying flat."
+						alt=""
 						class="h-full w-full object-cover object-center"
 					/>
 				</div>
-				<div class="aspect-h-2 aspect-w-3 overflow-hidden sm:rounded-xl mt-4">
+				<div class="aspect-h-2 aspect-w-3 overflow-hidden sm:rounded-xl mt-4  border border-white/10">
 					<img
 						src={project.images[1]}
-						alt="Model wearing plain black basic tee."
+						alt=""
 						class="h-full w-full object-cover object-center"
 					/>
 				</div>
-				<div class="aspect-h-2 aspect-w-3 overflow-hidden sm:rounded-xl mt-4">
+				<div class="aspect-h-2 aspect-w-3 overflow-hidden sm:rounded-xl mt-4  border border-white/10">
 					<img
 						src={project.images[2]}
-						alt="Model wearing plain neutral basic tee."
+						alt=""
 						class="h-full w-full object-cover object-center"
 					/>
 				</div>

@@ -165,10 +165,6 @@
 	shadow.bias={0.0001}
 	shadow.mapSize.width={256}
 	shadow.mapSize.height={256}
-	shadow.camera.left={-3}
-	shadow.camera.right={1}
-	shadow.camera.top={3}
-	shadow.camera.bottom={-1}
 />
 
 <SheetObject key="planet" let:Transform let:Sync>

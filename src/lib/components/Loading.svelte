@@ -68,7 +68,7 @@
 			</g>
 		</svg>
 	{/if}
-	<div class="absolute bg-black h-screen w-full z-10 background"></div>
+	<div class="absolute bg-background h-screen w-full z-10 background"></div>
 </div>
 
 <style>

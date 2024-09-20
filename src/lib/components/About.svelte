@@ -9,7 +9,7 @@
 	import Resume from './Resume.svelte';
 </script>
 
-<div class="relative isolate overflow-hidden bg-black">
+<div class="relative isolate overflow-hidden bg-background">
 	<div class="mx-auto max-w-5xl px-6 lg:px-8">
 		<div id="about" class="py-16 md:py-32 section">
 			<div class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">

@@ -10,9 +10,9 @@
     let planet = new Planet({ preset: 'beach' });
     let planetMesh = suspend(planet.create());
     
-    export const redo = () => {
+    export const redo = async () => {
         planet = new Planet({ preset: presets[Math.floor(Math.random() * presets.length)] });
-        planetMesh = suspend(planet.create());
+        planetMesh = planet.create();
     }
 </script>
 

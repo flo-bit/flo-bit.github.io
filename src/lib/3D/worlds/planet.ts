@@ -150,34 +150,30 @@ export class Planet {
 
       if (!positions) continue;
 
-      let item = this.biomeOptions.vegetation?.items[i];
+      const item = this.biomeOptions.vegetation?.items[i];
 
-      for (const position of positions) {
-        const model = models[Math.floor(Math.random() * models.length)].clone();
-        model.position.set(0, 1, 0);
-        this.updatePosition(
-          model,
-          new Vector3(position.x, position.y, position.z),
-        );
-        model.scale.setScalar(0.04);
+			for (const position of positions) {
+				const model = models[Math.floor(Math.random() * models.length)].clone();
+				model.position.set(0, 1, 0);
+				this.updatePosition(model, new Vector3(position.x, position.y, position.z));
+				model.scale.setScalar(0.04);
 
-        model.traverse((child) => {
-          if (child instanceof Mesh) {
-            let color = item?.colors?.[child.material.name];
-            if (color && color.array) {
-              let randomColor =
-                color.array[Math.floor(Math.random() * color.array.length)];
-              child.material.color.setHex(randomColor);
-            }
+				model.traverse((child: Object3D) => {
+					if (child instanceof Mesh) {
+						const color = item?.colors?.[child.material.name];
+						if (color?.array) {
+							const randomColor = color.array[Math.floor(Math.random() * color.array.length)];
+							child.material.color.setHex(randomColor);
+						}
 
-            if (child.material.name === "Snow") {
-              child.material.roughness = 0.2;
-              child.material.color.setHex(0xffffff);
-            }
-          }
-        });
-        planet.add(model);
-      }
+						if (child.material.name === 'Snow') {
+							child.material.roughness = 0.2;
+							child.material.color.setHex(0xffffff);
+						}
+					}
+				});
+				planet.add(model);
+			}
     }
 
     return planetPromise;

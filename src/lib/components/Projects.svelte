@@ -3,7 +3,7 @@
 	import { projects } from '$lib/projects';
 </script>
 
-<div id="projects" class="z-20 py-16 md:py-32 section bg-black relative isolate">
+<div id="projects" class="z-20 py-16 md:py-32 section bg-background relative isolate">
 	<div class="mx-auto max-w-5xl px-6 lg:px-8">
 		<div class="max-w-2xl mb-8">
 			<h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
@@ -16,11 +16,11 @@
 			</p>
 		</div>
 
-		<div class="columns-2 sm:columns-3 lg:columns-3 gap-8 group/projects">
+		<div class="columns-2 sm:columns-3 lg:columns-3 gap-8 group/projects pointer-events-none">
 			{#each projects as project}
 				<div
 					class="group relative break-inside-avoid-column {project.aspect ??
-						'aspect-square'} group-hover/projects:opacity-30 group-focus/projects:opacity-30 hover:!opacity-100 mb-8 w-full flex-none overflow-hidden rounded-xl ring-1 ring-white/10 focus:ring-accent-500 focus:!opacity-100 sm:rounded-2xl transition-opacity duration-500"
+						'aspect-square'} pointer-events-auto group-hover/projects:opacity-30 group-focus/projects:opacity-30 hover:!opacity-100 mb-8 w-full flex-none overflow-hidden rounded-xl ring-1 ring-white/10 focus:ring-accent-500 focus:!opacity-100 sm:rounded-2xl transition-opacity duration-500"
 				>
 					{#if project.src.endsWith('.mp4')}
 						<video
