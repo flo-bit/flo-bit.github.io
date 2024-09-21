@@ -2,11 +2,11 @@
 
 this is my portfolio, created using sveltekit, threlte, threejs and tailwind. wip.
 
+## demos
+
 [see it live here](https://flo-bit.github.io/)
 
 [vr version here](https://flo-bit.github.io/vr) (only tested on quest 3)
-
-## demos
 
 ![screenshot](/static/image.jpg)
 
