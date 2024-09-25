@@ -28,7 +28,7 @@
 							loop
 							muted
 							playsinline
-							class="absolute inset-0 h-full w-full object-cover rounded-xl"
+							class="absolute inset-0 h-full w-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-200"
 							preload="none"
 						>
 							<source src={project.src} type="video/mp4" />

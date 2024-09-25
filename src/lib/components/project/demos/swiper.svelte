@@ -2,59 +2,58 @@
 	import { onMount } from 'svelte';
 	import { CardSwiper } from './CardSwiper';
 
-    //@ts-expect-error - not found
-    import person1 from './CardSwiper/images/1.jpg?format=webp&w=512';
-    //@ts-expect-error - not found
-    import person2 from './CardSwiper/images/2.jpg?format=webp&w=512';
-    //@ts-expect-error - not found
-    import person3 from './CardSwiper/images/3.jpg?format=webp&w=512';
-    //@ts-expect-error - not found
-    import person4 from './CardSwiper/images/4.jpg?format=webp&w=512';
-    //@ts-expect-error - not found
-    import person5 from './CardSwiper/images/5.jpg?format=webp&w=512';
-    //@ts-expect-error - not found
-    import person6 from './CardSwiper/images/6.jpg?format=webp&w=512';
-    //@ts-expect-error - not found
-    import person7 from './CardSwiper/images/7.jpg?format=webp&w=512';
-    //@ts-expect-error - not found
-    import person8 from './CardSwiper/images/8.jpg?format=webp&w=512';
-    //@ts-expect-error - not found
-    import person9 from './CardSwiper/images/9.jpg?format=webp&w=512';
+	//@ts-expect-error - not found
+	import person1 from './CardSwiper/images/1.jpg?format=webp&w=512';
+	//@ts-expect-error - not found
+	import person2 from './CardSwiper/images/2.jpg?format=webp&w=512';
+	//@ts-expect-error - not found
+	import person3 from './CardSwiper/images/3.jpg?format=webp&w=512';
+	//@ts-expect-error - not found
+	import person4 from './CardSwiper/images/4.jpg?format=webp&w=512';
+	//@ts-expect-error - not found
+	import person5 from './CardSwiper/images/5.jpg?format=webp&w=512';
+	//@ts-expect-error - not found
+	import person6 from './CardSwiper/images/6.jpg?format=webp&w=512';
+	//@ts-expect-error - not found
+	import person7 from './CardSwiper/images/7.jpg?format=webp&w=512';
+	//@ts-expect-error - not found
+	import person8 from './CardSwiper/images/8.jpg?format=webp&w=512';
+	//@ts-expect-error - not found
+	import person9 from './CardSwiper/images/9.jpg?format=webp&w=512';
 
-    let people = [person1, person2, person3, person4, person5, person6, person7, person8, person9];
+	let people = [person1, person2, person3, person4, person5, person6, person7, person8, person9];
 
-    function getRandomPerson(): { firstName: string; lastName: string; age: number } {
-  const firstNames = ['John', 'Jane', 'Alice', 'Bob', 'Mary', 'Tom'];
-  const lastNames = ['Smith', 'Doe', 'Johnson', 'White', 'Brown', 'Davis'];
-  
-  const firstNameIndex = Math.floor(Math.random() * firstNames.length);
-  const lastNameIndex = Math.floor(Math.random() * lastNames.length);
-  
-  const age = Math.floor(Math.random() * (60 - 18 + 1)) + 18;
-  
-  return {
-    firstName: firstNames[firstNameIndex],
-    lastName: lastNames[lastNameIndex],
-    age: age
-  };
-}
+	function getRandomPerson(): { firstName: string; lastName: string; age: number } {
+		const firstNames = ['John', 'Jane', 'Alice', 'Bob', 'Mary', 'Tom'];
+		const lastNames = ['Smith', 'Doe', 'Johnson', 'White', 'Brown', 'Davis'];
 
+		const firstNameIndex = Math.floor(Math.random() * firstNames.length);
+		const lastNameIndex = Math.floor(Math.random() * lastNames.length);
+
+		const age = Math.floor(Math.random() * (60 - 18 + 1)) + 18;
+
+		return {
+			firstName: firstNames[firstNameIndex],
+			lastName: lastNames[lastNameIndex],
+			age: age
+		};
+	}
 
 	let data = (index: number) => {
-        let person = getRandomPerson();
+		let person = getRandomPerson();
 		return {
 			title: `${person.firstName} ${person.lastName}, ${person.age}`,
 			description: 'swipe left or right',
-            image: people[index % people.length]
+			image: people[index % people.length]
 		};
 	};
 
-    onMount(() => {
-        // preload images
-        people.forEach((person) => {
-            new Image().src = person;
-        });
-    });
+	onMount(() => {
+		// preload images
+		people.forEach((person) => {
+			new Image().src = person;
+		});
+	});
 </script>
 
 <CardSwiper cardData={data} />
