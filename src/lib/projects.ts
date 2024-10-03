@@ -78,7 +78,7 @@ export const projects: Project[] = [
 	{
 		src: tinyplanets,
 		key: 'tiny-planets',
-		projectUrl: 'https://flo-bit.github.io/tiny-planets/',
+		projectUrl: 'https://flo-bit.dev/tiny-planets/',
 		aspect: 'aspect-[1]',
 		name: 'tiny planets',
 		codeUrl: 'https://github.com/flo-bit/tiny-planets',
@@ -90,9 +90,9 @@ export const projects: Project[] = [
 	{
 		src: svelteswipecards,
 		key: 'svelte-swiper-cards',
-		href: 'https://flo-bit.github.io/svelte-swiper-cards/',
+		href: 'https://flo-bit.dev/svelte-swiper-cards/',
 
-		projectUrl: 'https://flo-bit.github.io/svelte-swiper-cards/',
+		projectUrl: 'https://flo-bit.dev/svelte-swiper-cards/',
 
 		aspect: 'aspect-[9/18]',
 		name: 'svelte swipable cards',
@@ -116,7 +116,7 @@ export const projects: Project[] = [
 	{
 		src: mandala,
 		key: 'svg-mandala',
-		projectUrl: 'https://flo-bit.github.io/mandala/',
+		projectUrl: 'https://flo-bit.dev/mandala/',
 		aspect: 'aspect-1',
 		name: 'svg mandala drawer',
 		description:
@@ -130,7 +130,7 @@ export const projects: Project[] = [
 	{
 		src: fluidtexteffect,
 		key: 'text-effect-fluid',
-		projectUrl: 'https://flo-bit.github.io/text_effect_fluid/',
+		projectUrl: 'https://flo-bit.dev/text_effect_fluid/',
 		aspect: 'aspect-[23/9]',
 		name: 'fluid text effect',
 		codeUrl: 'https://github.com/flo-bit/text_effect_fluid',
@@ -165,7 +165,7 @@ export const projects: Project[] = [
 	// 	src: mandala,
 	// 	key: 'svg-mandala',
 	// 	alt: 'svg mandala drawer',
-	// 	projectUrl: 'https://flo-bit.github.io/mandala/',
+	// 	projectUrl: 'https://flo-bit.dev/mandala/',
 	// 	aspect: 'aspect-1',
 	// 	name: 'svg mandala drawer',
 	// 	description:
@@ -178,7 +178,7 @@ export const projects: Project[] = [
 	{
 		src: shadowshmup,
 		key: 'shadow-shmup',
-		codeUrl: 'https://flo-bit.github.io/shadow-shmup/',
+		codeUrl: 'https://flo-bit.dev/shadow-shmup/',
 		aspect: 'aspect-[13/9]',
 		name: 'shadow shmup',
 		description:
@@ -191,7 +191,7 @@ export const projects: Project[] = [
 	{
 		src: fake3d,
 		key: 'depth3dcomponent',
-		projectUrl: 'https://flo-bit.github.io/svelte-depth-3d-component/',
+		projectUrl: 'https://flo-bit.dev/svelte-depth-3d-component/',
 		aspect: 'aspect-[9/16]',
 		name: 'svelte depth 3d component',
 		description:
@@ -217,7 +217,7 @@ export const projects: Project[] = [
 	{
 		src: oldcode,
 		key: 'old-code',
-		projectUrl: 'https://flo-bit.github.io/old-code/',
+		projectUrl: 'https://flo-bit.dev/old-code/',
 		aspect: 'aspect-[16/11]',
 		name: 'old coding projects',
 		codeUrl: 'https://github.com/flo-bit/old-code',
@@ -240,7 +240,7 @@ export const projects: Project[] = [
 	{
 		src: marblellous,
 		key: 'marblellous',
-		projectUrl: 'https://flo-bit.github.io/ball-game/',
+		projectUrl: 'https://flo-bit.dev/ball-game/',
 		aspect: 'aspect-[9/10]',
 		name: 'marblellous',
 		description:
@@ -252,7 +252,7 @@ export const projects: Project[] = [
 	// 	src: autostereogramrenderer,
 	// 	key: 'autostereogram-renderer',
 	// 	alt: 'autostereogram renderer',
-	// 	projectUrl: 'https://flo-bit.github.io/autostereogram-renderer/',
+	// 	projectUrl: 'https://flo-bit.dev/autostereogram-renderer/',
 	// 	codeUrl: 'https://github.com/flo-bit/autostereogram-renderer',
 	// 	aspect: 'aspect-1',
 	// 	name: 'autostereogram renderer',
