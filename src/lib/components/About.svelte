@@ -37,31 +37,28 @@
 				</div>
 				<div class="lg:order-first lg:row-span-2">
 					<h1
-						class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+						class="text-4xl font-bold tracking-tight text-zinc-800 sm:leading-[3.5rem] dark:text-zinc-100 sm:text-5xl"
 					>
-						hey there, i'm florian. i live in berlin, where i create things for the web.
+						i'm florian. i live in berlin, where i create things for the web.
 					</h1>
 					<div class="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
 						<p>
-							i was one of the only kids in my class without a game console, but we did have a computer.
-							when i was 12, I got a coding book for christmas and started making my own games in C and
-							opengl. though i never finished any of those early projects, i got hooked on
-							programming.
+							i was one of the only kids in my class without a game console, but we did have a
+							computer. when i was 12, I got a coding book for christmas and started making my own
+							games in C and opengl. though i never finished any of those early projects, i got
+							hooked on programming.
 						</p>
 						<p>
-							after school, I started studying computer science and started working as a software developer. 
-							i really love the web because it's so accessible — anyone with a device and internet can
-							access your work instantly. publishing and sharing your work is also pretty simple,
-							whether as a website, a pwa, or a serverless function/api.
+							after school, I started studying computer science and started working as a software
+							developer. i really love the web because it's so accessible — anyone with a device and
+							internet can access your work instantly. publishing and sharing your work is also
+							pretty simple, whether as a website, a pwa, or a serverless function/api.
 						</p>
 						<p>
-							in my free time, i build lots of web-based projects. i really like the
-							intersection of design and development. I love learning new things and am always
-							looking for new cool projects. 
-							If you want to build something together or just want to connect, feel free to <a
-								href="#contact"
-								class="text-cyan-400 hover:text-cyan-300 font-semibold"
-							>
+							in my free time, i build lots of web-based projects. i really like the intersection of
+							design and development. I love learning new things and am always looking for new cool
+							projects. If you want to build something together or just want to connect, feel free
+							to <a href="#contact" class="text-cyan-400 hover:text-cyan-300 font-semibold">
 								reach out.
 							</a>
 						</p>

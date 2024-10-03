@@ -34,7 +34,7 @@
 								: ''} lg:gap-8"
 						>
 							{#if project.demo == 'swiper'}
-								<div class="rounded-xl h-[60vh] md:h-[70vh] lg:col-span-2 lg:row-span-2">
+								<div class="rounded-xl h-full lg:col-span-2 lg:row-span-2">
 									<Swiper />
 								</div>
 							{:else if project.demo == 'autostereogram'}

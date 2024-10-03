@@ -19,3 +19,4 @@
 - featured project?
 - autumn planet
 - halloween planet
+- accessibility (keyboard navigation, focus styles, check audio version)
