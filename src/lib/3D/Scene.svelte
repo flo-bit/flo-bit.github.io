@@ -157,10 +157,10 @@
 	</Transform>
 </SheetObject>
 
-<T.AmbientLight intensity={0.2} />
+<T.AmbientLight intensity={0.1} />
 <T.DirectionalLight
 	intensity={2}
-	position={[-pos * 10 + 5, 2 + pos * 3, 2]}
+	position={[5, 2, 2]}
 	castShadow
 	shadow.bias={0.0001}
 	shadow.mapSize.width={256}
