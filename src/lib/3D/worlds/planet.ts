@@ -1,247 +1,283 @@
 import {
-	BufferGeometry,
-	Float32BufferAttribute,
-	Mesh,
-	MeshStandardMaterial,
-	Object3D,
-	Quaternion,
-	Vector3,
-	IcosahedronGeometry
-} from 'three';
-import { Biome, type BiomeOptions } from './biome';
-import { loadModels } from './models';
+  BufferGeometry,
+  Float32BufferAttribute,
+  Mesh,
+  MeshStandardMaterial,
+  Object3D,
+  Quaternion,
+  Vector3,
+  IcosahedronGeometry,
+} from "three";
+import { Biome, type BiomeOptions } from "./biome";
+import { loadModels } from "./models";
 
-import { PlanetMaterialWithCaustics } from './materials/OceanCausticsMaterial';
-import { createAtmosphereMaterial } from './materials/AtmosphereMaterial';
-import { createBufferGeometry } from './helper/helper';
+import { PlanetMaterialWithCaustics } from "./materials/OceanCausticsMaterial";
+import { createAtmosphereMaterial } from "./materials/AtmosphereMaterial";
+import { createBufferGeometry } from "./helper/helper";
 
 export type PlanetOptions = {
-	scatter?: number;
+  scatter?: number;
 
-	ground?: number;
+  ground?: number;
 
-	detail?: number;
+  detail?: number;
 
-	atmosphere?: {
-		enabled?: boolean;
-		color?: Vector3;
-		height?: number;
-	};
+  atmosphere?: {
+    enabled?: boolean;
+    color?: Vector3;
+    height?: number;
+  };
 
-	material?: 'normal' | 'caustics';
+  material?: "normal" | "caustics";
 
-	biome?: BiomeOptions;
+  biome?: BiomeOptions;
+
+  shape?: "sphere" | "plane";
 };
 
 export class Planet {
-	worker: Worker;
+  worker: Worker;
 
-	callbacks: Record<number, (data: Mesh) => void>;
-	requestId: number;
+  callbacks: Record<number, (data: Mesh) => void>;
+  requestId: number;
 
-	biome: Biome;
+  biome: Biome;
 
-	biomeOptions: BiomeOptions;
-	options: PlanetOptions;
+  biomeOptions: BiomeOptions;
+  options: PlanetOptions;
 
-	vegetationPositions?: Record<string, Vector3[]>;
+  vegetationPositions?: Record<string, Vector3[]>;
 
-	constructor(options: PlanetOptions = {}) {
-		this.options = options;
+  shape: "sphere" | "plane" = "sphere";
 
-		this.biome = new Biome(options.biome);
-		this.biomeOptions = this.biome.options;
+  tempQuaternion = new Quaternion();
 
-		this.worker = new Worker(new URL('worker.ts', import.meta.url), {
-			type: 'module'
-		});
-		this.worker.onmessage = this.handleMessage.bind(this);
-		this.callbacks = {};
-		this.requestId = 0;
-	}
+  constructor(options: PlanetOptions = {}) {
+    this.shape = options.shape ?? this.shape;
+    options.shape = this.shape;
 
-	handleMessage(event: {
-		data: {
-			type: 'geometry';
-			data: {
-				positions: number[];
-				colors: number[];
-				normals: number[];
-				oceanPositions: number[];
-				oceanColors: number[];
-				oceanNormals: number[];
-				vegetation: Record<string, Vector3[]>;
-				oceanMorphPositions: number[];
-				oceanMorphNormals: number[];
-			};
-			requestId: number;
-		};
-	}) {
-		const { data, requestId } = event.data;
+    this.options = options;
 
-		const callback = this.callbacks[requestId];
-		if (!callback) {
-			console.error('No callback found for requestId:', requestId);
-			return;
-		}
+    this.biome = new Biome(options.biome);
+    this.biomeOptions = this.biome.options;
 
-		const geometry = createBufferGeometry(data.positions, data.colors, data.normals);
+    this.worker = new Worker(new URL("worker.ts", import.meta.url), {
+      type: "module",
+    });
+    this.worker.onmessage = this.handleMessage.bind(this);
+    this.callbacks = {};
+    this.requestId = 0;
+  }
 
-		const oceanGeometry = createBufferGeometry(
-			data.oceanPositions,
-			data.oceanColors,
-			data.oceanNormals
-		);
+  handleMessage(event: {
+    data: {
+      type: "geometry";
+      data: {
+        positions: number[];
+        colors: number[];
+        normals: number[];
+        oceanPositions: number[];
+        oceanColors: number[];
+        oceanNormals: number[];
+        vegetation: Record<string, Vector3[]>;
+        oceanMorphPositions: number[];
+        oceanMorphNormals: number[];
+      };
+      requestId: number;
+    };
+  }) {
+    const { data, requestId } = event.data;
 
-		oceanGeometry.morphAttributes.position = [
-			new Float32BufferAttribute(data.oceanMorphPositions, 3)
-		];
-		oceanGeometry.morphAttributes.normal = [new Float32BufferAttribute(data.oceanMorphNormals, 3)];
+    const callback = this.callbacks[requestId];
+    if (!callback) {
+      console.error("No callback found for requestId:", requestId);
+      return;
+    }
 
-		this.vegetationPositions = data.vegetation;
+    const geometry = createBufferGeometry(
+      data.positions,
+      data.colors,
+      data.normals,
+    );
 
-		const materialOptions = { vertexColors: true };
+    const oceanGeometry = createBufferGeometry(
+      data.oceanPositions,
+      data.oceanColors,
+      data.oceanNormals,
+    );
 
-		const material =
-			this.options.material === 'caustics'
-				? new PlanetMaterialWithCaustics(materialOptions)
-				: new MeshStandardMaterial(materialOptions);
+    oceanGeometry.morphAttributes.position = [
+      new Float32BufferAttribute(data.oceanMorphPositions, 3),
+    ];
+    oceanGeometry.morphAttributes.normal = [
+      new Float32BufferAttribute(data.oceanMorphNormals, 3),
+    ];
 
-		const planetMesh = new Mesh(geometry, material);
-		planetMesh.castShadow = true;
+    this.vegetationPositions = data.vegetation;
 
-		if (this.options.material === 'caustics') {
-			planetMesh.onBeforeRender = (renderer, scene, camera, geometry, material) => {
-				if (material instanceof PlanetMaterialWithCaustics) {
-					material.update();
-				}
-			};
-		}
+    const materialOptions = { vertexColors: true };
 
-		const oceanMesh = new Mesh(
-			oceanGeometry,
-			new MeshStandardMaterial({
-				vertexColors: true,
-				transparent: true,
-				opacity: 0.7,
-				metalness: 0.5,
-				roughness: 0.5
-			})
-		);
+    const material =
+      this.options.material === "caustics"
+        ? new PlanetMaterialWithCaustics({
+            ...materialOptions,
+            shape: this.shape,
+          })
+        : new MeshStandardMaterial(materialOptions);
 
-		planetMesh.add(oceanMesh);
-		oceanMesh.onBeforeRender = (renderer, scene, camera, geometry, material) => {
-			// update morph targets
-			if (oceanMesh.morphTargetInfluences)
-				oceanMesh.morphTargetInfluences[0] = Math.sin(performance.now() / 1000) * 0.5 + 0.5;
-		};
+    const planetMesh = new Mesh(geometry, material);
+    planetMesh.castShadow = true;
 
-		if (this.options.atmosphere?.enabled !== false) {
-			this.addAtmosphere(planetMesh);
-		}
-		callback(planetMesh);
+    if (this.options.material === "caustics") {
+      planetMesh.onBeforeRender = (
+        renderer,
+        scene,
+        camera,
+        geometry,
+        material,
+      ) => {
+        if (material instanceof PlanetMaterialWithCaustics) {
+          material.update();
+        }
+      };
+    }
 
-		delete this.callbacks[requestId];
-	}
+    const oceanMesh = new Mesh(
+      oceanGeometry,
+      new MeshStandardMaterial({
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.7,
+        metalness: 0.5,
+        roughness: 0.5,
+      }),
+    );
 
-	async create(): Promise<Mesh> {
-		// let collection = "stylized_nature";
+    planetMesh.add(oceanMesh);
+    oceanMesh.onBeforeRender = (
+      renderer,
+      scene,
+      camera,
+      geometry,
+      material,
+    ) => {
+      // update morph targets
+      if (oceanMesh.morphTargetInfluences)
+        oceanMesh.morphTargetInfluences[0] =
+          Math.sin(performance.now() / 1000) * 0.5 + 0.5;
+    };
 
-		const models = this.biomeOptions.vegetation?.items.map((item) => {
-			return item.name;
-		});
+    if (this.options.atmosphere?.enabled !== false) {
+      this.addAtmosphere(planetMesh);
+    }
+    callback(planetMesh);
 
-		const loaded: Promise<Object3D[] | Mesh>[] = [];
+    delete this.callbacks[requestId];
+  }
 
-		for (const model of models ?? []) {
-			const loadedModels = loadModels(model); //, collection);
-			loaded.push(loadedModels);
-		}
+  async create(): Promise<Mesh> {
+    // let collection = "stylized_nature";
 
-		const planetPromise = this.createMesh();
-		loaded.push(planetPromise);
+    const models = this.biomeOptions.vegetation?.items.map((item) => {
+      return item.name;
+    });
 
-		await Promise.all(loaded);
+    const loaded: Promise<Object3D[] | Mesh>[] = [];
 
-		const planet = await planetPromise;
+    for (const model of models ?? []) {
+      const loadedModels = loadModels(model); //, collection);
+      loaded.push(loadedModels);
+    }
 
-		for (let i = 0; i < loaded.length - 1; i++) {
-			const models = (await loaded[i]) as Object3D[];
-			const name = models[0].userData.name;
+    const planetPromise = this.createMesh();
+    loaded.push(planetPromise);
 
-			const positions = this.vegetationPositions?.[name];
+    await Promise.all(loaded);
 
-			if (!positions) continue;
+    const planet = await planetPromise;
 
-			let item = this.biomeOptions.vegetation?.items[i];
+    for (let i = 0; i < loaded.length - 1; i++) {
+      const models = (await loaded[i]) as Object3D[];
+      const name = models[0].userData.name;
 
-			for (const position of positions) {
-				const model = models[Math.floor(Math.random() * models.length)].clone();
-				model.position.set(0, 1, 0);
-				this.updatePosition(model, new Vector3(position.x, position.y, position.z));
-				model.scale.setScalar(0.04);
+      const positions = this.vegetationPositions?.[name];
 
-				model.traverse((child) => {
-					if (child instanceof Mesh) {
-						let color = item?.colors?.[child.material.name];
-						if (color?.array) {
-							let randomColor = color.array[Math.floor(Math.random() * color.array.length)];
-							child.material.color.setHex(randomColor);
-						}
+      if (!positions) continue;
 
-						if (child.material.name === 'Snow') {
-							child.material.roughness = 0.2;
-							child.material.color.setHex(0xffffff);
-						}
-						child.castShadow = false;
-						child.receiveShadow = true;
-					}
-				});
-				planet.add(model);
-			}
-		}
+      let item = this.biomeOptions.vegetation?.items[i];
 
-		return planetPromise;
-	}
+      for (const position of positions) {
+        const model = models[Math.floor(Math.random() * models.length)].clone();
+        model.position.set(0, 1, 0);
+        this.updatePosition(
+          model,
+          new Vector3(position.x, position.y, position.z),
+        );
+        model.scale.setScalar(0.04);
 
-	async createMesh(): Promise<Mesh> {
-		return new Promise((resolve) => {
-			const requestId = this.requestId++;
-			this.callbacks[requestId] = resolve;
+        model.traverse((child) => {
+          if (child instanceof Mesh) {
+            let color = item?.colors?.[child.material.name];
+            if (color?.array) {
+              let randomColor =
+                color.array[Math.floor(Math.random() * color.array.length)];
+              child.material.color.setHex(randomColor);
+            }
 
-			this.worker.postMessage({
-				type: 'createGeometry',
-				requestId,
-				data: this.options
-			});
-		});
-	}
+            if (child.material.name === "Snow") {
+              child.material.roughness = 0.2;
+              child.material.color.setHex(0xffffff);
+            }
+            child.castShadow = false;
+            child.receiveShadow = true;
+          }
+        });
+        planet.add(model);
+      }
+    }
 
-	addAtmosphere(planet: Mesh) {
-		// Create the atmosphere geometry
-		const atmosphereGeometry = new IcosahedronGeometry(
-			this.options.atmosphere?.height ?? 1.2,
-			this.options.detail ?? 20
-		);
-		const atmosphere = new Mesh(
-			atmosphereGeometry,
-			createAtmosphereMaterial(this.options.atmosphere?.color, new Vector3(5, 2, 2))
-		);
-		atmosphere.renderOrder = 1;
-		planet.add(atmosphere);
-	}
+    return planetPromise;
+  }
 
-	updatePosition(item: Object3D, pos: Vector3) {
-		item.position.copy(pos);
+  async createMesh(): Promise<Mesh> {
+    return new Promise((resolve) => {
+      const requestId = this.requestId++;
+      this.callbacks[requestId] = resolve;
 
-		const currentRotation = new Quaternion();
-		const a = item.up.clone().normalize();
-		const b = pos.clone().normalize();
+      this.worker.postMessage({
+        type: "createGeometry",
+        requestId,
+        data: this.options,
+      });
+    });
+  }
 
-		currentRotation.setFromUnitVectors(a, b);
+  addAtmosphere(planet: Mesh) {
+    // Create the atmosphere geometry
+    const atmosphereGeometry = new IcosahedronGeometry(
+      this.options.atmosphere?.height ?? 1.2,
+      this.options.detail ?? 20,
+    );
+    const atmosphere = new Mesh(
+      atmosphereGeometry,
+      createAtmosphereMaterial(this.options.atmosphere?.color),
+    );
+    atmosphere.renderOrder = 1;
+    planet.add(atmosphere);
+  }
 
-		item.quaternion.copy(currentRotation);
+  updatePosition(item: Object3D, pos: Vector3) {
+    item.position.copy(pos);
 
-		item.up = b;
-	}
+    if (this.shape === "sphere") {
+      const a = item.up.clone().normalize();
+      const b = pos.clone().normalize();
+
+      this.tempQuaternion.setFromUnitVectors(a, b);
+
+      item.quaternion.copy(this.tempQuaternion);
+
+      item.up = b;
+    }
+  }
 }

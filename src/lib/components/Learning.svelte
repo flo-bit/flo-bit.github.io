@@ -9,6 +9,11 @@
 
 	const learnings: Learning[] = [
 		{
+			title: 'blender',
+			description: 'making some low poly models in blender, lots of fun once you get over the "i\'m overwhelmed" feeling',
+			date: '2024-09'
+		},
+		{
 			title: 'pixi.js',
 			description:
 				'been playing around with pixi.js for some game jams. awesome library for 2d games.',

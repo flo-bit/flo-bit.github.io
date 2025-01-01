@@ -12,11 +12,14 @@
 			<h1 class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
 				things i've made
 			</h1>
-			<p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+			<div class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
 				i've worked on lots of little side projects over the years, here are some recent ones. many
 				of them are open-source, so if you see something that piques your interest, check out the
-				code.
-			</p>
+				code. <a href="/projects" class="font-semibold text-accent-400 hover:text-accent-300 mt-4">
+					see all projects
+					<span aria-hidden="true"> &rarr;</span>
+				  </a>
+				</div>
 		</div>
 
 		<div class="columns-2 sm:columns-3 sm:text-[0] gap-4 group/projects pointer-events-none">

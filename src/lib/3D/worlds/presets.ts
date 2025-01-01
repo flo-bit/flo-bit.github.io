@@ -14,7 +14,7 @@ const beachBiome: BiomeOptions = {
 		},
 		warp: 0.3,
 		scale: 1,
-		power: 1.3
+		power: 1.5
 	},
 
 	colors: [
@@ -37,14 +37,6 @@ const beachBiome: BiomeOptions = {
 
 	vegetation: {
 		items: [
-			{
-				name: 'Rock',
-				density: 50,
-				minimumHeight: 0.1,
-				colors: {
-					Gray: { array: [0x775544] }
-				}
-			},
 			{
 				name: 'PalmTree',
 				density: 50,
@@ -266,8 +258,10 @@ const beachPlanet: PlanetOptions = {
 	biome: {
 		preset: 'beach'
 	},
-
-	material: 'caustics'
+	atmosphere: {
+		enabled: false
+	},
+	material: 'normal'
 };
 
 const forestPlanet: PlanetOptions = {
@@ -275,7 +269,10 @@ const forestPlanet: PlanetOptions = {
 		preset: 'forest'
 	},
 
-	material: 'normal'
+	material: 'normal',
+	atmosphere: {
+		enabled: false
+	}
 };
 
 const snowForestPlanet: PlanetOptions = {

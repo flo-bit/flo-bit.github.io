@@ -53,6 +53,8 @@ import tinyplanets3 from '$lib/images/projects-new/tiny-planets/image3.png?w=102
 
 import shadowshmup from '$lib/images/projects-new/shmup/shadow-shmup-demo.mp4';
 
+import audioVisualizations from '$lib/images/projects-new/svelte-audio-visualizations/svelte-audio-visualizations-demo.mp4';
+
 export type Project = {
 	src: string;
 	key: string;
@@ -72,6 +74,8 @@ export type Project = {
 	codeUrl?: string;
 
 	demo?: string;
+
+	iframe?: string;
 };
 
 export const projects: Project[] = [
@@ -86,6 +90,18 @@ export const projects: Project[] = [
 		description: 'procedurally generated tiny planets made with three.js.',
 		projectPageVersion: 'tiered',
 		tags: ['three.js', 'typescript', '3d', 'procedural generation']
+	},
+	{
+		src: audioVisualizations,
+		key: 'svelte-audio-visualizations',
+		projectUrl: 'https://flo-bit.dev/svelte-audio-visualizations/',
+		aspect: 'aspect-[8/5]',
+		name: 'svelte audio visualizations',
+		codeUrl: 'https://github.com/flo-bit/svelte-audio-visualizations',
+		description: 'simple audio visualizations for svelte',
+		projectPageVersion: 'grid',
+		tags: ['svelte', 'typescript', 'audio', 'visualizations'],
+		iframe: 'https://flo-bit.dev/svelte-audio-visualizations/'
 	},
 	{
 		src: svelteswipecards,
@@ -161,20 +177,6 @@ export const projects: Project[] = [
 		projectPageVersion: 'grid',
 		tags: ['wled', 'wearable', 'leds', 'hardware', 'c++', 'svelte', 'hardware', 'tailwindcss']
 	},
-	// {
-	// 	src: mandala,
-	// 	key: 'svg-mandala',
-	// 	alt: 'svg mandala drawer',
-	// 	projectUrl: 'https://flo-bit.dev/mandala/',
-	// 	aspect: 'aspect-1',
-	// 	name: 'svg mandala drawer',
-	// 	description:
-	// 		'one of my earlier projects, draw svg mandalas in the browser. works on mobile too. made with paperjs and bulma. try the interactive demo above!',
-	// 	tags: ['svg', 'paperjs', 'javascript', 'bulma'],
-	// 	projectPageVersion: 'full',
-	// 	demo: 'mandala',
-	// 	codeUrl: 'https://github.com/flo-bit/mandala'
-	// },
 	{
 		src: shadowshmup,
 		key: 'shadow-shmup',

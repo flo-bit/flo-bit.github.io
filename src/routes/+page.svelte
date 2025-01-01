@@ -14,6 +14,7 @@
 	import { Flip } from 'gsap/Flip';
 	import { onMount, tick } from 'svelte';
 	import PlanetScene from '$lib/3D/PlanetScene.svelte';
+	import Bento from '$lib/components/Bento.svelte';
 	gsap.registerPlugin(Flip);
 
 	let showTitle = false;
@@ -80,6 +81,8 @@
 <Posts />
 
 <!-- <Tools /> -->
+
+<Bento />
 
 <Learning />
 
