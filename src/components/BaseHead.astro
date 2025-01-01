@@ -9,7 +9,11 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "main.png" } = Astro.props;
+const { title, description, image = "og.jpg" } = Astro.props;
+
+const defaultTitle = "hi, i'm florian";
+const defaultDescription =
+  "hello world! this is my personal website. i'm florian, a full-stack software engineer based in berlin.";
 ---
 
 <!-- Global Metadata -->
@@ -27,29 +31,26 @@ const { title, description, image = "main.png" } = Astro.props;
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+<title>{title || defaultTitle}</title>
+<meta name="title" content={title || defaultTitle} />
+<meta name="description" content={description || defaultDescription} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta
-  property="og:image"
-  content={new URL(BASE + "/open-graph/" + image, Astro.url)}
-/>
+<meta property="og:title" content={title || defaultTitle} />
+<meta property="og:description" content={description || defaultDescription} />
+<meta property="og:image" content={new URL(BASE + image, Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
+<meta property="twitter:title" content={title || defaultTitle} />
 <meta
-  property="twitter:image"
-  content={new URL(BASE + "/open-graph/" + image, Astro.url)}
+  property="twitter:description"
+  content={description || defaultDescription}
 />
+<meta property="twitter:image" content={new URL(BASE + image, Astro.url)} />
 
 <!-- Umami Analytics -->
 <script
