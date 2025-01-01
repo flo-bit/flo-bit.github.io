@@ -130,10 +130,10 @@ export class Planet {
 
     if (this.options.material === "caustics") {
       planetMesh.onBeforeRender = (
-        _renderer,
-        _scene,
-        _camera,
-        _geometry,
+        renderer,
+        scene,
+        camera,
+        geometry,
         material,
       ) => {
         if (material instanceof PlanetMaterialWithCaustics) {

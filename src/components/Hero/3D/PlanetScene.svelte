@@ -1,6 +1,5 @@
 <script lang="ts">
   import Scene from "./Scene.svelte";
-  import state from "./state.json";
 
   import { Canvas } from "@threlte/core";
 

@@ -1,8 +1,7 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 
-const basePath = '';
+const basePath = "";
 
 const lowPolyNatureCollectionModels: Record<
   string,
@@ -88,77 +87,72 @@ export function getModels(
 }
 
 export function getModelPathsAndMaterials(
-	name: string,
-	collection: Collections = 'lowpoly_nature'
+  name: string,
+  collection: Collections = "lowpoly_nature",
 ): {
-	filePaths: string[];
-	materials: string[];
+  filePaths: string[];
+  materials: string[];
 } | null {
-	const model = collections[collection].models[name];
-	if (!model) {
-		console.error(`Model ${name} not found.`);
-		return null;
-	}
+  const model = collections[collection].models[name];
+  if (!model) {
+    console.error(`Model ${name} not found.`);
+    return null;
+  }
 
-	// Construct file paths based on the number of versions
-	const filePaths: string[] = [];
-	if (model.versions) {
-		for (let i = 1; i <= model.versions; i++) {
-			filePaths.push(`${basePath}${collections[collection].name}/${name}_${i}-transformed.glb`);
-		}
-	} else {
-		filePaths.push(`${basePath}${collections[collection].name}/${name}-transformed.glb`);
-	}
+  // Construct file paths based on the number of versions
+  const filePaths: string[] = [];
+  if (model.versions) {
+    for (let i = 1; i <= model.versions; i++) {
+      filePaths.push(
+        `${basePath}${collections[collection].name}/${name}_${i}.gltf`,
+      );
+    }
+  } else {
+    filePaths.push(`${basePath}${collections[collection].name}/${name}.gltf`);
+  }
 
-	return {
-		filePaths,
-		materials: model.materials
-	};
+  return {
+    filePaths,
+    materials: model.materials,
+  };
 }
+
 export async function loadModels(
-	name: string,
-	collection: Collections = 'lowpoly_nature'
+  name: string,
+  collection: Collections = "lowpoly_nature",
 ): Promise<THREE.Object3D[]> {
-	const loader = new GLTFLoader();
-	const dracoLoader = new DRACOLoader();
-	dracoLoader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
-	loader.setDRACOLoader(dracoLoader);
-	
-	const modelInfo = getModelPathsAndMaterials(name, collection);
+  const loader = new GLTFLoader();
+  const modelInfo = getModelPathsAndMaterials(name, collection);
 
-	if (!modelInfo) {
-		return [];
-	}
+  if (!modelInfo) {
+    return [];
+  }
 
-	const promises = modelInfo.filePaths.map((filePath) => {
-		return new Promise<THREE.Object3D>((resolve, reject) => {
-			loader.load(
-				filePath,
-				(gltf) => {
-					gltf.scene.userData = {
-						name,
-						path: filePath
-					};
-					gltf.scene.traverse((child) => {
-						if (child instanceof THREE.Mesh) {
-							child.receiveShadow = true;
-							child.castShadow = false;
-						}
-					});
-					resolve(gltf.scene);
-				},
-				undefined,
-				(error) => {
-					console.error(`Failed to load model ${filePath}:`, error);
-					reject(error);
-				}
-			);
-		});
-	});
+  const promises = modelInfo.filePaths.map((filePath) => {
+    return new Promise<THREE.Object3D>((resolve, reject) => {
+      loader.load(
+        filePath,
+        (gltf) => {
+          gltf.scene.userData = {
+            name,
+            path: filePath,
+          };
+          gltf.scene.traverse((child) => {
+            if (child instanceof THREE.Mesh) {
+              child.receiveShadow = true;
+              child.castShadow = false;
+            }
+          });
+          resolve(gltf.scene);
+        },
+        undefined,
+        (error) => {
+          console.error(`Failed to load model ${filePath}:`, error);
+          reject(error);
+        },
+      );
+    });
+  });
 
-	let models = Promise.all(promises)
-  models.then(() => {
-    dracoLoader.dispose();
-  })
-  return models;
+  return Promise.all(promises);
 }

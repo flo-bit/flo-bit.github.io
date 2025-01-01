@@ -9,6 +9,7 @@ import PlanetScene from "$components/Hero/3D/PlanetScene.svelte";
 import { getFeaturedProjects } from "src/utils";
 import Footer from "$components/Footer.astro";
 import Navbar from "$components/Navigation/Navbar.svelte";
+import BlogLatest from "$components/Blog/BlogLatest.astro";
 
 const projects = await getFeaturedProjects();
 ---
@@ -23,6 +24,8 @@ const projects = await getFeaturedProjects();
   <About />
 
   <Projects projects={projects} />
+
+  <!-- <BlogLatest /> -->
 
   <Learning client:visible />
 

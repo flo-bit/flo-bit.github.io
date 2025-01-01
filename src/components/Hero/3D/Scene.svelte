@@ -96,7 +96,7 @@
     previousPointerPosition.set(clientX, clientY);
     totalMove.set(0, 0);
 
-    if (event instanceof TouchEvent) {
+    if (window.TouchEvent && event instanceof window.TouchEvent) {
       event.preventDefault(); // Prevent scrolling
     }
   };
@@ -142,7 +142,7 @@
 
   export let pos = 0;
 
-  let redo: () => void;
+  let redo: () => Promise<void>;
 </script>
 
 <T.PerspectiveCamera
@@ -193,9 +193,18 @@
     <T.SphereGeometry args={[1.2, 8, 8]} />
     <T.MeshBasicMaterial />
   </T.Mesh>
-  <PlanetModel bind:redo />
-</T.Group>
 
+  <Suspense>
+    {#snippet fallback()}
+
+    <T.Mesh>
+      <T.IcosahedronGeometry args={[1.1, 8, 8]} />
+      <T.MeshStandardMaterial wireframe wireframeLinewidth={500} />
+    </T.Mesh>
+    {/snippet}
+    <PlanetModel bind:redo />
+  </Suspense>
+</T.Group>
 <!-- <CustomRenderer /> -->
 
 <Stars />
