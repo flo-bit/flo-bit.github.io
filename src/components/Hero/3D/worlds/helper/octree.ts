@@ -237,7 +237,6 @@ export class Octree<T = unknown> {
       q = this.query(opts.p, opts.min);
 
       for (const point of q) {
-        // @ts-expect-error - close is not a property of Vector3
         point.close = true;
       }
     }
