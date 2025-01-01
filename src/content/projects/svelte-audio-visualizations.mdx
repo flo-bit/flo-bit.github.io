@@ -1,0 +1,41 @@
+---
+name: 'svelte audio visualizations'
+date: '2024-10-13'
+featured: true
+
+thumbnail: '/src/assets/projects/svelte-audio-visualizations/thumbnail.png'
+video: '/src/assets/projects/svelte-audio-visualizations/video-thumbnail.mp4'
+
+aspect: 'aspect-[8/5]'
+projectUrl: 'https://flo-bit.dev/svelte-audio-visualizations/'
+codeUrl: 'https://github.com/flo-bit/svelte-audio-visualizations'
+
+projectPageVersion: 'grid'
+iframe: 'https://flo-bit.dev/svelte-audio-visualizations/'
+tags:
+  - 'svelte'
+  - 'typescript'
+  - 'audio'
+  - 'visualizations'
+
+mainTags:
+  - 'svelte component'
+---
+import ProjectGrid from "$components/ProjectPages/ProjectGrid.astro";
+import AudioVisualizationsDemo from "$components/Demos/svelte-audio-visualizations/AudioVisualizationsDemo.svelte"
+
+<ProjectGrid project={frontmatter}>
+  <div slot="demo">
+    <AudioVisualizationsDemo client:load />
+  </div>
+
+simple, zero dependency audio visualizations for svelte, especially useful for visualizing voice input and output.
+
+inspired by [the audio visualization in the openai-realtime-console](https://github.com/openai/openai-realtime-console).
+
+### demo 
+
+click `play music` or `use microphone` above to show audio visualizations of some music file or microphone input.
+
+music: ["the best framework"](https://open.spotify.com/track/3vHKgnTzEYSAhlLxbFXF8c?si=5c7a16de4eb345cc) by **the prompters**
+</ProjectGrid>

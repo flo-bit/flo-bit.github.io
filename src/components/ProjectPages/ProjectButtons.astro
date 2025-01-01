@@ -1,0 +1,32 @@
+---
+interface Props {
+  codeUrl?: string;
+  projectUrl?: string;
+}
+
+const { codeUrl, projectUrl } = Astro.props;
+---
+
+{
+  codeUrl ? (
+    <a
+      href={codeUrl}
+      target="_blank"
+      class="flex w-full items-center font-bold justify-center rounded-full bg-base-400/5 border-white/10 border px-8 py-3 text-base text-white hover:bg-base-400/10 transition-colors duration-200"
+    >
+      check out the code
+    </a>
+  ) : null
+}
+
+{
+  projectUrl ? (
+    <a
+      href={projectUrl}
+      target="_blank"
+      class="flex w-full items-center justify-center rounded-full text-accent-300 bg-accent-700/10 px-8 py-3 text-base font-bold border border-accent-500/30 hover:bg-accent-700/20 transition-colors duration-200"
+    >
+      launch project
+    </a>
+  ) : null
+}

@@ -1,0 +1,23 @@
+---
+import { colorBaseClasses, colorAccentClasses } from "src/colors";
+import { ACCENT_COLOR, BASE_COLOR } from "../config";
+import { cn } from "../utils";
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"div">;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<div
+  class={cn(
+    "prose prose-img:rounded-xl dark:prose-invert prose-a:no-underline",
+    "prose-inline-code:bg-base-100 dark:prose-inline-code:bg-base-800 prose-inline-code:p-1 prose-inline-code:rounded-md",
+    colorBaseClasses[BASE_COLOR],
+    colorAccentClasses[ACCENT_COLOR],
+    className
+  )}
+  {...props}
+>
+  <slot />
+</div>

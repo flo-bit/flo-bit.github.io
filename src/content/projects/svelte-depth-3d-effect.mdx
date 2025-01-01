@@ -1,0 +1,36 @@
+---
+name: 'svelte depth 3d component'
+date: '2024-05-20'
+featured: true
+
+thumbnail: '/src/assets/projects/svelte-depth-3d/thumbnail.png'
+video: '/src/assets/projects/svelte-depth-3d/video-thumbnail.mp4'
+aspect: 'aspect-[9/16]'
+projectUrl: 'https://flo-bit.dev/svelte-depth-3d-component/'
+codeUrl: 'https://github.com/flo-bit/svelte-depth-3d-component'
+
+projectPageVersion: 'tiered'
+demo: 'depth3d'
+tags:
+  - 'svelte'
+  - 'depthmap'
+  - '3d'
+  - 'threlte'
+
+mainTags:
+  - 'svelte component'
+---
+import ProjectTiered from "$components/ProjectPages/ProjectTiered.astro";
+import Depth3DDemo from "$components/Demos/svelte-depth-3d-effect/Depth3DDemo.svelte";
+
+<ProjectTiered project={frontmatter}>
+  <div slot="demo">
+    <Depth3DDemo client:load />
+  </div>
+
+svelte component that turns an image plus depth map into a kind of 3d image.
+
+### demo 
+
+click on the image to switch to the next image.
+</ProjectTiered>

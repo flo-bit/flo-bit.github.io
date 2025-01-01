@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+
+type Props = {
+  role: {
+    company: string;
+    title: string;
+
+    logo: ImageMetadata;
+    start: string | { label: string; dateTime: string };
+    end: string | { label: string; dateTime: string };
+  };
+};
+
+const { role } = Astro.props;
+
+let startLabel = typeof role.start === "string" ? role.start : role.start.label;
+let startDate =
+  typeof role.start === "string" ? role.start : role.start.dateTime;
+
+let endLabel = typeof role.end === "string" ? role.end : role.end.label;
+let endDate = typeof role.end === "string" ? role.end : role.end.dateTime;
+---
+
+<li class="flex gap-4">
+  <div
+    class="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-base-800/5 ring-1 ring-base-900/5 dark:border dark:border-base-700/50 dark:bg-base-800 dark:ring-0"
+  >
+    <Image
+      src={role.logo}
+      alt={role.company + " logo"}
+      loading="lazy"
+      class="h-7 w-7 object-contain {role.logo.rounded ? 'rounded-full' : ''}"
+    />
+  </div>
+  <div class="flex flex-col w-full">
+    <div class="flex justify-between w-full">
+      <div class="sr-only">Company</div>
+      <div class="text-sm font-medium text-base-900 dark:text-base-100">
+        {role.company}
+      </div>
+      <div class="sr-only">Date</div>
+      <div
+        class="text-xs text-base-400 dark:text-base-500"
+        aria-label={`${startLabel} until ${endLabel}`}
+      >
+        <time datetime={startDate}>{startLabel}</time>{" "}
+        <span aria-hidden="true">—</span>{" "}
+        <time datetime={endDate}>{endLabel}</time>
+      </div>
+    </div>
+    <div class="sr-only">Role</div>
+    <div class="text-xs text-base-500 dark:text-base-400">
+      {role.title}
+    </div>
+  </div>
+</li>

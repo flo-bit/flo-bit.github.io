@@ -1,0 +1,34 @@
+---
+name: 'old coding projects'
+date: '2022-11-02'
+featured: true
+
+thumbnail: '/src/assets/projects/old-code/thumbnail.png'
+video: '/src/assets/projects/old-code/video-thumbnail.mp4'
+aspect: 'aspect-[16/11]'
+projectUrl: 'https://flo-bit.dev/old-code/'
+codeUrl: 'https://github.com/flo-bit/old-code'
+
+projectPageVersion: 'tiered'
+tags:
+  - 'p5.js'
+  - 'javascript'
+  - 'game'
+  - 'art'
+  - 'flowfield'
+
+mainTags:
+  - 'p5.js'
+  - 'art'
+
+images:
+  - '/src/assets/projects/old-code/image1.png'
+  - '/src/assets/projects/old-code/image2.png'
+  - '/src/assets/projects/old-code/image3.png'
+  - '/src/assets/projects/old-code/image4.png'
+---
+import ProjectGrid from "$components/ProjectPages/ProjectGrid.astro";
+
+<ProjectGrid project={frontmatter}>
+a collection of my old coding projects. mostly procedural art made with p5.js.
+</ProjectGrid>

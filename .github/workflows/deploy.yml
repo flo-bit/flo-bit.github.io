@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - gh-deploy
+      - main
 
 jobs:
   build_site:
@@ -30,8 +30,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v2
         with:
-          # this should match the `pages` option in your adapter-static options
-          path: 'build/'
+          path: 'dist/'
 
   deploy:
     needs: build_site

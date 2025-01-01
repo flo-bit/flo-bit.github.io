@@ -1,0 +1,32 @@
+---
+name: 'tiny planets'
+date: '2024-09-20'
+featured: true
+
+thumbnail: '/src/assets/projects/tiny-planets/thumbnail.png'
+video: '/src/assets/projects/tiny-planets/video-thumbnail.mp4'
+aspect: 'aspect-[1]'
+codeUrl: 'https://github.com/flo-bit/tiny-planets'
+projectUrl: 'https://flo-bit.dev/tiny-planets/'
+
+projectPageVersion: 'tiered'
+tags:
+  - 'three.js'
+  - 'typescript'
+  - '3d'
+  - 'procedural generation'
+
+mainTags:
+  - 'three.js component'
+  - 'procgen'
+
+images:
+  - '/src/assets/projects/tiny-planets/image1.png'
+  - '/src/assets/projects/tiny-planets/image2.png'
+  - '/src/assets/projects/tiny-planets/image3.png'
+---
+import ProjectTiered from "$components/ProjectPages/ProjectTiered.astro";
+
+<ProjectTiered project={frontmatter}>
+procedurally generated tiny planets made with three.js. work in progress.
+</ProjectTiered>

@@ -1,0 +1,36 @@
+---
+name: 'marblellous'
+date: '2024-01-31'
+featured: true
+
+thumbnail: '/src/assets/projects/marblellous/thumbnail.png'
+video: '/src/assets/projects/marblellous/video-thumbnail.mp4'
+aspect: 'aspect-[9/10]'
+projectUrl: 'https://flo-bit.dev/ball-game/'
+codeUrl: 'https://github.com/flo-bit/ball-game'
+
+projectPageVersion: 'grid'
+tags:
+  - 'threlte'
+  - 'svelte'
+  - '3d'
+  - 'typescript'
+  - 'game'
+
+
+mainTags:
+  - 'game'
+  - 'threlte'
+  - 'prototype'
+
+images:
+  - '/src/assets/projects/marblellous/image1.png'
+  - '/src/assets/projects/marblellous/image2.png'
+  - '/src/assets/projects/marblellous/image3.png'
+  - '/src/assets/projects/marblellous/image4.png'
+---
+import ProjectGrid from "$components/ProjectPages/ProjectGrid.astro";
+
+<ProjectGrid project={frontmatter}>
+simple 3d browser game made with threlte. inspired by the game ["marble blast gold"](https://en.wikipedia.org/wiki/Marble_Blast) that i played a lot when i was a kid. work in progress.
+</ProjectGrid>

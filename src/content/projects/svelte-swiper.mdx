@@ -1,0 +1,33 @@
+---
+name: 'svelte swipable cards'
+date: '2024-02-14'
+featured: true
+
+thumbnail: '/src/assets/projects/svelte-swiper/thumbnail.png'
+video: '/src/assets/projects/svelte-swiper/video-thumbnail.mp4'
+aspect: 'aspect-[9/18]'
+
+codeUrl: 'https://github.com/flo-bit/svelte-swiper-cards/'
+projectUrl: 'https://flo-bit.dev/svelte-swiper-cards/'
+
+projectPageVersion: 'tiered'
+tags: ['svelte', 'typescript', 'component', 'tailwindcss']
+demo: 'swiper'
+
+mainTags:
+  - 'svelte component'
+---
+import ProjectTiered from "$components/ProjectPages/ProjectTiered.astro";
+import SwiperDemo from "$components/Demos/svelte-swiper/SwiperDemo.svelte";
+
+<ProjectTiered project={frontmatter}>
+  <div slot="demo">
+    <SwiperDemo client:load />
+  </div>
+
+a swipeable tinder like card component for svelte.
+
+### demo 
+
+swipe left or right on the phone or press left or right arrow on the keyboard to switch between cards.
+</ProjectTiered>
