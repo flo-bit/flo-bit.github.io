@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { cn } from "src/utils";
+
+type Props = HTMLAttributes<"a">;
+
+const { href, class: className, ...props } = Astro.props;
+---
+
+<li class="flex {classes}">
+  <a
+    target="_blank"
+    {href}
+    class={cn(
+      "group flex items-center text-sm font-medium text-base-800 transition duration-100 hover:text-accent-500 dark:text-base-200 dark:hover:text-accent-500",
+      className
+    )}
+    {...props}
+  >
+    <div
+      class="h-6 w-6 flex-none fill-base-500 transition duration-100 group-hover:fill-accent-500 flex items-center justify-center"
+    >
+      <slot name="icon" />
+    </div>
+    <span class="ml-4"><slot /></span>
+  </a>
+</li>

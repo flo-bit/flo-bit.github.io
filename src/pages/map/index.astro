@@ -1,0 +1,44 @@
+---
+import BaseLayout from "$layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div id="map" class="w-screen h-screen"></div>
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+    rel="stylesheet"
+  />
+  <script
+    is:inline
+    src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+
+  <script is:inline>
+    mapboxgl.accessToken =
+      "pk.eyJ1IjoiaGltYXkxOTkwIiwiYSI6ImNqcTlyNnl1djBsZjU0Mm9naWk1eGtuMWoifQ.6HBtoXXQFX_JAEelXIeE9w";
+    const map = new mapboxgl.Map({
+      container: "map", // container ID
+      center: [13.405, 52.52], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+      zoom: 1, // starting zoom
+      style: "mapbox://styles/mapbox/streets-v11",
+    });
+
+    map.on("load", () => {
+      const marker = new mapboxgl.Marker({
+        color: "#F84C4C", // color it red
+      });
+
+      marker.setLngLat([13.405, 52.52]).addTo(map);
+
+      console.log("map", map);
+      console.log("map.style", map.style);
+      console.log("map.style.stylesheet", map.style.stylesheet);
+      console.log("map.style.stylesheet.layers", map.style.stylesheet.layers);
+      map.style.stylesheet.layers.forEach(function (layer) {
+        console.log(layer);
+        if (layer.type === "symbol" && layer.id != "road-label") {
+          map.removeLayer(layer.id);
+        }
+      });
+    });
+  </script>
+</BaseLayout>

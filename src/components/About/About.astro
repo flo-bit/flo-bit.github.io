@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+
+import Depth3D from "./Depth3D/Depth3D.svelte";
+
+import imageMe from "$assets/about/me/me.webp";
+import depthMe from "$assets/about/me/me-depth.webp";
+
+import ProseWrapper from "$layouts/ProseWrapper.astro";
+import Resume from "./Resume/Resume.astro";
+
+import { Content } from "$content/main/about.md";
+---
+
+<div class="relative isolate overflow-hidden bg-background">
+  <div class="mx-auto max-w-5xl px-6 lg:px-8">
+    <div id="about" class="py-16 md:py-32 section">
+      <div
+        class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
+      >
+        <div class="lg:pl-20 w-full flex lg:justify-center">
+          <div class="max-w-sm px-2.5 lg:max-w-none">
+            <div class="rotate-3 size-96 -m-10 lg:-m-20">
+              <div id="me3d" class="w-full h-full">
+                <Depth3D
+                  image={{
+                    image: imageMe.src,
+                    depth: depthMe.src,
+                  }}
+                  client:visible
+                  rounded={true}
+                />
+              </div>
+
+              <noscript>
+                <style>
+                  #me3d {
+                    display: none;
+                  }
+                </style>
+
+                <Image
+                  src={imageMe}
+                  alt="this is me"
+                  class="w-full h-full rounded-2xl bg-base-100 object-cover dark:bg-base-800"
+                />
+              </noscript>
+              <div class="sr-only">this is me</div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:order-first lg:row-span-2">
+          <ProseWrapper
+            class="prose-h1:text-4xl prose-h1:sm:text-5xl prose-h1:tracking-tight prose-a:font-bold"
+          >
+            <Content />
+          </ProseWrapper>
+        </div>
+
+        <div class="lg:pl-20">
+          <Resume />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+---
+name: 'fluid text effect'
+date: '2024-01-16'
+featured: true
+
+thumbnail: '/src/assets/projects/fluid-text-effect/thumbnail.png'
+video: '/src/assets/projects/fluid-text-effect/video-thumbnail.mp4'
+aspect: 'aspect-[23/9]'
+projectUrl: 'https://flo-bit.dev/text_effect_fluid/'
+codeUrl: 'https://github.com/flo-bit/text_effect_fluid'
+
+projectPageVersion: 'full'
+demo: 'fluid'
+tags:
+  - 'three.js'
+  - 'webgl'
+  - 'fluid simulation'
+
+mainTags:
+  - 'webgl'
+  - 'javascript'
+---
+import ProjectGrid from "$components/ProjectPages/ProjectGrid.astro";
+import FluidTextEffectDemo from "$components/Demos/fluid-text-effect/FluidTextEffectDemo.astro";
+
+<ProjectGrid project={frontmatter}>
+  <div slot="demo">
+    <FluidTextEffectDemo />
+  </div>
+
+inspired by lumalabs landing page, adopted a [cool fluid effect](https://paveldogreat.github.io/WebGL-Fluid-Simulation/) to work with text. sometimes still a bit broken (try refreshing the page once or twice if it is).
+</ProjectGrid>

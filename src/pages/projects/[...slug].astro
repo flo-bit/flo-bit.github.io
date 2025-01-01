@@ -1,0 +1,29 @@
+---
+import { type CollectionEntry } from "astro:content";
+import BaseLayout from "$layouts/BaseLayout.astro";
+import { getProjects } from "src/utils";
+import Navbar from "$components/Navigation/Navbar.svelte";
+
+export async function getStaticPaths() {
+  const posts = await getProjects();
+  return posts.map((post: any) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"projects">;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout {...post.data} image={post.slug + ".png"}>
+  <Navbar client:load active="projects" />
+
+  <!-- {
+    post.data.projectLayout === "grid" ? (
+      <ProjectGrid project={post.data} client:visible />
+    ) : null
+  } -->
+  <Content />
+</BaseLayout>

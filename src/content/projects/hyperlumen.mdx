@@ -1,0 +1,36 @@
+---
+name: 'hyperlumen'
+date: '2023-07-01'
+featured: true
+
+thumbnail: '/src/assets/projects/hyperlumen/thumbnail.png'
+video: '/src/assets/projects/hyperlumen/video-thumbnail.mp4'
+aspect: 'aspect-[9/14]'
+projectUrl: 'https://hyperlumen.de'
+
+images:
+  - '/src/assets/projects/hyperlumen/1.jpg'
+  - '/src/assets/projects/hyperlumen/2.jpg'
+  - '/src/assets/projects/hyperlumen/3.jpg'
+  - '/src/assets/projects/hyperlumen/4.jpg'
+
+projectLayout: 'grid'
+tags:
+  - 'wled'
+  - 'wearable' 
+  - 'leds'
+  - 'hardware'
+  - 'c++'
+  - 'svelte'
+  - 'hardware'
+  - 'tailwindcss'
+
+mainTags:
+  - 'startup'
+  - 'wearable hardware'
+---
+import ProjectGrid from "$components/ProjectPages/ProjectGrid.astro";
+
+<ProjectGrid project={frontmatter}>
+light-up clothes that make you feel like you're in a sci-fi movie. perfect for raves.
+</ProjectGrid>

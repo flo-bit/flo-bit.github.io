@@ -1,0 +1,151 @@
+---
+import Image from "astro/components/Image.astro";
+import Badge from "../Helper/Badge.astro";
+import ProjectBreadcrumb from "./ProjectBreadcrumb.astro";
+import ProjectButtons from "./ProjectButtons.astro";
+import ProseWrapper from "$layouts/ProseWrapper.astro";
+
+const { project } = Astro.props;
+
+const images = import.meta.glob(
+  "/src/assets/projects/**/*.{png,webp,jpg,jpeg}"
+);
+const projectImages = await Promise.all(
+  (project.images || []).map(async (image: string) => images[image])
+);
+---
+
+<div class="text-white">
+  <div class="pt-6 sm:pt-24">
+    <ProjectBreadcrumb name={project.name} />
+
+    <!-- Image gallery -->
+    {
+      project.images ? (
+        <div class="mx-auto mt-6 max-w-2xl sm:px-6 md:grid md:max-w-5xl md:grid-cols-3 md:gap-x-8 md:px-8">
+          <div class="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-3xl md:block border border-white/10">
+            <Image
+              src={projectImages[0]()}
+              alt=""
+              height={2400}
+              width={2000}
+              class="h-full w-full object-cover object-center"
+            />
+          </div>
+          <div class="hidden md:grid md:grid-cols-1 md:gap-y-8">
+            <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-3xl border border-white/10">
+              <Image
+                src={projectImages[1]()}
+                alt=""
+                height={1200}
+                width={1800}
+                class="h-full w-full object-cover object-center"
+              />
+            </div>
+            <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-3xl border border-white/10">
+              <Image
+                src={projectImages[2]()}
+                alt=""
+                height={1200}
+                width={1800}
+                class="h-full w-full object-cover object-center"
+              />
+            </div>
+          </div>
+          <div class="aspect-h-5 aspect-w-4 md:aspect-h-4 md:aspect-w-3 sm:overflow-hidden sm:rounded-3xl border-y sm:border border-white/10">
+            <Image
+              src={projectImages[3]()}
+              alt=""
+              height={2400}
+              width={2000}
+              class="h-full w-full object-cover object-center"
+            />
+          </div>
+        </div>
+      ) : (
+        <slot name="demo" />
+      )
+    }
+
+    <!-- Product info -->
+    <div
+      class="mx-auto max-w-2xl px-4 pb-0 pt-10 sm:px-6 md:grid md:max-w-5xl md:grid-cols-3 md:grid-rows-[auto,auto,1fr] md:gap-x-8 md:px-8 md:pb-24 md:pt-16"
+    >
+      <div
+        class="md:col-span-2 md:border-r md:border-neutral-200 dark:border-neutral-900 md:pr-8"
+      >
+        <h1
+          class="text-2xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-3xl"
+        >
+          {project.name}
+        </h1>
+      </div>
+
+      <!-- Options -->
+      <div class="mt-4 md:row-span-3 md:mt-0">
+        <div class="mt-0">
+          {
+            project.tags && (
+              <div class="mt-0 sm:mt-4">
+                <div class="flex flex-wrap gap-3">
+                  {project.tags.map((tag: string) => (
+                    <Badge size="lg">{tag}</Badge>
+                  ))}
+                </div>
+              </div>
+            )
+          }
+
+          <div class="mt-8 flex flex-col gap-4">
+            <ProjectButtons
+              codeUrl={project.codeUrl}
+              projectUrl={project.projectUrl}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="py-10 md:col-span-2 md:col-start-1 md:border-r md:border-neutral-200 dark:border-neutral-900 md:pb-16 md:pr-8 md:pt-6"
+      >
+        <ProseWrapper>
+          <slot />
+        </ProseWrapper>
+      </div>
+    </div>
+
+    {
+      project.images ? (
+        <div class="mx-auto mt-6 max-w-2xl sm:px-6 md:hidden pb-24">
+          <div class="aspect-h-2 aspect-w-3 overflow-hidden sm:rounded-3xl mt-4 border-y sm:border border-white/10">
+            <Image
+              src={projectImages[1]()}
+              height={1200}
+              width={1800}
+              alt=""
+              class="h-full w-full object-cover object-center"
+            />
+          </div>
+          <div class="aspect-h-4 aspect-w-3 overflow-hidden sm:rounded-3xl mt-4 border-y sm:border border-white/10">
+            <Image
+              src={projectImages[0]()}
+              height={2400}
+              width={2000}
+              alt=""
+              class="h-full w-full object-cover object-center"
+            />
+          </div>
+          <div class="aspect-h-2 aspect-w-3 overflow-hidden sm:rounded-3xl mt-4 border-y sm:border border-white/10">
+            <Image
+              src={projectImages[2]()}
+              alt=""
+              height={1200}
+              width={1800}
+              class="h-full w-full object-cover object-center"
+            />
+          </div>
+        </div>
+      ) : null
+    }
+  </div>
+</div>

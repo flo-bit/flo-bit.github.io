@@ -1,0 +1,58 @@
+---
+import { SOCIALS } from "src/config";
+import SocialLink from "../Helper/SocialLink.astro";
+import Bluesky from "$components/Icons/Bluesky.astro";
+import LinkedIn from "$components/Icons/LinkedIn.astro";
+import Github from "$components/Icons/Github.astro";
+import Mail from "$components/Icons/Mail.astro";
+---
+
+<div
+  class="relative isolate py-32 bg-black/30 md:bg-transparent section pointer-events-none"
+  id="contact"
+>
+  <div class="mx-auto max-w-5xl px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
+      <div>
+        <h2
+          class="text-3xl font-bold tracking-tight text-base-900 dark:text-base-100 pointer-events-auto"
+        >
+          get in touch
+        </h2>
+        <p
+          class="mt-4 leading-7 text-base-600 dark:text-base-300 pointer-events-auto"
+        >
+          you have a project in mind? let's talk about it. drop me a line and
+          I'll get back to you as soon as possible.
+        </p>
+
+        <ul role="list" class="mt-8 pointer-events-auto">
+          <SocialLink href={SOCIALS.GITHUB} class="mt-4">
+            <svelte:fragment slot="icon">
+              <Github class="w-6 h-6" />
+            </svelte:fragment>
+            github</SocialLink
+          >
+          <SocialLink href={SOCIALS.LINKEDIN} class="mt-4">
+            <svelte:fragment slot="icon">
+              <LinkedIn class="w-6 h-6" />
+            </svelte:fragment>
+            linkedin
+          </SocialLink>
+          <SocialLink href={SOCIALS.BLUESKY} class="mt-4">
+            <svelte:fragment slot="icon">
+              <Bluesky class="w-6 h-6" />
+            </svelte:fragment>
+            bluesky
+          </SocialLink>
+          <SocialLink href={SOCIALS.MAIL} class="mt-8">
+            <svelte:fragment slot="icon">
+              <Mail class="w-6 h-6" />
+            </svelte:fragment>
+            {SOCIALS.MAIL.replace("mailto:", "")}
+          </SocialLink>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
