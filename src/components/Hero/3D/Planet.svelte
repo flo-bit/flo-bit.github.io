@@ -8,7 +8,7 @@
 
     let presets = ['forest', 'beach', 'snowForest'];
 
-    let planet = new Planet(planetPresets['snowForest']);
+    let planet = new Planet(planetPresets['forest']);
     let planetMesh = suspend(planet.create());
     
     export const redo = async () => {

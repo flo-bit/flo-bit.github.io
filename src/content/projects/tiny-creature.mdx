@@ -1,0 +1,34 @@
+---
+name: 'tiny creature'
+date: '2025-02-28'
+featured: true
+
+thumbnail: '/src/assets/projects/tiny-creature/thumbnail.png'
+video: '/src/assets/projects/tiny-creature/video-thumbnail.mp4'
+
+aspect: 'aspect-[9/10]'
+projectUrl: 'https://flo-bit.dev/tiny-creature/'
+codeUrl: 'https://github.com/flo-bit/tiny-creature'
+
+tags:
+  - 'svelte'
+  - '3d'
+  - 'threlte'
+
+mainTags:
+  - 'threlte'
+  - 'prototype'
+
+images:
+  - '/src/assets/projects/tiny-creature/image1.png'
+  - '/src/assets/projects/tiny-creature/image2.png'
+  - '/src/assets/projects/tiny-creature/image3.png'
+  - '/src/assets/projects/tiny-creature/image4.png'
+---
+import ProjectGrid from "$components/ProjectPages/ProjectGrid.astro";
+
+<ProjectGrid project={frontmatter}>
+  My submission for the [#16 threejs-journey challenge](https://threejs-journey.com/challenges/016-tamagotchi). 
+  
+  Playing around a bit with render targets, mixing three.js and pixi.js and TSL.
+</ProjectGrid>
