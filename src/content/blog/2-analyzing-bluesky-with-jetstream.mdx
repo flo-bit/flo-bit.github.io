@@ -1,0 +1,78 @@
+---
+title: 'How to build Bluesky analyzers & visualizers with Jetstream'
+description: 'A guide to building Bluesky analyzers & visualizers with Jetstream'
+pubDate: '2025-01-01'
+published: true
+tags: ['bluesky', 'jetstream']
+---
+import ConnectButton from 'src/components/InteractivePosts/jetstream/ConnectButton.svelte';
+import Console from 'src/components/InteractivePosts/jetstream/Console.svelte';
+import LikesCounter from 'src/components/InteractivePosts/jetstream/LikesCounter/LikesCounter.svelte';
+
+One of the awesome things about bluesky is how easy it is to get any kind of data you 
+need when building something bluesky-adjacent. Jetstream is one of the tools you can use for that, 
+specifically for live data, just a few lines of code and you can analyze the live data of 25 million users in your browser.
+
+```js
+const url = 'wss://jetstream2.us-east.bsky.network/subscribe';
+
+const ws = new WebSocket(url);
+ws.onmessage = (event) => {
+	const data = JSON.parse(event.data);
+	console.log(data);
+};
+```
+
+If you run this code in your browser, you should see something like this: (click the pause button if you want to inspect the data)
+
+<ConnectButton client:idle />
+
+<Console client:idle />
+
+That's a lot of messages! 
+
+<div class="break-all">
+```json
+{
+	"did": "did:plc:573t4ja6tlgpmgu2dbpfj7gm",
+	"time_us": 1735786900600625,
+	"kind": "commit",
+	"commit": {
+		"rev": "3leq3ktsqaz23",
+		"operation": "create",
+		"collection": "app.bsky.feed.like",
+		"rkey": "3leq3ktsclj23",
+		"record": {
+			"$type": "app.bsky.feed.like",
+			"createdAt": "2025-01-02T03:01:40.087Z",
+			"subject": {
+				"cid": "bafyreibwbfedeynybfay5bazud4uiiats5ipbiip4u7h544tilb64dp3l4",
+				"uri": "at://did:plc:blficiekwhc6la7ezzq3fzmr/app.bsky.feed.post/3lepdbugayc2q"
+			}
+		},
+		"cid": "bafyreig3y7xnusepgisdp5bjvvudputbrvsvfzw5v36rv7sy3q5krljf6y"
+	}
+}
+```
+</div>
+
+- explain the data structure (did, time_us, kind, commit: operation, collection, record)
+
+- example: counting likes
+- filtering collections in the web socket already
+
+- getting the text of posts
+- example: show current emojis
+
+- getting data from the last 24 hours
+
+- nodejs version
+- saving data to a database
+- writting an api
+
+- other visualization ideas:
+	- trending hashtags
+	- emotion analysis
+	- show all images
+
+<LikesCounter client:idle />

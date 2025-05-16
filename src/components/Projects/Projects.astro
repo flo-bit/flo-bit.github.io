@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import ProjectVideo from "./ProjectVideo.svelte";
-import { cn } from "src/utils";
+import { cn } from "src/stylingUtils";
 import type { ImageMetadata } from "astro";
 
 type Props = {
@@ -48,7 +48,7 @@ console.log(videos); // This will log an object of paths mapped to URLs
       >
         things i've made
       </h1>
-      <div class="mt-6 text-base text-base-600 dark:text-base-400">
+      <div class="hidden mt-6 text-base text-base-600 dark:text-base-400">
         i've worked on lots of little side projects over the years, here are
         some recent ones. many of them are open-source, so if you see something
         that piques your interest, check out the code.

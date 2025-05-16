@@ -1,0 +1,74 @@
+---
+import { BLUESKY_IDENTIFIER } from "../../config.ts";
+import { getCollection } from "astro:content";
+import { atUriToPostUri, getComments, getLikes } from "./utils";
+import Likes from "./Likes.svelte";
+import Comments from "./Comments.svelte";
+import { SITE } from "../../config.ts";
+
+let posts = await getCollection("posts");
+
+const canonicalURL = new URL(Astro.url.pathname, SITE);
+
+const url = canonicalURL.toString();
+
+const { disableComments, disableLikes } = Astro.props;
+
+// get first post (sorted by indexedAt) with url in embed.external.uri
+// const post = posts
+//   .sort(
+//     (a, b) =>
+//       new Date(b.data.indexedAt).getTime() -
+//       new Date(a.data.indexedAt).getTime()
+//   )
+//   // @ts-expect-error: weird type fuckery
+//   .find((post) => post.data.embed?.external?.uri === url);
+
+const post = {
+  data: {
+    uri: "at://did:plc:257wekqxg4hyapkq6k47igmp/app.bsky.feed.post/3lcdcjq6tdc2o",
+  },
+};
+
+let likesData = post ? await getLikes(post.data.uri) : [];
+
+let comments = post ? await getComments(post.data.uri) : [];
+---
+
+{
+  post && (!disableLikes || !disableComments) ? (
+    <a
+      target="_blank"
+      href={atUriToPostUri(post.data.uri)}
+      class="text-sm text-accent-500 hover:text-accent-600 dark:hover:text-accent-400 font-semibold transition-colors duration-100"
+    >
+      {disableComments ? "Like" : disableLikes ? "Comment" : "Like or comment"}
+      on bluesky
+    </a>
+  ) : null
+}
+
+{
+  !disableLikes ? (
+    <Likes
+      uri={post?.data.uri}
+      likesData={likesData}
+      likesCount={Math.max(post?.data.likeCount ?? 0, likesData.length)}
+      user={BLUESKY_IDENTIFIER}
+      url={url}
+      client:idle
+    />
+  ) : null
+}
+
+{
+  !disableComments ? (
+    <Comments
+      uri={post?.data.uri}
+      comments={comments}
+      user={BLUESKY_IDENTIFIER}
+      url={url}
+      client:idle
+    />
+  ) : null
+}

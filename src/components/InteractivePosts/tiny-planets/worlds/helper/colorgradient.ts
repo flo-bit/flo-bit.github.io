@@ -11,7 +11,7 @@ export type ColorGradientOptions =
 			hsl?: boolean;
 			mod?: ModifierFunction;
 	  }
-	| [number, number][];
+	| ColorGradientStopOptions[];
 
 type ModifierFunction = ((number: number) => number) | undefined;
 
@@ -78,8 +78,8 @@ export class ColorGradient {
 			mod = stop.mod;
 		}
 
-		if (typeof mixObject == 'number') {
-			mixObject = new Color(mixObject);
+		if (typeof mixObject == 'number' || (mixObject as Color).isColor) {
+			mixObject = new Color(mixObject as Color);
 		} else if (!(mixObject instanceof Color) && !(mixObject instanceof ColorGradient)) {
 			mixObject = new ColorGradient(mixObject);
 		}

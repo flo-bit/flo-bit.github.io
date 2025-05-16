@@ -1,0 +1,11 @@
+---
+import BlogPost from "$layouts/BlogPost.astro";
+
+const id = Astro.props.id;
+---
+
+<div class="bg-background isolate instruction border-y border-base-900" {id}>
+  <BlogPost>
+    <slot />
+  </BlogPost>
+</div>

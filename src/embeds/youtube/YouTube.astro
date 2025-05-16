@@ -1,0 +1,69 @@
+---
+import "lite-youtube-embed/src/lite-yt-embed.css";
+import urlMatcher from "./matcher";
+
+export interface Props extends astroHTML.JSX.HTMLAttributes {
+  id: string;
+  poster?: string;
+  posterQuality?: "max" | "high" | "default" | "low";
+  params?: string;
+  playlabel?: string;
+}
+
+const {
+  id,
+  poster,
+  posterQuality = "max",
+  title,
+  ...attrs
+} = Astro.props as Props;
+
+const idRegExp = /^[A-Za-z0-9-_]+$/;
+
+function extractID(idOrUrl: string) {
+  if (idRegExp.test(idOrUrl)) return idOrUrl;
+  return urlMatcher(idOrUrl);
+}
+
+const videoid = extractID(id);
+const posterFile =
+  {
+    max: "maxresdefault",
+    high: "sddefault",
+    default: "hqdefault",
+    low: "default",
+  }[posterQuality] || "maxresdefault";
+const posterURL =
+  poster || `https://i.ytimg.com/vi/${videoid}/${posterFile}.jpg`;
+const href = `https://youtube.com/watch?v=${videoid}`;
+---
+
+<lite-youtube
+  {videoid}
+  {title}
+  data-title={title}
+  {...attrs}
+  style={`background-image: url('${posterURL}');`}
+>
+  <a {href} class="lty-playbtn">
+    <span class="lyt-visually-hidden">{attrs.playlabel}</span>
+  </a>
+</lite-youtube>
+
+<script src="lite-youtube-embed"></script>
+
+<style is:global>
+  lite-youtube > iframe {
+    all: unset !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border: 0 !important;
+  }
+
+  lite-youtube > .lty-playbtn {
+    @apply fill-amber-500;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24 27 14v20" fill="white"/></svg>');
+  }
+</style>

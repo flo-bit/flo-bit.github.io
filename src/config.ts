@@ -2,6 +2,9 @@ export const BASE = '';
 export const SITE = 'https://flo-bit.dev';
 export const SITE_FAVICON = '🌎';
 
+export const DESCRIPTION = 'My personal website.';
+export const TITLE = 'flo-bit';
+
 export const BASE_COLOR = 'zinc';
 export const ACCENT_COLOR = 'cyan';
 
@@ -12,3 +15,5 @@ export const SOCIALS = {
 	MAIL: 'mailto:flo.bit.dev@gmail.com',
 	SUBSTACK: 'https://flobit.substack.com/'
 };
+
+export const BLUESKY_IDENTIFIER = 'flo-bit.dev';

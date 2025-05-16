@@ -1,9 +1,25 @@
 ---
+import { cn } from "src/stylingUtils";
 import ProseWrapper from "./ProseWrapper.astro";
+
+const { class: className, background } = Astro.props;
 ---
 
-<main class="w-full max-w-2xl mx-auto h-full p-4 py-16">
+<main
+  class={cn(
+    "w-full max-w-2xl lg:max-w-3xl my-0 px-8 mx-auto h-full p-4 py-16 normal-case",
+    className
+  )}
+>
   <ProseWrapper>
     <slot />
   </ProseWrapper>
 </main>
+
+{
+  background ? (
+    <div class="fixed inset-0 h-full w-full -z-50">
+      <div class="h-full w-full max-w-5xl mx-auto bg-base-50 ring-1 ring-base-200 dark:bg-base-900/20 dark:ring-base-300/10 shadow-lg"></div>
+    </div>
+  ) : null
+}

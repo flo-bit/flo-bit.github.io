@@ -11,23 +11,41 @@ const { title, description, image } = Astro.props;
     <style is:global>
       html.dark .astro-code,
       html.dark .astro-code span {
-        color: var(--shiki-dark) !important;
-        /* Optional, if you also want font styles */
-        font-style: var(--shiki-dark-font-style) !important;
-        font-weight: var(--shiki-dark-font-weight) !important;
-        text-decoration: var(--shiki-dark-text-decoration) !important;
+        color: var(--shiki-dark);
+      }
+
+      html:not(dark) .astro-code,
+      html:not(dark) .astro-code span {
+        color: var(--shiki-light);
       }
 
       pre {
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        background-color: rgba(0, 0, 0, 0.03) !important;
-        border-radius: 0.75rem !important;
+        @apply overflow-hidden !important;
+        @apply border border-base-300 dark:border-base-800 bg-base-200/50 dark:bg-base-800/30 rounded-xl !important;
       }
 
-      html.dark pre {
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background-color: rgba(255, 255, 255, 0.05) !important;
-        border-radius: 0.75rem !important;
+      .line.highlighted {
+        margin: 0 -24px;
+        padding: 0 24px;
+        position: relative;
+
+        display: inline-block;
+        width: calc(100% + 48px);
+      }
+      .line.highlighted {
+        @apply bg-accent-500/10 dark:bg-accent-700/10;
+      }
+
+      ::selection {
+        @apply bg-accent-300/50 dark:bg-accent-900/40;
+      }
+
+      lite-youtube {
+        @apply rounded-xl border border-base-300 dark:border-base-800;
+      }
+
+      .prose mark {
+        @apply bg-accent-200 dark:bg-accent-900 text-black dark:text-white;
       }
     </style>
 
@@ -80,7 +98,7 @@ const { title, description, image } = Astro.props;
   </head>
 
   <body
-    class="w-full h-full bg-white dark:bg-base-950 transition-colors duration-150 dark:transition-color dark:duration-150 lowercase"
+    class="w-full h-full bg-base-950 transition-colors duration-150 dark:transition-color dark:duration-150 lowercase"
   >
     <slot />
   </body>

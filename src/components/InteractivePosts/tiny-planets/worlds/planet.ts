@@ -28,6 +28,8 @@ export type PlanetOptions = {
     height?: number;
   };
 
+  hasOcean?: boolean;
+
   material?: "normal" | "caustics";
 
   biome?: BiomeOptions;
@@ -94,13 +96,14 @@ export class Planet {
       return;
     }
 
+    let oceanGeometry: BufferGeometry | null = null;
     const geometry = createBufferGeometry(
       data.positions,
       data.colors,
       data.normals,
     );
-
-    const oceanGeometry = createBufferGeometry(
+if(this.options.hasOcean !== false) {
+    oceanGeometry = createBufferGeometry(
       data.oceanPositions,
       data.oceanColors,
       data.oceanNormals,
@@ -112,6 +115,7 @@ export class Planet {
     oceanGeometry.morphAttributes.normal = [
       new Float32BufferAttribute(data.oceanMorphNormals, 3),
     ];
+  }
 
     this.vegetationPositions = data.vegetation;
 
@@ -142,6 +146,7 @@ export class Planet {
       };
     }
 
+    if(oceanGeometry) {
     const oceanMesh = new Mesh(
       oceanGeometry,
       new MeshStandardMaterial({
@@ -166,6 +171,7 @@ export class Planet {
         oceanMesh.morphTargetInfluences[0] =
           Math.sin(performance.now() / 1000) * 0.5 + 0.5;
     };
+  }
 
     if (this.options.atmosphere?.enabled !== false) {
       this.addAtmosphere(planetMesh);

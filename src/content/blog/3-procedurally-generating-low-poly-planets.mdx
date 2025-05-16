@@ -1,0 +1,401 @@
+---
+title: 'Procedurally generating low-poly planets'
+description: 'A guide to procedurally generating low-poly planets'
+pubDate: '2025-01-02'
+published: true
+visible: true
+tags: ['procedural-generation']
+customLayout: true
+---
+import PlanetScene from "$components/InteractivePosts/tiny-planets/scenes/PlanetScene.svelte";
+import BlogPost from "$layouts/BlogPost.astro";
+import Observer from "$components/InteractivePosts/tiny-planets/Observer.svelte";
+import Instructions from "$components/InteractivePosts/tiny-planets/Instructions.astro";
+import Code from "$components/InteractivePosts/Code.svelte";
+
+<Observer client:load />
+
+<PlanetScene client:load />
+
+<div class="w-full max-w-2xl mx-auto h-screen p-4 py-16 normal-case lg:max-w-5xl relative pointer-events-none text-white example" id="hero">
+	<div class="absolute left-5 right-5 top-10 text-5xl font-bold lg:text-8xl text-right flex flex-col justify-end -z-10">
+		<h1>How to procedurally generate low-poly planets</h1>
+		<h2 class="text-2xl lg:text-3xl mt-2 font-thin text-base-400">an interactive guide</h2>
+	</div>
+</div>
+
+
+<Instructions id="setup">
+	In this blog post, I'm going to show you how you can procedurally generate cute little planets like the ones above with three.js.
+	We'll also go over how you can use my planet generation script to generate planets in your own projects, if you're just interested
+	in that you can skip most of the code snippets.
+
+	## setup
+
+	We're going to be using three.js to render our planets. I think the best way to run that is to use `vite` with the `npm create vite`command.
+	You're going to need [node](https://nodejs.org) installed for this, as well as one code editor of your choice 
+	(for example [vscode](https://code.visualstudio.com/)).
+
+	Then run the following command in your terminal:
+
+	```bash
+	npm create vite@latest
+	```
+
+	We'll be asked for a project name. I've gone with `planets`, `Vanilla` for the framework and `TypeScript` for the language.
+
+	```bash
+	cd planets
+	npm install three @types/three
+	```
+
+	now we can delete everything inside the `src` folder except for `main.ts` and replace its content with the following code:
+
+```ts
+import * as THREE from 'three';
+
+// Create the scene
+const scene = new THREE.Scene();
+
+// Create the camera
+const camera = new THREE.PerspectiveCamera(
+	75, // Field of view
+	window.innerWidth / window.innerHeight, // Aspect ratio
+);
+
+// Position the camera
+camera.position.z = 5;
+
+// Set up the renderer
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// set styles of the canvas
+renderer.domElement.style.position = 'absolute';
+renderer.domElement.style.top = '0';
+renderer.domElement.style.left = '0';
+renderer.domElement.style.width = '100%';
+renderer.domElement.style.height = '100%';
+
+// Animation loop
+const animate = () => {
+	requestAnimationFrame(animate);
+
+	renderer.render(scene, camera);
+};
+
+animate();
+
+window.addEventListener('resize', () => {
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize(window.innerWidth, window.innerHeight);
+});
+```
+
+
+```ts {2-18}
+// ...
+
+// Create an icosahedron geometry
+const geometry = new THREE.IcosahedronGeometry(1, 1); // Radius: 1, Detail: 1 
+
+// Create a material
+const material = new THREE.MeshStandardMaterial({
+	color: 0x0077ff, // Blue color
+	flatShading: true,
+});
+
+// Create the mesh
+const icosphere = new THREE.Mesh(geometry, material);
+scene.add(icosphere);
+
+// Add a light to the scene
+scene.add(new THREE.DirectionalLight());
+
+// Animation loop
+const animate = () => {
+	requestAnimationFrame(animate);
+
+	icosphere.rotation.x += 0.01; // [!code highlight]
+	icosphere.rotation.y += 0.01; // [!code highlight]
+
+	renderer.render(scene, camera);
+};
+
+// ...
+```
+
+
+	We're now ready to run our project.
+
+	```bash
+	npm run dev
+	```
+
+	When you open `localhost:5173` in your browser, you should see a blue sphere similar to this:
+</Instructions>
+
+<div class="h-[80vh] relative pointer-events-none example bg-black -z-10" id="setup">
+</div>
+
+
+
+<Instructions id="spheres">
+
+	so far so good. we've created a sphere and added a light to the scene.
+
+	now why did we use an icosahedron geometry? because it's the nicest looking sphere.
+
+	the three main options are:
+
+	1. icosahedron sphere
+	2. sphere
+	3. cube sphere
+
+	we're going to be using the icosahedron sphere for now.
+
+	we're going to be using the sphere for now.
+
+	we're going to be using the cube sphere for now.
+
+take a look at those three options:
+
+</Instructions>
+
+import NoisePane from "$components/InteractivePosts/tiny-planets/scenes/noise/Pane.svelte";
+
+<div class="h-[80vh] relative pointer-events-none example bg-black -z-10" id="spheres">
+</div>
+
+<Instructions id="noise">
+	## adding terrain
+
+	we'll use some noise to add some terrain to our planet.
+
+	what the fuck is noise?
+
+	noise is a way to generate random numbers.
+
+	maybe i'll write a blog post about noise at some point.
+
+	but for now, let's just use it to generate some terrain.
+	what the fuck is noise?
+
+	noise is a way to generate random numbers.
+
+	maybe i'll write a blog post about noise at some point.
+
+	but for now, let's just use it to generate some terrain.
+	what the fuck is noise?
+
+	noise is a way to generate random numbers.
+
+	maybe i'll write a blog post about noise at some point.
+
+	but for now, let's just use it to generate some terrain.
+	what the fuck is noise?
+
+	noise is a way to generate random numbers.
+
+	maybe i'll write a blog post about noise at some point.
+
+	but for now, let's just use it to generate some terrain.
+
+</Instructions>
+
+<div class="h-[80vh] relative pointer-events-none example" id="noise">
+	<NoisePane client:load/>
+</div>
+
+import ColorPane from "$components/InteractivePosts/tiny-planets/scenes/color/Pane.svelte";
+
+<Instructions id="color">
+	## adding color
+
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+
+	now this looks kinda shit.
+	now this looks kinda shit.
+
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	
+	now this looks kinda shit.
+	now this looks kinda shit.
+
+	now this looks kinda shit.
+	now this looks kinda shit.
+
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	
+	now this looks kinda shit.
+	now this looks kinda shit.
+
+	now this looks kinda shit.
+	now this looks kinda shit.
+
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+
+	now this looks kinda shit.
+	now this looks kinda shit.
+	now this looks kinda shit.
+	
+	now this looks kinda shit.
+	now this looks kinda shit.
+
+</Instructions>
+
+<div class="h-[80vh] relative pointer-events-none example" id="color">
+	<ColorPane client:load/>
+</div>
+
+
+
+
+
+<Instructions id="noise">
+	## make it look nicer
+
+	- add a 2d gradient for steepness
+
+	- wiggle the sphere
+
+	- add an extra noise controlled tint color
+
+</Instructions>
+
+<div class="h-[80vh] relative pointer-events-none example bg-black -z-10" id="noise">
+	<NoisePane client:load/>
+</div>
+
+
+
+<Instructions id="noise">
+	## adding an ocean
+
+</Instructions>
+
+<div class="h-[80vh] relative pointer-events-none example bg-black -z-10" id="noise">
+	<NoisePane client:load/>
+</div>
+
+
+
+<Instructions id="noise">
+	## adding vegetation
+
+</Instructions>
+
+<div class="h-[80vh] relative pointer-events-none example bg-black -z-10" id="noise">
+	<NoisePane client:load/>
+</div>
+
+
+
+<Instructions id="noise">
+	## make it look nicer
+
+	- add color and height around vegetation
+
+	- make vegetation have different colors
+
+</Instructions>
+
+<div class="h-[80vh] relative pointer-events-none example bg-black -z-10" id="noise">
+	<NoisePane client:load/>
+</div>
+
+
+
+
+<Instructions id="noise">
+	## biomes
+
+	- show different biomes on the same planet
+
+</Instructions>
+
+<div class="h-[80vh] relative pointer-events-none example bg-black -z-10" id="noise">
+	<NoisePane client:load/>
+</div>
+
+<Instructions id="noise">
+	## adding clouds and atmosphere
+
+</Instructions>
+
+<div class="h-[80vh] relative pointer-events-none example bg-black -z-10" id="noise">
+	<NoisePane client:load/>
+</div>
+
+
+
+
+
+<Instructions id="noise">
+	## optimizing this shit
+
+	- cache noise results
+
+	- create planet in worker
+
+	- optimized and instanced assets
+
+</Instructions>
+
+<div class="h-[80vh] relative pointer-events-none example bg-black -z-10" id="noise">
+	<NoisePane client:load/>
+</div>
+
+
+
+
+<Instructions id="end">
+## using my planet generator
+
+
+
+## interesting links
+
+### sebastian lague's procedural moons and planets
+
+https://www.youtube.com/watch?v=lctXaT9pxA0
+
+### no man's sky uber noise:
+
+this is where I stole my noise implementation from
+
+https://www.youtube.com/watch?v=C9RyEiEzMiU
+
+</Instructions>

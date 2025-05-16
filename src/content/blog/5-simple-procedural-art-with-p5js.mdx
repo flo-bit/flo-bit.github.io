@@ -1,0 +1,183 @@
+---
+title: 'Simple procedural art with p5js'
+description: 'fishes, snakes and more'
+pubDate: '2025-01-08'
+published: true
+tags: ['procedural', 'art', 'p5js', '2d']
+---
+
+import EditButton from "$components/InteractivePosts/simple-procedural-art/EditButton.svelte";
+
+import Rectangles from "$components/InteractivePosts/simple-procedural-art/Rectangles.svelte";
+
+### rectangles emergence
+
+<EditButton href="https://editor.p5js.org/flo-bit/sketches/N4fHkmtCf" />
+
+```js
+let scl = 0.2,
+  rots = 50,
+  rows = 10,
+  start = 10,
+  rowDist = 20;
+
+function setup() {
+  createCanvas(800, 800);
+  background(0);
+  noStroke();
+  fill(0, 3);
+  colorMode(HSB, 256);
+}
+
+function draw() {
+  translate(width / 2, height / 2);
+  rotate(millis() / 1000);
+  background((millis() / 100) % 256, 256, 256, 15);
+  for (let j = 0; j < 100; j++) {
+    rotate(sin(j / 2000));
+    let x = sin(j / 100 + millis() / 700) * 200;
+    let y = cos(j / 100 + millis() / 1000) * 330;
+
+    x +=
+      sin(y / 11) * 10 + cos(y / 5) * 15 + sin(x / 7) * 30 + cos(j / 20) * 15;
+
+    let h = 10;
+    rect(0, y, x, h);
+    rect(0, y, -x, h);
+    rect(0, y, -x * 2, h);
+    rect(0, y, x * 2, h);
+    rect(0, y, x * 3, h);
+    rect(0, y, -x * 3, h);
+
+    rect(0, -y, x, h);
+    rect(0, -y, -x, h);
+    rect(0, -y, -x * 2, h);
+    rect(0, -y, x * 2, h);
+    rect(0, -y, x * 3, h);
+    rect(0, -y, -x * 3, h);
+  }
+}
+```
+
+<Rectangles client:load />
+
+### rotating rectangle
+
+<EditButton href="https://editor.p5js.org/flo-bit/sketches/P-Egi-L4G" />
+
+```js
+let i = 0,
+  x = 0,
+  speed = 1;
+
+function setup() {
+  createCanvas(600, 600);
+  background(0);
+  noFill();
+  stroke(256);
+  strokeWeight(0.2);
+}
+
+function draw() {
+  translate(300, 300);
+  if (Math.random() < 0.005) background(0);
+  i += 0.1;
+  x += speed;
+  if (x > 100 || x < -100) speed *= -1;
+  rotate(i);
+  rect(-100 + x, -100, 200, 200);
+}
+```
+
+import RotatingRectangle from "$components/InteractivePosts/simple-procedural-art/RotatingRectangle.svelte";
+
+<RotatingRectangle client:load />
+
+### colorful noise
+
+<EditButton href="https://editor.p5js.org/flo-bit/sketches/oDS5yi_2C" />
+
+```js
+function setup() {
+  createCanvas(800, 400);
+  noStroke();
+  colorMode(HSB, 256);
+}
+
+function draw() {
+  let stepSize = 40;
+  let scl = 0.001;
+  for (let x = 0; x < width; x += stepSize) {
+    for (let y = 0; y < height; y += stepSize) {
+      let n =
+        (noise(x * scl + noise(x, y) * 0.1, y * scl, frameCount * scl * 10) *
+          500) %
+        256;
+      fill(n, 256, 256, 5);
+      rect(
+        x + random() * stepSize,
+        y + random() * stepSize,
+        stepSize,
+        stepSize
+      );
+    }
+  }
+}
+
+```
+
+import Colorful from "$components/InteractivePosts/simple-procedural-art/Colorful.svelte";
+
+<Colorful client:load />
+
+### moving mandala
+
+<EditButton href="https://editor.p5js.org/flo-bit/sketches/A-qX6UFG6" />
+
+```js
+let p, v, a, noiseScl = 0.005, noiseShift = 0;
+
+function setup() {
+  createCanvas(800, 800);
+  
+  p = createVector(0,0), v = createVector(0,0), a = createVector(0,0);
+  
+  background(0);
+  strokeWeight(0.2);
+  stroke(256);
+  frameRate(30);
+}
+
+function draw() {
+  translate(width / 2, height / 2);
+  p.set(0, 0);
+  v.set(0, 0);
+  while(p.mag() < width || p.mag() < height) {
+    let x = p.x;
+    let y = p.y;
+    a = p5.Vector.fromAngle(noise(x * noiseScl + noiseShift, y * noiseScl) * 15);
+    a.setMag(20);
+    v.add(a);
+    v.limit(5);
+    p.add(v);
+    drawMandalaLine(x, y, p.x, p.y, 10)
+  }
+  noiseShift += 0.02;
+  
+  background(0, 15);
+}
+
+function drawMandalaLine(ax, ay, bx, by, rots) {
+  for(let i = 0; i < rots; i++) {
+    line(ax, ay, bx, by);
+    line(ax, -ay, bx, -by);
+    rotate(Math.PI * 2 / rots);
+  }
+}
+```
+
+import MovingMandala from "$components/InteractivePosts/simple-procedural-art/MovingMandala.svelte";
+
+<MovingMandala client:load />
+
+https://genuary.art/

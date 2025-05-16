@@ -1,0 +1,7 @@
+- [] add two default colors
+- [] add stepness gradient
+- [] add scatter
+- [] add tint color
+- [] add ocean
+- [] show loading indicator for planets (wireframe mesh)
+- [] add presets

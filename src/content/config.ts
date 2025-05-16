@@ -16,6 +16,8 @@ const blog = defineCollection({
 
     published: z.boolean(),
 
+    visible: z.boolean().optional(),
+
     // short description will be used for og image (fallback to description)
     shortDescription: z.string().optional(),
 
@@ -36,6 +38,8 @@ const blog = defineCollection({
     useHeroAsOGImage: z.boolean().optional(),
     // wether to show title and short description in the og image
     noTextInOGImage: z.boolean().optional(),
+
+    customLayout: z.boolean().optional(),
   }),
 });
 

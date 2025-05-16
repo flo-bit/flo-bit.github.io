@@ -110,7 +110,7 @@
         >
           always keep learning
         </h1>
-        <p class="mt-6 text-base text-base-600 dark:text-base-400">
+        <p class="hidden mt-6 text-base text-base-600 dark:text-base-400">
           one of the things i love most about programming is that there's always
           something new to learn. here's a selection of some of the things i've
           been learning lately:

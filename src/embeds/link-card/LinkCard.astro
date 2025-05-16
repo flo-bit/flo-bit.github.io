@@ -1,0 +1,102 @@
+---
+import { cn } from "../../stylingUtils";
+import { parseOpenGraph } from "./lib";
+import type { HTMLAttributes } from "astro/types";
+
+export type Props = HTMLAttributes<"a"> & {
+  showMedia?: boolean;
+  showDescription?: boolean;
+  showTitle?: boolean;
+  showDomain?: boolean;
+
+  showGradient?: boolean;
+
+  blurMedia?: boolean;
+
+  id?: string;
+
+  title?: string;
+  description?: string;
+};
+
+const {
+  href,
+  id,
+  class: className,
+  showDescription = false,
+  showTitle = true,
+  showDomain = true,
+  showMedia = true,
+  showGradient = true,
+  target = "_blank",
+  title,
+  description,
+  ...props
+} = Astro.props;
+
+const meta = await parseOpenGraph((href ?? id)?.toString() ?? "");
+
+if (title && meta) meta.title = title;
+if (description && meta) meta.description = description;
+
+const domain = meta?.url ? new URL(meta.url).hostname.replace("www.", "") : "";
+---
+
+<article
+  class={cn(
+    "group max-w-lg my-6 relative isolate flex flex-col justify-end overflow-hidden not-prose aspect-[1200/630] rounded-3xl border border-base-800 bg-base-950/50 p-4",
+    className
+  )}
+  {...Astro.props}
+>
+  {
+    !showMedia ? null : meta?.video && meta.videoType ? (
+      <video
+        autoplay
+        loop
+        muted
+        preload="metadata"
+        width="1200"
+        height="630"
+        class="absolute inset-0 w-full h-full object-cover -z-10"
+      >
+        <source src={meta.video} type={meta.videoType} />
+      </video>
+    ) : meta?.image ? (
+      <img
+        src={meta.image}
+        alt={meta.imageAlt || ""}
+        width="1200"
+        height="630"
+        class="absolute inset-0 w-full h-full object-cover -z-10 rounded-xl"
+      />
+    ) : null
+  }
+
+  {
+    showGradient ? (
+      <div class="absolute inset-0 -z-10 bg-gradient-to-t from-base-200/90 rounded-xl to-base-200/40 dark:from-base-950 dark:to-base-950/60" />
+    ) : null
+  }
+
+  {
+    showDomain ? (
+      <div class="text-xs dark:text-accent-500 text-accent-600 font-bold">
+        {domain ?? ""}
+      </div>
+    ) : null
+  }
+  <div class="text-lg font-semibold text-base-950 dark:text-base-50">
+    <a href={href ?? id} {...props} {target}>
+      <span class="absolute inset-0"></span>
+      <div class={showTitle ? "" : "sr-only"}>{meta?.title ?? href}</div>
+    </a>
+  </div>
+  {
+    showDescription ? (
+      <div class="text-xs dark:text-base-300 text-base-700 line-clamp-2">
+        {meta?.description ?? ""}
+      </div>
+    ) : null
+  }
+</article>

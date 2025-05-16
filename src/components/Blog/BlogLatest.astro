@@ -1,14 +1,7 @@
 ---
-import { getBlogPosts } from "src/utils";
+import { getVisibleBlogPosts } from "src/utils";
 
-interface Article {
-  title: string;
-  description: string;
-  date: string;
-  href: string;
-}
-
-const posts = (await getBlogPosts()).splice(0, 4);
+const posts = (await getVisibleBlogPosts()).splice(0, 4);
 
 function formatDate(date: Date) {
   return date.toLocaleDateString("en-US", {
@@ -26,11 +19,11 @@ function formatDate(date: Date) {
         <h1
           class="text-4xl font-bold tracking-tight text-base-800 dark:text-base-100 sm:text-5xl"
         >
-          my ramblings
+          my blog posts
         </h1>
-        <p class="mt-6 text-base text-base-600 dark:text-base-400">
+        <!-- <p class="mt-6 text-base text-base-600 dark:text-base-400">
           here are some of my thoughts on things i'm learning or working on.
-        </p>
+        </p> -->
       </div>
       <div class="mt-16">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16">

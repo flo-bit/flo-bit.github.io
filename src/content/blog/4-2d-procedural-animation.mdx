@@ -1,0 +1,30 @@
+---
+title: '2D procedural animation'
+description: 'fishes, snakes and more'
+pubDate: '2025-01-05'
+published: true
+tags: ['procedural', 'animation', '2d']
+
+customLayout: true
+visible: true
+---
+
+import Scene from "$components/InteractivePosts/2d-procedural-animation/Scene.svelte";
+
+<Scene client:load />
+
+import Instructions from "$components/InteractivePosts/tiny-planets/Instructions.astro";
+
+<div class="w-full max-w-2xl mx-auto h-screen p-4 py-16 normal-case lg:max-w-5xl relative pointer-events-none text-white example" id="hero">
+	<div class="absolute left-5 right-5 top-10 text-5xl font-bold lg:text-8xl text-right flex flex-col justify-end -z-10">
+		<h1>Creating fun 2D procedural animations</h1>
+		<h2 class="text-2xl lg:text-3xl mt-2 font-thin text-base-400">an interactive guide</h2>
+	</div>
+</div>
+
+<Instructions>
+
+https://www.youtube.com/watch?v=qlfh_rv6khY
+
+this is a test
+</Instructions>

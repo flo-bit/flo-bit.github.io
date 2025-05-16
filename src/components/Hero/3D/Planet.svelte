@@ -1,9 +1,9 @@
 <script lang="ts">
     import { T } from "@threlte/core";
-	import { Planet } from "./worlds/planet";
+	import { Planet } from "../../InteractivePosts/tiny-planets/worlds/planet";
 
     import { useSuspense } from '@threlte/extras'
-	import { planetPresets } from "./worlds/presets";
+	import { planetPresets } from "../../InteractivePosts/tiny-planets/worlds/presets";
     const suspend = useSuspense()
 
     let presets = ['forest', 'beach', 'snowForest'];
