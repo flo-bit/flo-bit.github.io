@@ -9,6 +9,12 @@
 
   const learnings: Learning[] = [
     {
+      title: "local first and crdts",
+      description:
+        "working with roomy.chat and the stuff its built on.",
+      date: "2025-04",
+    },
+    {
       title: "bluesky api and at protocol",
       description:
         "built way to many bluesky visualizations. lots of fun.",
