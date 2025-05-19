@@ -26,7 +26,7 @@ export const getBlogPosts = async () => {
 
 export const getVisibleBlogPosts = async () => {
   const posts = (await getCollection("blog"))
-    .filter((post: any) => post.data.published && post.data.visible)
+    .filter((post: any) => post.data.published && post.data.visible || import.meta.env.MODE === "development")
     .sort(
       (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
     );

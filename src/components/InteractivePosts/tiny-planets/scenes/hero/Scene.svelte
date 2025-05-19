@@ -4,6 +4,7 @@
   import { Quaternion, Euler, Vector2, Group } from "three";
   import { onMount } from "svelte";
   import { spring } from "../../Utils";
+  import BuildingSphere from "../../components/BuildingSpere.svelte";
 
   import Stars from "./Stars.svelte";
 
@@ -195,10 +196,12 @@
 
   <Suspense>
     {#snippet fallback()}
-      <T.Mesh>
+      <!-- <T.Mesh>
         <T.IcosahedronGeometry args={[1.1, 8, 8]} />
         <T.MeshStandardMaterial wireframe wireframeLinewidth={500} />
-      </T.Mesh>
+      </T.Mesh> -->
+
+      <BuildingSphere />
     {/snippet}
     <PlanetModel bind:redo />
   </Suspense>

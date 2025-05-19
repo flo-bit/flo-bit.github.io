@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { T, useTask, useThrelte } from "@threlte/core";
-	import { interactivity, Suspense, useCursor } from "@threlte/extras";
+	import { interactivity, useCursor } from "@threlte/extras";
 	import { Quaternion, Euler, Vector2, Group } from "three";
 	import { onMount } from "svelte";
 	import { spring } from "../Utils";
@@ -141,7 +141,7 @@
   <T.Group bind:ref={planet} scale={size}>
 	<T.Mesh
 	  visible={false}
-	  onpointerdown={(evt) => {
+	  onpointerdown={(evt: any) => {
 		onPointerDown(evt.nativeEvent);
 	  }}
 	  onpointerleave={() => {
@@ -152,7 +152,7 @@
 		sizeSpring.set(1.6);
 		onPointerEnter();
 	  }}
-	  ontouchstart={(evt) => {
+	  ontouchstart={(evt: any) => {
 		onPointerDown(evt.nativeEvent);
 	  }}
 	  ontouchend={() => {

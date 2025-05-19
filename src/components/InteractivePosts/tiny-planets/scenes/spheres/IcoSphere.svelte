@@ -34,15 +34,15 @@
     b.fromBufferAttribute(geo.attributes.position, i + 1);
     c.fromBufferAttribute(geo.attributes.position, i + 2);
     const subs = subdivideFace(a, b, c);
-	for(let j = 0; j < subs.length; j += 3) {
-		const moreSubs = subdivideFace(subs[j], subs[j + 1], subs[j + 2]);
-		for(let sub of moreSubs) {
-		positions.push(sub.x, sub.y, sub.z);
+    for (let j = 0; j < subs.length; j += 3) {
+      const moreSubs = subdivideFace(subs[j], subs[j + 1], subs[j + 2]);
+      for (let sub of moreSubs) {
+        positions.push(sub.x, sub.y, sub.z);
 
-		sub.normalize();
-		morphPositions.push(sub.x, sub.y, sub.z);
-		}
-	}
+        sub.normalize();
+        morphPositions.push(sub.x, sub.y, sub.z);
+      }
+    }
   }
 
   const newGeo = new THREE.BufferGeometry();
@@ -74,7 +74,7 @@
     if (!mesh) return;
     totalTime += dt;
 
-    mesh.morphTargetInfluences = [Math.cos(totalTime  + Math.PI) * 0.5 + 0.5];
+    mesh.morphTargetInfluences = [Math.cos(totalTime + Math.PI) * 0.5 + 0.5];
   });
 </script>
 
@@ -84,6 +84,6 @@
 </T.Mesh>
 
 <T.Mesh {...props} morphTargetInfluences={[0]}>
-	<T is={newGeo} />
-	<T.MeshStandardMaterial flatShading wireframe opacity={0.3} transparent />
-  </T.Mesh>
+  <T is={newGeo} />
+  <T.MeshStandardMaterial flatShading wireframe opacity={0.3} transparent />
+</T.Mesh>
